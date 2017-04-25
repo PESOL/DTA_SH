@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_project_budget_product_category_form" model="ir.ui.view">
+            <field name="name">view.project.budget.product.category.form</field>
+            <field name="model">project.budget</field>
+            <field name="arch" type="xml">
+                <form string="Project budget">
+                    <sheet>
+                        <group name="main">
+                            <field name="project_id"/>
+                        </group>
+                        <group>
+                            <field name="product_category_id"/>
+                            <field name="cost"/>
+                            <field name="imputed_amount"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_project_budget_product_category_tree" model="ir.ui.view">
+            <field name="name">view.project.budget.product.category.tree</field>
+            <field name="model">project.budget</field>
+            <field name="arch" type="xml">
+                <tree string="Project budget">
+                    <field name="project_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_project_budget_product_category_search" model="ir.ui.view">
+            <field name="name">view.project.budget.product.category.search</field>
+            <field name="model">project.budget</field>
+            <field name="arch" type="xml">
+                <search string="Project budget">
+                    <field name="project_id"/>
+                    <group string="Group By" name="groupby">
+                        <filter name="name_groupby" string="name" context="{'group_by': 'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="project_budget_product_category_action" model="ir.actions.act_window">
+            <field name="name">Project budget</field>
+            <field name="res_model">project.budget</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Project budget.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="project_budget_product_category_menu" parent="project.menu_project_config" action="project_budget_product_category_action" sequence="20"/>
+
+    </data>
+</openerp>
