@@ -71,3 +71,34 @@ class ProductTemplate(models.Model):
 
     project_budget = fields.Boolean(
         string='Project Budget')
+
+
+class SaleOrder(models.Model):
+    _inherit = 'sale.order'
+
+    @api.multi
+    def action_confirm(self):
+        result = super(SaleOrder, self).action_confirm()
+        # line_obj = self.env['sale.order.line']
+        # for line in line_obj.search([
+        #     ('order_id.project_project_id', '!=', False),
+        #     ('product_id.project_budget', '=', True)
+        # ]):
+        created_budget = {}
+        project_budget_obj = self.env['project.budget']
+        for line in self.filtered(
+            'project_project_id'
+        ).mapped('order_line').filtered('product_id.project_budget'):
+            product_category_id = line.product_id.categ_id.id
+            if product_category_id in created_budget.keys():
+                budget = created_budget[product_category_id]
+                budget.budget = (
+                    line.product_uom_qty * line.price_unit + budget.budget)
+            else:
+                budget = project_budget_obj.create({
+                    'project_id': line.order_id.project_id.id,
+                    'product_category_id': product_category_id,
+                    'budget': line.product_uom_qty * line.price_unit
+                })
+                created_budget.update({line.product_id.categ_id.id: budget})
+        return result
