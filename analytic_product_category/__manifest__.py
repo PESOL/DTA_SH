@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "Project Budget By Product Category",
-    "summary": "Cost forecast",
+    "name": "Analytic Product Category",
+    "summary": "Product Category Analytic",
     "version": "10.0.1.0.0",
     "category": "CRM or Project",
     "website": "http://www.pesol.es",
@@ -10,12 +10,9 @@
     "application": False,
     "installable": True,
     "depends": [
-        'project',
-        'sale',
-        'crm',
-        'analytic_product_category'
+        'account',
     ],
     "data": [
-        'views/project_budget_view.xml'
+        'views/analytic_product_category_view.xml'
     ]
 }
