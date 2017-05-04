@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_budget_by_product_category
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-04 08:18+0000\n"
+"PO-Revision-Date: 2017-05-04 10:27+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_amount
+msgid "Amount"
+msgstr "Importe"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_budget
+msgid "Budget"
+msgstr "Presupuesto"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_percent
+msgid "Percent"
+msgstr "Porcentaje"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_product_category_id
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: project_budget_by_product_category
+#: model:ir.model,name:project_budget_by_product_category.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: project_budget_by_product_category
+#: model:ir.model,name:project_budget_by_product_category.model_project_project
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_budget_by_product_category
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_product_template_project_budget
+#: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_project_budget_ids
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_product_category_form
+msgid "Project Budget"
+msgstr "Presupuesto Proyecto"
+
+#. module: project_budget_by_product_category
+#: model:ir.model,name:project_budget_by_product_category.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: project_budget_by_product_category
+#: model:ir.model,name:project_budget_by_product_category.model_project_budget
+msgid "project.budget"
+msgstr "project.budget"
