@@ -62,7 +62,8 @@ class SaleOrder(models.Model):
     def _onchange_template_id(self):
         super(SaleOrder, self).onchange_template_id()
         template = self.template_id.with_context(lang=self.partner_id.lang)
-        section_obj = [(5, 0, 0)]
+        self.sale_layout_category_ids = []
+        section_obj = [(2, 0,)]
         for line in template.quote_line:
             data = {
                 'name': line.layout_category_id.name,
