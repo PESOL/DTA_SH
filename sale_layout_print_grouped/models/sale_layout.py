@@ -21,6 +21,10 @@ class SaleLayoutCategory(models.Model):
         comodel_name='sale.order',
         string='Sale Order')
 
+    quote_id = fields.Many2one(
+        comodel_name='sale.quote.template',
+        string='Quote Line')
+
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
@@ -54,6 +58,24 @@ class SaleOrder(models.Model):
             })
         return report_pages
 
+    @api.onchange('template_id')
+    def _onchange_template_id(self):
+        super(SaleOrder, self).onchange_template_id()
+        template = self.template_id.with_context(lang=self.partner_id.lang)
+        section_obj = [(5, 0, 0)]
+        for line in template.quote_line:
+            data = {
+                'name': line.layout_category_id.name,
+                'subtotal': line.layout_category_id.subtotal,
+                'print_grouped': line.layout_category_id.print_grouped,
+                'sequence': line.layout_category_id.sequence,
+                'qty': line.layout_category_id.qty,
+                'pagebreak': line.layout_category_id.pagebreak,
+                'description': line.layout_category_id.description
+            }
+            section_obj.append((0, 0, data))
+            self.sale_layout_category_ids = section_obj
+
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
@@ -67,3 +89,12 @@ class SaleOrderLine(models.Model):
         if len(lines) > 0:
             raise ValidationError(
                 "the tax should be the same for the section")
+
+
+class SaleQuoteTemplate(models.Model):
+    _inherit = 'sale.quote.template'
+
+    quote_layout_category_ids = fields.One2many(
+        comodel_name='sale.layout_category',
+        inverse_name='quote_id',
+        string='Section')

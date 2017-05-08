@@ -16,7 +16,7 @@
             <xpath expr="//notebook" position="inside">
                 <page string="Sections">
                     <form>
-                        <field name="sale_layout_category_ids"/>
+                        <field name="sale_layout_category_ids" mode="tree,kanban" on_change="1"/>
                     </form>
                 </page>
             </xpath>

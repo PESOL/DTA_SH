@@ -11,11 +11,13 @@
     "installable": True,
     "depends": [
         'crm',
-        'sale'
+        'sale',
+        'website_quote'
     ],
     "data": [
         'views/sale_layout_category_view.xml',
         'views/sale_layout_template.xml',
-        'views/sale_order_view.xml'
+        'views/sale_order_view.xml',
+        'views/sale_layout_template_sections_view.xml'
     ]
 }

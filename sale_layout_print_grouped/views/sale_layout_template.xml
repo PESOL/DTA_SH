@@ -87,8 +87,8 @@
                                             <span t-esc="', '.join(map(lambda x: (x.description or x.name), layout_category['tax_id']))"/>
                                         </td>
                                         <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right">
-                                          <t t-set="price" t-value="sum(a.price_subtotal for line in layout_category['lines'] for a in line)"/>
-                                          <span t-esc="price" t-options="{'widget': 'monetary', 'display_currency': doc.pricelist_id.currency_id}"/>
+                                            <t t-set="price" t-value="sum(a.price_subtotal for line in layout_category['lines'] for a in line)"/>
+                                            <span t-esc="price" t-options="{'widget': 'monetary', 'display_currency': doc.pricelist_id.currency_id}"/>
                                         </td>
                                         <td></td>
                                         <td></td>
@@ -128,6 +128,15 @@
 
                                 <!-- Lines associated -->
                                 <t t-if="not layout_category['print_grouped']">
+                                    <t t-foreach="page" t-as="layout_category">
+                                        <t t-set="category" t-value="layout_category['category']"/>
+                                        <tr>
+                                            <td colspan="7" style="border-bottom: 1px solid black;">
+                                              <span t-esc="category.name" style="font-weight: bold;"/>
+                                                <span t-field="category.description"/>
+                                            </td>
+                                        </tr>
+                                    </t>
                                     <t t-foreach="layout_category['lines']" t-as="l">
                                         <tr>
                                             <td><span t-field="l.name"/></td>
