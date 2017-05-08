@@ -21,6 +21,10 @@ class SaleLayoutCategory(models.Model):
         comodel_name='sale.order',
         string='Sale Order')
 
+    quote_id = fields.Many2one(
+        comodel_name='sale.quote.template',
+        string='Quote Line')
+
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
@@ -90,7 +94,7 @@ class SaleOrderLine(models.Model):
 class SaleQuoteTemplate(models.Model):
     _inherit = 'sale.quote.template'
 
-    sale_layout_category_ids = fields.One2many(
+    quote_layout_category_ids = fields.One2many(
         comodel_name='sale.layout_category',
-        inverse_name='sale_order_id',
+        inverse_name='quote_id',
         string='Section')
