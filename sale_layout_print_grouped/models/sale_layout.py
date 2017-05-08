@@ -11,12 +11,24 @@ class SaleLayoutCategory(models.Model):
     description = fields.Html(
         string='Description')
 
+    qty = fields.Float(
+        string='Quantity')
+
     print_grouped = fields.Boolean(
         string='Print Grouped')
+
+    sale_order_id = fields.Many2one(
+        comodel_name='sale.order',
+        string='Sale Order')
 
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
+
+    sale_layout_category_ids = fields.One2many(
+        comodel_name='sale.layout_category',
+        inverse_name='sale_order_id',
+        string='Section')
 
     @api.multi
     def order_lines_layout(self):
@@ -33,6 +45,7 @@ class SaleOrder(models.Model):
             report_pages[-1].append({
                 'name': category and category.name or 'Uncategorized',
                 'description': category and category.description,
+                'category': category,
                 'print_grouped': category and category.print_grouped,
                 'tax_id': self.order_line[0].tax_id,
                 'subtotal': category and category.subtotal,

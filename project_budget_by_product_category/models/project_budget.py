@@ -49,7 +49,6 @@ class ProjectBudget(models.Model):
         self.ensure_one()
         action = self.env.ref('project.open_view_project_all').read()[0]
         form_view_id = self.env.ref('project.edit_project').id
-
         action['views'] = [(form_view_id, 'form')]
         action['res_id'] = self.project_id.id
         action.pop('target', None)

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_requirement_form" model="ir.ui.view">
+        <field name="name">view.purchase.requirement.form</field>
+        <field name="model">purchase.requirement</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Requirement">
+                <header>
+                    <button string="Change State" name="change_state" type="object" class="oe_highlight"/>
+                    <div class="oe_button_box" name="button_box">
+                        <field name="state" widget="statusbar" statusbar_visible="pending,in_process"/>
+                    </div>
+                </header>
+
+                <sheet>
+                    <group name="main">
+                        <field name="name"/>
+                        <field name="ref"/>
+                        <field name="product_qty"/>
+                        <field name="product_id"/>
+                        <field name="required_date"/>
+                        <field name="supplier_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_purchase_requirement_tree" model="ir.ui.view">
+        <field name="name">view.purchase.requirement.tree</field>
+        <field name="model">purchase.requirement</field>
+        <field name="arch" type="xml">
+            <tree string="Purchase Requirement">
+                <field name="name"/>
+                <field name="ref"/>
+                <field name="product_qty"/>
+                <field name="state" readonly="1"/>
+                <field name="product_id"/>
+                <field name="required_date"/>
+                <field name="supplier_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_purchase_requirement_search" model="ir.ui.view">
+        <field name="name">view.purchase.requirement.search</field>
+        <field name="model">purchase.requirement</field>
+        <field name="arch" type="xml">
+            <search string="Purchase Requirement">
+                <field name="name"/>
+                <group string="Group By" name="groupby">
+                    <filter name="name_groupby" string="name" context="{'group_by': 'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="purchase_requirement_action" model="ir.actions.act_window">
+        <field name="name">Purchase Requirement</field>
+        <field name="res_model">purchase.requirement</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new Purchase Requirement.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="purchase_requirement_menu" parent="purchase.menu_procurement_management" action="purchase_requirement_action" sequence="20" name="Purchase Requirements"/>
+</odoo>

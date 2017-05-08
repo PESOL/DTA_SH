@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-04 08:43+0000\n"
-"PO-Revision-Date: 2017-05-04 08:43+0000\n"
+"POT-Creation-Date: 2017-05-08 09:10+0000\n"
+"PO-Revision-Date: 2017-05-08 09:10+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -138,8 +138,8 @@ msgstr "Precio unitario"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "VAT"
-msgstr "CIF/NIF"
+msgid "VAT:"
+msgstr "CIF/NIF:"
 
 #. module: sale_layout_print_grouped
 #: model:ir.model,name:sale_layout_print_grouped.model_sale_layout_category

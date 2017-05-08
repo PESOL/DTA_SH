@@ -11,6 +11,12 @@
             <xpath expr="//field[@name='sequence']" position="after">
                 <field name="description" />
             </xpath>
+            <xpath expr="//field[@name='sequence']" position="before">
+                <field name="sale_order_id" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='sequence']" position="before">
+                <field name="qty"/>
+            </xpath>
         </field>
     </record>
 </odoo>
