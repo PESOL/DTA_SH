@@ -31,13 +31,13 @@ before_script:
 flake:
   stage: test_flake8
   script:
-    - sudo -i -u odoo /app/bin/flake8_test ${ADDITIONAL_ADDONS} ${TEST_MODULES}
+    - /app/bin/flake8_test ${ADDITIONAL_ADDONS} ${TEST_MODULES}
 
 odoo:
   stage: test_odoo
   script:
-    - sudo -i -u odoo /app/bin/odoo_test_prepare ${POSTGRES_DB} ${PREINSTALL_MODULES}
-    - sudo -i -u odoo /app/bin/odoo_test ${POSTGRES_DB} ${TEST_MODULES}
+    - /app/bin/odoo_test_prepare ${POSTGRES_DB} ${PREINSTALL_MODULES}
+    - /app/bin/odoo_test ${POSTGRES_DB} ${TEST_MODULES}
 
 coverage:
   stage: test_coverage
