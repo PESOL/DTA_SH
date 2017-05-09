@@ -23,6 +23,8 @@ stages:
   - test_coverage
 
 before_script:
+  - ls -la
+  - whoami
   - chown odoo .coveragerc
   - mv .coveragerc /app/bin
   - mv * ${ADDITIONAL_ADDONS}
