@@ -24,6 +24,9 @@ class SaleLayoutCategory(models.Model):
     quote_id = fields.Many2one(
         comodel_name='sale.quote.template',
         string='Quote Line')
+    quote_category_id = fields.Many2one(
+        comodel_name='sale.layout_category',
+        string='Template Section')
 
 
 class SaleOrder(models.Model):
@@ -60,22 +63,64 @@ class SaleOrder(models.Model):
 
     @api.onchange('template_id')
     def _onchange_template_id(self):
-        super(SaleOrder, self).onchange_template_id()
+        pass
+        # super(SaleOrder, self).onchange_template_id()
+        # template = self.template_id.with_context(lang=self.partner_id.lang)
+        # self.sale_layout_category_ids = []
+        # section_obj = [(2, 0,)]
+        # for line in template.quote_line:
+        #     data = {
+        #         'name': line.layout_category_id.name,
+        #         'subtotal': line.layout_category_id.subtotal,
+        #         'print_grouped': line.layout_category_id.print_grouped,
+        #         'sequence': line.layout_category_id.sequence,
+        #         'qty': line.layout_category_id.qty,
+        #         'pagebreak': line.layout_category_id.pagebreak,
+        #         'description': line.layout_category_id.description,
+        #         'quote_category_id': line.layout_category_id.id,
+        #     }
+        #     section_obj.append((0, 0, data))
+        # self.sale_layout_category_ids = section_obj
+        #
+        # for line in self.order_line:
+        #     layout_category_id = line.layout_category_id.id
+        #     line.layout_category_id = self.sale_layout_category_ids.filtered(
+        #         lambda c: c.quote_category_id.id == layout_category_id
+        #     )[0]
+
+    @api.multi
+    def set_template(self):
+        self.ensure_one()
         template = self.template_id.with_context(lang=self.partner_id.lang)
-        self.sale_layout_category_ids = []
-        section_obj = [(2, 0,)]
+        section_rel = {}
+        self.order_line = [(2, 0)]
+        self.sale_layout_category_ids = [(2, 0)]
+        sale_order_line_obj = self.order_line
+        for section in template.quote_layout_category_ids:
+            new_section = section.copy(
+                {'quote_id': False, 'sale_order_id': self.id})
+            section_rel.update({section.id: new_section.id})
         for line in template.quote_line:
-            data = {
-                'name': line.layout_category_id.name,
-                'subtotal': line.layout_category_id.subtotal,
-                'print_grouped': line.layout_category_id.print_grouped,
-                'sequence': line.layout_category_id.sequence,
-                'qty': line.layout_category_id.qty,
-                'pagebreak': line.layout_category_id.pagebreak,
-                'description': line.layout_category_id.description
+            vals = {
+                'layout_category_id': line.layout_category_id.id,
+                'order_id': self.id,
+                'product_id': line.product_id.id,
+                'name': line.name,
+                'product_uom_qty': line.product_uom_qty,
+                'product_uom': line.product_uom_id.id,
+                'price_unit': line.price_unit,
+                'purchase_price':
+                    line.product_id.product_tmpl_id.standard_price,
+                'tax_id': line.product_id.product_tmpl_id.taxes_id,
+                'price_subtotal': line.price_unit * line.product_uom_qty,
+                'quote_id': line.quote_id
             }
-            section_obj.append((0, 0, data))
-            self.sale_layout_category_ids = section_obj
+            sale_order_line_obj.create(vals)
+
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload',
+        }
 
 
 class SaleOrderLine(models.Model):

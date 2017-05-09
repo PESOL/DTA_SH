@@ -13,6 +13,12 @@
                 <attribute name="domain">[('sale_order_id','=',parent.id)]</attribute>
                 <attribute name="options">{'no_create':True}</attribute>
             </xpath>
+            <xpath expr="//button[@name='action_done']" position="before">
+                <button string="Set Template"
+                name="set_template"
+                type="object"
+                context="{}" />
+            </xpath>
             <xpath expr="//notebook" position="inside">
                 <page string="Sections">
                     <form>

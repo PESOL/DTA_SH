@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-08 09:10+0000\n"
-"PO-Revision-Date: 2017-05-08 09:10+0000\n"
+"POT-Creation-Date: 2017-05-09 08:49+0000\n"
+"PO-Revision-Date: 2017-05-09 08:49+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
 msgid "Fiscal Position Remark"
-msgstr "Posición fiscal"
+msgstr "Posición Fiscal"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
@@ -97,6 +97,7 @@ msgid "Print Grouped"
 msgstr "Impresión Agrupada"
 
 #. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_layout_category_qty
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
 msgid "Quantity"
 msgstr "Cantidad"
@@ -112,6 +113,21 @@ msgid "Quotation Date"
 msgstr "Fecha de presupuesto"
 
 #. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_layout_category_quote_id
+msgid "Quote Line"
+msgstr "Linea Presupuesto"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_layout_category_sale_order_id
+msgid "Sale Order"
+msgstr "Pedido de venta"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model,name:sale_layout_print_grouped.model_sale_quote_template
+msgid "Sale Quotation Template"
+msgstr "Plantilla de presupuesto de venta"
+
+#. module: sale_layout_print_grouped
 #: model:ir.model,name:sale_layout_print_grouped.model_sale_order
 msgid "Sales Order"
 msgstr "Pedido de venta"
@@ -122,9 +138,26 @@ msgid "Sales Order Line"
 msgstr "Línea de pedido de venta"
 
 #. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_sale_layout_category_ids
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_quote_template_quote_layout_category_ids
+msgid "Section"
+msgstr "Sección"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_sale_layout_quote_template_form
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_sale_order_form
+msgid "Sections"
+msgstr "Secciones"
+
+#. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
 msgid "Taxes"
 msgstr "Impuestos"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_layout_category_quote_category_id
+msgid "Template Section"
+msgstr "Sección de Plantilla"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
@@ -135,6 +168,11 @@ msgstr "Precio total"
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
 msgid "Unit Price"
 msgstr "Precio unitario"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_sale_order_form
+msgid "Update Template"
+msgstr "Actualizar Plantilla"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
