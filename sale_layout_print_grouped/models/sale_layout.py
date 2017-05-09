@@ -93,7 +93,7 @@ class SaleOrder(models.Model):
         self.ensure_one()
         template = self.template_id.with_context(lang=self.partner_id.lang)
         section_rel = {}
-        self.order_line = [(2, self.id)]
+        self.order_line = [(2, 0)]
         self.sale_layout_category_ids = [(2, 0)]
         sale_order_line_obj = self.order_line
         for section in template.quote_layout_category_ids:
