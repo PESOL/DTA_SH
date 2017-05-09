@@ -36,11 +36,11 @@ flake:
 odoo:
   stage: test_odoo
   script:
-    - /app/bin/odoo_test_prepare ${POSTGRES_DB} ${PREINSTALL_MODULES}
-    - /app/bin/odoo_test ${POSTGRES_DB} ${TEST_MODULES}
+    - /app/bin/odoo_test_prepare ${POSTGRES_USER} ${POSTGRES_PASSWORD} ${POSTGRES_DB} ${PREINSTALL_MODULES}
+    - /app/bin/odoo_test ${POSTGRES_USER} ${POSTGRES_PASSWORD} ${POSTGRES_DB} ${TEST_MODULES}
 
 coverage:
   stage: test_coverage
   script:
-    - sudo -i -u odoo /app/bin/odoo_test_prepare ${POSTGRES_DB} ${TEST_MODULES}
+    - sudo -i -u odoo /app/bin/odoo_test_prepare ${POSTGRES_USER} ${POSTGRES_PASSWORD} ${POSTGRES_DB} ${TEST_MODULES}
     - sudo -i -u odoo /app/bin/coverage_test ${POSTGRES_DB} ${TEST_MODULES}
