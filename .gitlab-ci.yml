@@ -23,10 +23,8 @@ stages:
   - test_coverage
 
 before_script:
-  - ls -la
-  - whoami
-  - chown odoo .coveragerc
-  - mv .coveragerc /app/bin
+  - cp .coveragerc /app/bin
+  - chown odoo /app/bin/.coveragerc
   - mv * ${ADDITIONAL_ADDONS}
   - git clone https://github.com/OCA/partner-contact.git -b 8.0 --depth 1
   - mv partner-contact/base_location ${ADDITIONAL_ADDONS}
