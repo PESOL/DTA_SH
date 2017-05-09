@@ -7,7 +7,7 @@ variables:
   POSTGRES_DB: odoo
   POSTGRES_USER: odoo
   POSTGRES_PASSWORD: odoo
-  ADDITIONAL_ADDONS: /opt/odoo/additional_addons
+  ADDITIONAL_ADDONS: /opt/odoo/.local/share/Odoo/addons/10.0
   PREINSTALL_MODULES: "sale,stock,purchase,crm,project"
   TEST_MODULES: "analytic_product_category,\
 project_budget_by_product_category,\
