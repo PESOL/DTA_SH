@@ -1,0 +1,48 @@
+image: pesol/odoo_gitlab_ci:10.0
+
+services:
+  - postgres:9.5
+
+variables:
+  POSTGRES_DB: odoo
+  POSTGRES_USER: odoo
+  POSTGRES_PASSWORD: odoo
+  ADDITIONAL_ADDONS: /opt/odoo/additional_addons
+  PREINSTALL_MODULES: "sale,stock,purchase,crm,project"
+  TEST_MODULES: "analytic_product_category,\
+project_budget_by_product_category,\
+purchase_requirement,\
+purchase_requisition_project,\
+sale_layout_print_grouped
+"
+
+
+stages:
+  - test_flake8
+  - test_odoo
+  - test_coverage
+
+before_script:
+  - chown odoo .coveragerc
+  - mv .coveragerc /app/bin
+  - mv * ${ADDITIONAL_ADDONS}
+  - git clone https://github.com/OCA/partner-contact.git -b 8.0 --depth 1
+  - mv partner-contact/base_location ${ADDITIONAL_ADDONS}
+  - chown odoo -R ${ADDITIONAL_ADDONS}
+
+flake:
+  stage: test_flake8
+  script:
+    - sudo -i -u odoo /app/bin/flake8_test ${ADDITIONAL_ADDONS} ${TEST_MODULES}
+
+odoo:
+  stage: test_odoo
+  script:
+    - sudo -i -u odoo /app/bin/odoo_test_prepare ${POSTGRES_DB} ${PREINSTALL_MODULES}
+    - sudo -i -u odoo /app/bin/odoo_test ${POSTGRES_DB} ${TEST_MODULES}
+
+coverage:
+  stage: test_coverage
+  script:
+    - sudo -i -u odoo /app/bin/odoo_test_prepare ${POSTGRES_DB} ${TEST_MODULES}
+    - sudo -i -u odoo /app/bin/coverage_test ${POSTGRES_DB} ${TEST_MODULES}
