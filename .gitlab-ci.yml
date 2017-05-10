@@ -13,7 +13,8 @@ variables:
 project_budget_by_product_category,\
 purchase_requirement,\
 purchase_requisition_project,\
-sale_layout_print_grouped
+sale_layout_print_grouped,\
+sale_order_margin_percent
 "
 
 
