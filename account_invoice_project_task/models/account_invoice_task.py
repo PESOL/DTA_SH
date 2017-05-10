@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, api, fields, _
+from openerp.exceptions import ValidationError
 
 
 class AccountInvoice(models.Model):
@@ -12,19 +13,15 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def invoice_validate(self):
-        result = 0
+        res = {}
         if self.task_id.stage_id.name == 'done':
             self.task_id.stage_id.milestone_done = True
-            import pdb
-            pdb.set_trace()
         if not self.task_id.stage_id.milestone_done:
-            raise Warning(
-                _("The milestone must be in done before"))
+            raise ValidationError(
+                _("The milestone must be in the state 'done' before validate"))
         else:
-            result = super(AccountInvoice, self).invoice_validate()
-            import pdb
-            pdb.set_trace()
-        return result
+            res = super(AccountInvoice, self).invoice_validate()
+        return res
 
 
 class ProjectTaskType(models.Model):

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-10 09:19+0000\n"
-"PO-Revision-Date: 2017-05-10 09:19+0000\n"
+"POT-Creation-Date: 2017-05-10 10:54+0000\n"
+"PO-Revision-Date: 2017-05-10 10:54+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -34,3 +34,9 @@ msgstr "Tarea"
 #: model:ir.model,name:account_invoice_project_task.model_project_task_type
 msgid "Task Stage"
 msgstr "Etapa de la tarea"
+
+#. module: account_invoice_project_task
+#: code:addons/account_invoice_project_task/models/account_invoice_task.py:21
+#, python-format
+msgid "The milestone must be in the state 'done' before validate"
+msgstr "El Hito debe estar en el estado 'Hecho' antes de validar la factura"
