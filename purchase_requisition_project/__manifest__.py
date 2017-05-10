@@ -11,7 +11,8 @@
     "installable": True,
     "depends": [
         'purchase',
-        'project'
+        'project',
+        'purchase_requirement'
     ],
     "data": [
         'views/purchase_requisition_project_view.xml'

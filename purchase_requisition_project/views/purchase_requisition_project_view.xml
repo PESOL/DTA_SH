@@ -1,57 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-  <data>
+<odoo>
     <record id="view_purchase_requisition_project_form" model="ir.ui.view">
       <field name="name">view.purchase.requisition.project.form</field>
-      <field name="model">purchase.requisition.project</field>
+      <field name="model">purchase.requirement</field>
+      <field name='inherit_id' ref='purchase_requirement.view_purchase_requirement_form'/>
       <field name="arch" type="xml">
-        <form string="Purchase Requisition Project">
-          <sheet>
-            <group name="main">
-              <field name="name" />
-            </group>
-          </sheet>
-        </form>
+        <xpath expr="//field[@name='required_date']" position="after">
+            <field name="project_id" />
+        </xpath>
       </field>
     </record>
-
-    <record id="view_purchase_requisition_project_tree" model="ir.ui.view">
-      <field name="name">view.purchase.requisition.project.tree</field>
-      <field name="model">purchase.requisition.project</field>
-      <field name="arch" type="xml">
-        <tree string="Purchase Requisition Project">
-          <field name="name" />
-        </tree>
-      </field>
-    </record>
-
-    <record id="view_purchase_requisition_project_search" model="ir.ui.view">
-      <field name="name">view.purchase.requisition.project.search</field>
-      <field name="model">purchase.requisition.project</field>
-      <field name="arch" type="xml">
-        <search string="Purchase Requisition Project">
-          <field name="name" />
-          <group string="Group By" name="groupby">
-            <filter name="name_groupby" string="name"
-              context="{'group_by': 'name'}" />
-          </group>
-        </search>
-      </field>
-    </record>
-
-    <record id="purchase_requisition_project_action" model="ir.actions.act_window">
-      <field name="name">Purchase Requisition Project</field>
-      <field name="res_model">purchase.requisition.project</field>
-      <field name="view_mode">tree,form</field>
-      <field name="help" type="html">
-        <p class="oe_view_nocontent_create">
-          Click to create a new Purchase Requisition Project.
-        </p>
-      </field>
-    </record>
-
-    <menuitem id="purchase_requisition_project_menu" parent=""
-      action="purchase_requisition_project_action" sequence="20"/>
-
-  </data>
-</openerp>
+</odoo>

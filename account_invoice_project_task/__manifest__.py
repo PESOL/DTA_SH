@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "Sale Order Margin Percent",
-    "summary": "Show Percent in sale order",
+    "name": "Account Invoice Project Task",
+    "summary": "Project task in account invoice",
     "version": "10.0.1.0.0",
     "category": "Sales",
     "website": "http://www.pesol.es",
@@ -10,11 +10,11 @@
     "application": False,
     "installable": True,
     "depends": [
-        'sale',
-        'sale_margin'
+        'account',
+        'project'
     ],
     "data": [
-        'views/sale_order_margin_percent_view.xml',
+        'views/account_invoice_task_view.xml',
 
     ]
 }
