@@ -3,7 +3,7 @@
     "name": "Analytic Product Category",
     "summary": "Product Category Analytic",
     "version": "10.0.1.0.0",
-    "category": "CRM or Project",
+    "category": "Account",
     "website": "http://www.pesol.es",
     "author": "PESOL",
     "license": "AGPL-3",
