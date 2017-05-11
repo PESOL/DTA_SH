@@ -11,8 +11,7 @@
     "installable": True,
     "depends": [
         'project',
-        'sale',
-        'crm',
+        'sale_margin',
         'analytic_product_category'
     ],
     "data": [
