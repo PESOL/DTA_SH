@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_requirement_project_form" model="ir.ui.view">
+      <field name="name">view.purchase.requirement.project.form</field>
+      <field name="model">purchase.requirement</field>
+      <field name='inherit_id' ref='purchase_requirement.view_purchase_requirement_form'/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='required_date']" position="after">
+            <field name="project_id" />
+        </xpath>
+      </field>
+    </record>
+</odoo>
