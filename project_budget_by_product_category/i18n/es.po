@@ -23,7 +23,7 @@ msgstr "Importe"
 #. module: project_budget_by_product_category
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_budget
 msgid "Budget"
-msgstr "Budget"
+msgstr "Presupuesto"
 
 #. module: project_budget_by_product_category
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_create_uid

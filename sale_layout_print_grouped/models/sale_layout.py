@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, api, fields
+from odoo import models, api, fields, _
 from openerp.exceptions import ValidationError
 from itertools import groupby
 
@@ -215,11 +215,12 @@ class SaleOrderLine(models.Model):
     def _check_tax(self):
         lines = self.search([
             ('layout_category_id', '=', self.layout_category_id.id),
-            ('order_id', '=', self.order_id.id)
+            ('order_id', '=', self.order_id.id),
+            ('layout_category_id.print_grouped', '=', True)
         ]).filtered(lambda l: l.tax_id.id != self.tax_id.id)
         if len(lines) > 0:
             raise ValidationError(
-                "the tax should be the same for the section")
+                _("the tax should be the same for the section"))
 
 
 class SaleQuoteTemplate(models.Model):
