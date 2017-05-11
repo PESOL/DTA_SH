@@ -180,6 +180,12 @@ msgid "VAT:"
 msgstr "CIF/NIF:"
 
 #. module: sale_layout_print_grouped
+#: code:addons/sale_layout_print_grouped/models/sale_layout.py:138
+#, python-format
+msgid "the tax should be the same for the section"
+msgstr "Los impuestos para una misma sección deben ser los mismos"
+
+#. module: sale_layout_print_grouped
 #: model:ir.model,name:sale_layout_print_grouped.model_sale_layout_category
 msgid "sale.layout_category"
 msgstr "sale.layout_category"

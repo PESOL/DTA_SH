@@ -37,7 +37,7 @@ class ProjectBudget(models.Model):
             amount = sum(accon_obj.search([
                 ('account_id', '=', budget.project_id.analytic_account_id.id),
                 ('product_category_id', 'in', product_category_ids),
-                ('amount','<', 0)
+                ('amount', '<', 0)
             ]).mapped('amount')) * (-1)
             budget.amount = amount
             budget.percent = (

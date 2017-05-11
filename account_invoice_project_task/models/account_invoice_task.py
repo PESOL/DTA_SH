@@ -16,7 +16,7 @@ class AccountInvoice(models.Model):
         res = {}
         if self.task_id.stage_id.name == 'done':
             self.task_id.stage_id.milestone_done = True
-        if not self.task_id.stage_id.milestone_done:
+        if not self.task_id.stage_id.milestone_done and self.task_id:
             raise ValidationError(
                 _("The milestone must be in the state 'done' before validate"))
         else:
