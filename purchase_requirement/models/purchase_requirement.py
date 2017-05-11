@@ -56,7 +56,7 @@ class PurchaseRequirement(models.Model):
                 'order_line': [(0, 0, order_line)]
             })
         if len(self.supplier_ids) > 1:
-            requisition_obj = self.env['purchase.requisition']
+            requirement_obj = self.env['purchase.requirement']
             line_ids = {
                 'product_id': self.product_id.id,
                 'product_qty': self.product_qty,
@@ -64,7 +64,7 @@ class PurchaseRequirement(models.Model):
                 'price_unit': self.product_id.standard_price
             }
             for partner in self.supplier_ids:
-                requisition_obj.create({
+                requirement_obj.create({
                     'vendor_id': partner.id,
                     'ordering_date': self.required_date,
                     'line_ids': [(0, 0, line_ids)]
