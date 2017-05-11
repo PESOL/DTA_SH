@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, api, fields, _
+from odoo import models, api, fields
 from openerp.exceptions import ValidationError
 from itertools import groupby
 
 from datetime import datetime, timedelta
+
 
 class SaleLayoutCategory(models.Model):
     _inherit = 'sale.layout_category'
@@ -215,12 +216,11 @@ class SaleOrderLine(models.Model):
     def _check_tax(self):
         lines = self.search([
             ('layout_category_id', '=', self.layout_category_id.id),
-            ('order_id', '=', self.order_id.id),
-            ('layout_category_id.print_grouped', '=', True)
+            ('order_id', '=', self.order_id.id)
         ]).filtered(lambda l: l.tax_id.id != self.tax_id.id)
         if len(lines) > 0:
             raise ValidationError(
-                _("the tax should be the same for the section"))
+                "the tax should be the same for the section")
 
 
 class SaleQuoteTemplate(models.Model):
