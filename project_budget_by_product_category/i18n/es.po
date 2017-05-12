@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-08 09:16+0000\n"
-"PO-Revision-Date: 2017-05-08 09:16+0000\n"
+"POT-Creation-Date: 2017-05-12 09:46+0000\n"
+"PO-Revision-Date: 2017-05-12 09:46+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,26 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: project_budget_by_product_category
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_kanban_inherited
+msgid "<span class=\"o_label\">Project Budget</span>"
+msgstr "<span class=\"o_label\">Presupuesto Projecto</span>"
+
+#. module: project_budget_by_product_category
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_amount
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_search
 msgid "Amount"
 msgstr "Importe"
 
 #. module: project_budget_by_product_category
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_budget
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_search
 msgid "Budget"
 msgstr "Presupuesto"
+
+#. module: project_budget_by_product_category
+#: model:ir.actions.act_window,help:project_budget_by_product_category.act_project_budget_kanban_view
+msgid "Click to create a new Project Budget."
+msgstr "Click para crear un nuevo Presupuesto de Proyecto."
 
 #. module: project_budget_by_product_category
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_create_uid
@@ -39,6 +51,11 @@ msgstr "Creado el"
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
+
+#. module: project_budget_by_product_category
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_search
+msgid "Group By"
+msgstr "Agrupar por"
 
 #. module: project_budget_by_product_category
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_id
@@ -62,11 +79,13 @@ msgstr "Última actualización el"
 
 #. module: project_budget_by_product_category
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_percent
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_search
 msgid "Percent"
 msgstr "Porcentaje"
 
 #. module: project_budget_by_product_category
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_product_category_id
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_search
 msgid "Product Category"
 msgstr "Categoría de producto"
 
@@ -78,13 +97,18 @@ msgstr "Plantilla de producto"
 #. module: project_budget_by_product_category
 #: model:ir.model,name:project_budget_by_product_category.model_project_project
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_project_id
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_search
 msgid "Project"
 msgstr "Proyecto"
 
 #. module: project_budget_by_product_category
+#: model:ir.actions.act_window,name:project_budget_by_product_category.act_project_budget_kanban_view
+#: model:ir.actions.act_window,name:project_budget_by_product_category.project_budget_action_view_project
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_product_template_project_budget
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_project_budget_ids
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_kanban_inherited
 #: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_product_category_form
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_search
 msgid "Project Budget"
 msgstr "Presupuesto de Proyecto"
 
@@ -92,6 +116,11 @@ msgstr "Presupuesto de Proyecto"
 #: model:ir.model,name:project_budget_by_product_category.model_sale_order
 msgid "Sales Order"
 msgstr "Pedido de venta"
+
+#. module: project_budget_by_product_category
+#: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_tree
+msgid "label"
+msgstr "Etiqueta"
 
 #. module: project_budget_by_product_category
 #: model:ir.model,name:project_budget_by_product_category.model_project_budget
