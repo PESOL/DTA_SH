@@ -72,12 +72,12 @@ msgstr "Proyecto"
 #: model:ir.actions.act_window,name:purchase_requirement_project.purchase_requirement_action_view_project
 #: model:ir.ui.view,arch_db:purchase_requirement_project.view_purchase_requirement_project_kanban_inherited
 msgid "Purchase Requirement"
-msgstr "Requisito de Compra"
+msgstr "Necesidades de Compra"
 
 #. module: purchase_requirement_project
 #: model:ir.model.fields,field_description:purchase_requirement_project.field_project_project_purchase_requirement_ids
 msgid "Purchase Requirement Project"
-msgstr "Proyecto de Requisitos de Compra"
+msgstr "Proyecto de Necesidades de Compra"
 
 #. module: purchase_requirement_project
 #: model:ir.model,name:purchase_requirement_project.model_purchase_requirement
