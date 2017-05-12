@@ -1,13 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_purchase_requirement_project_form" model="ir.ui.view">
-      <field name="name">view.purchase.requirement.project.form</field>
-      <field name="model">purchase.requirement</field>
-      <field name='inherit_id' ref='purchase_requirement.view_purchase_requirement_form'/>
-      <field name="arch" type="xml">
-        <xpath expr="//field[@name='required_date']" position="after">
-            <field name="project_id" />
-        </xpath>
-      </field>
+        <field name="name">view.purchase.requirement.project.form</field>
+        <field name="model">purchase.requirement</field>
+        <field name='inherit_id' ref='purchase_requirement.view_purchase_requirement_form'/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='required_date']" position="after">
+                <field name="project_id"/>
+            </xpath>
+        </field>
     </record>
+
+    <record id="purchase_requirement_search_view_inherit" model="ir.ui.view">
+        <field name="name">purchase.requirement.search.view.inherit</field>
+        <field name="model">purchase.requirement</field>
+        <field name="inherit_id" ref="purchase_requirement.view_purchase_requirement_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="project_id"/>
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter string="Project" context="{'group_by': 'project_id'}"/>
+            </xpath>
+            <!-- <field name="project_id" />
+            <filter string="Project" context="{'group_by': 'project_id'}"/> -->
+
+        </field>
+    </record>
+
+    <record id="purchase_requirement_form_view_inherit" model="ir.ui.view">
+        <field name="name">purchase.requirement.form.view.inherit</field>
+        <field name="model">purchase.requirement</field>
+        <field name="inherit_id" ref="purchase_requirement.view_purchase_requirement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='purchase_order_ids']" position="attributes">
+                <!-- <attribute name="domain">[('order_id','=',parent.id)]</attribute>
+                <attribute name="options">{'no_create': True}"</attribute> -->
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_purchase_requirement_project_kanban_inherited" model="ir.ui.view">
+        <field name="name">view.purchase.requirement.project.kanban.inherited</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="priority">24</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[contains(@class, 'o_kanban_manage_reports')]/div[last()]" position="after">
+                <div>
+                    <a name="%(purchase_requirement.act_purchase_requirement_kanban_view)d" type="action">Purchase Requirement</a>
+                </div>
+            </xpath>
+            <xpath expr="//div[contains(@class, 'o_project_kanban_box')]/div[last()]" position="before">
+                <div class="o_project_kanban_box">
+                    <a name="%(purchase_requirement.act_purchase_requirement_kanban_view)d" type="action">
+                        <span class="o_label">Purchase Requirement</span>
+                    </a>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <act_window
+        id="purchase_requirement_action_view_project"
+        name="Purchase Requirement"
+        src_model="project.project"
+        res_model="purchase.requirement.project"
+        view_mode="tree"
+        view_id="purchase_requirement.view_purchase_requirement_tree"
+        context="{
+                'search_default_project_id': [active_id],
+                'default_project_id': active_id,
+            }"/>
 </odoo>

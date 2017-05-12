@@ -28,7 +28,7 @@ class PurchaseRequirement(models.Model):
     product_qty = fields.Float(
         string='Product Qty')
 
-    required_date = fields.Datetime(
+    required_date = fields.Date(
         string='Required Date')
 
     supplier_ids = fields.Many2many(
@@ -37,6 +37,11 @@ class PurchaseRequirement(models.Model):
         column1='partner_id',
         column2='supplier_id',
         string='Partner')
+
+    purchase_order_ids = fields.One2many(
+        comodel_name='purchase.order',
+        inverse_name='purchase_requirement_id',
+        string='Purchase Order')
 
     @api.multi
     def change_state(self):
@@ -70,6 +75,20 @@ class PurchaseRequirement(models.Model):
                     'line_ids': [(0, 0, line_ids)]
                 })
 
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        self.name = self.product_id.name
+        if self.product_id.default_code:
+            self.ref = self.product_id.default_code
+
 
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
+
+    purchase_requirement_id = fields.Many2one(
+        comodel_name='purchase.requirement',
+        string='Purchase Requirement')
+
+
+class project(models.Model):
+    _inherit = 'project.project'
