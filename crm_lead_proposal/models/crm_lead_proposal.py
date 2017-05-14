@@ -31,6 +31,9 @@ class CrmLeadProposal(models.Model):
         comodel_name='crm.lead.proposal.section',
         inverse_name='crm_lead_proposal_id',
         string='Sections')
+    partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        string='Partner')
 
     @api.multi
     def get_sections_values(self):
@@ -71,6 +74,10 @@ class CrmLeadProposalSection(models.Model):
     template = fields.Boolean(
         string='Template',
         default=False)
+    partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        string='Partner',
+        related='crm_lead_proposal_id.partner_id')
 
     @api.multi
     def get_pages_values(self):
@@ -105,3 +112,7 @@ class CrmLeadProposalPage(models.Model):
         string='Section')
     description = fields.Html(
         string='Description')
+    partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        string='Partner',
+        related='crm_proposal_section_id.crm_lead_proposal_id.partner_id')

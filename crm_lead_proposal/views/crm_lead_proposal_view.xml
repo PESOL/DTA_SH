@@ -77,9 +77,10 @@
                 <form string="Proposal">
                     <sheet>
                         <group name="main">
+                            <field name="crm_lead_id"/>
+                            <field name="partner_id"/>
                             <field name="name"/>
                             <field name="date"/>
-                            <field name="crm_lead_id"/>
                             <field name="template_id"/>
                         </group>
                         <group name="section" string="Sections">
@@ -100,6 +101,8 @@
             <field name="model">crm.lead.proposal</field>
             <field name="arch" type="xml">
                 <tree string="Proposal">
+                    <field name="crm_lead_id"/>
+                    <field name="partner_id"/>
                     <field name="name"/>
                     <field name="date"/>
                 </tree>
@@ -111,6 +114,8 @@
             <field name="model">crm.lead.proposal</field>
             <field name="arch" type="xml">
                 <search string="Proposal">
+                    <field name="crm_lead_id"/>
+                    <field name="partner_id"/>
                     <field name="name"/>
                     <group string="Group By" name="groupby">
                         <filter name="name_groupby" string="name" context="{'group_by': 'name'}"/>
