@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_CrmLeadProposalSection_form" model="ir.ui.view">
+            <field name="name">view.CrmLeadProposalSection.form</field>
+            <field name="model">crm.lead.proposal.section</field>
+            <field name="arch" type="xml">
+                <form string="Proposal Section Template">
+                    <sheet>
+                        <group name="main">
+                            <field name="name"/>
+                            <field name="template_id"/>
+                        </group>
+                        <group name="pages" string="Pages">
+                            <field name="crm_proposal_page_ids" nolabel="1">
+                                <tree>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                </tree>
+                                <form>
+                                    <group name="main">
+                                        <field name="name"/>
+                                    </group>
+                                    <group name="description" string="Description">
+                                        <field name="description" nolabel="1"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_CrmLeadProposalSection_tree" model="ir.ui.view">
+            <field name="name">view.CrmLeadProposalSection.tree</field>
+            <field name="model">crm.lead.proposal.section</field>
+            <field name="arch" type="xml">
+                <tree string="Proposal Section Template">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_CrmLeadProposalSection_search" model="ir.ui.view">
+            <field name="name">view.CrmLeadProposalSection.search</field>
+            <field name="model">crm.lead.proposal.section</field>
+            <field name="arch" type="xml">
+                <search string="Proposal Section Template">
+                    <field name="name"/>
+                    <group string="Group By" name="groupby">
+                        <filter name="name_groupby" string="name" context="{'group_by': 'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="CrmLeadProposalSection_action" model="ir.actions.act_window">
+            <field name="name">Proposal Section Template</field>
+            <field name="res_model">crm.lead.proposal.section</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_template': True}</field>
+            <field name="domain">[('template', '=', True)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Proposal Section Template.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="CrmLeadProposalSection_menu" parent="sales_team.menu_sale_config" action="CrmLeadProposalSection_action" sequence="20"/>
+
+        <record id="view_crm_lead_proposal_form" model="ir.ui.view">
+            <field name="name">view.crm_lead_proposal.form</field>
+            <field name="model">crm.lead.proposal</field>
+            <field name="arch" type="xml">
+                <form string="Proposal">
+                    <sheet>
+                        <group name="main">
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="crm_lead_id"/>
+                            <field name="template_id"/>
+                        </group>
+                        <group name="section" string="Sections">
+                            <field name="proposal_section_ids" nolabel="1">
+                                <tree>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_crm_lead_proposal_tree" model="ir.ui.view">
+            <field name="name">view.crm_lead_proposal.tree</field>
+            <field name="model">crm.lead.proposal</field>
+            <field name="arch" type="xml">
+                <tree string="Proposal">
+                    <field name="name"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_crm_lead_proposal_search" model="ir.ui.view">
+            <field name="name">view.crm_lead_proposal.search</field>
+            <field name="model">crm.lead.proposal</field>
+            <field name="arch" type="xml">
+                <search string="Proposal">
+                    <field name="name"/>
+                    <group string="Group By" name="groupby">
+                        <filter name="name_groupby" string="name" context="{'group_by': 'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="CrmLeadProposalTemplate_action" model="ir.actions.act_window">
+            <field name="name">Proposal Template</field>
+            <field name="res_model">crm.lead.proposal</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_template': True}</field>
+            <field name="domain">[('template', '=', True)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Proposal Template.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="CrmLeadProposalTemplate_menu" parent="sales_team.menu_sale_config" action="CrmLeadProposalTemplate_action" sequence="30"/>
+
+        <record id="CrmLeadProposal_action" model="ir.actions.act_window">
+            <field name="name">Proposal</field>
+            <field name="res_model">crm.lead.proposal</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Proposal.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="CrmLeadProposal_menu" parent="sales_team.menu_sales" action="CrmLeadProposal_action" sequence="100"/>
+    </data>
+</openerp>
