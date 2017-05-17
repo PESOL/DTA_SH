@@ -13,6 +13,7 @@
         'purchase'
     ],
     "data": [
-        'views/purchase_requirement_view.xml'
+        'views/purchase_requirement_view.xml',
+        'wizard/purchase_requirement_wizard.xml'
     ]
 }

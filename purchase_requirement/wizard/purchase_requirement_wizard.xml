@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_requirement_wizard" model="ir.ui.view">
+        <field name="name">Purchase Requirement</field>
+        <field name="model">purchase.requirement.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Requirements Sales">
+                <field name="requirement_ids" invisible="1"/>
+                <footer>
+                    <button string="Generate Sales" name="purchase_requirement.generate_sales" type="object" context="{}"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_view_purchase_requirement" model="ir.actions.act_window">
+        <field name="name">Purchase Requirement</field>
+        <field name="res_model">purchase.requirement.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_type">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.values" id="purchase_requirement_button_action">
+        <field name="model_id" ref="purchase_requirement.model_purchase_requirement"/>
+        <field name="name">Generate Sales</field>
+        <field name="key2">client_action_multi</field>
+        <field name="value" eval="'ir.actions.act_window,' + str(ref('action_view_purchase_requirement'))"/>
+        <field name="key">action</field>
+        <field name="model">purchase.requirement</field>
+    </record>
+</odoo>

@@ -7,13 +7,15 @@ class PurchaseRequirement(models.Model):
     _name = 'purchase.requirement'
 
     name = fields.Char(
-        string='Description')
+        string='Description',
+        required=True)
 
     ref = fields.Char(
         string='Ref')
 
     state = fields.Selection(
         [('pending', 'Pending'),
+         ('reviwed', 'Reviwed'),
          ('in_process', 'In Process')],
         string='State',
         track_visibility='onchange',
@@ -29,7 +31,8 @@ class PurchaseRequirement(models.Model):
         string='Product Qty')
 
     required_date = fields.Date(
-        string='Required Date')
+        string='Required Date',
+        required=True)
 
     supplier_ids = fields.Many2many(
         comodel_name='res.partner',
@@ -44,36 +47,32 @@ class PurchaseRequirement(models.Model):
         string='Purchase Order')
 
     @api.multi
-    def change_state(self):
+    def generate_sales(self):
+        purchase_order_obj = self.env['purchase.order']
         self.state = 'in_process'
-        if len(self.supplier_ids) == 1:
-            purchase_order_obj = self.env['purchase.order']
+        orders_values = {}
+        for requirement in self.filtered('supplier_ids'):
             order_line = {
-                'product_id': self.product_id.id,
-                'name': self.name,
-                'date_planned': self.required_date,
-                'product_qty': self.product_qty,
-                'product_uom': self.product_id.product_tmpl_id.uom_id.id,
-                'price_unit': self.product_id.standard_price
+                'product_id': requirement.product_id.id,
+                'name': requirement.name,
+                'date_planned': requirement.required_date,
+                'product_qty': requirement.product_qty,
+                'product_uom':
+                    requirement.product_id.product_tmpl_id.uom_id.id,
+                'price_unit': requirement.product_id.standard_price
             }
+            for partner in requirement.supplier_ids:
+                if partner.id in orders_values.keys():
+                    orders_values[partner.id].append((0, 0, order_line))
+                else:
+                    orders_values.update({
+                        partner.id: [(0, 0, order_line)]
+                    })
+        for partner_id in orders_values.keys():
             purchase_order_obj.create({
-                'partner_id': self.supplier_ids.id,
-                'order_line': [(0, 0, order_line)]
+                'partner_id': partner_id,
+                'order_line': order_line
             })
-        if len(self.supplier_ids) > 1:
-            requirement_obj = self.env['purchase.requirement']
-            line_ids = {
-                'product_id': self.product_id.id,
-                'product_qty': self.product_qty,
-                'schedule_date': self.required_date,
-                'price_unit': self.product_id.standard_price
-            }
-            for partner in self.supplier_ids:
-                requirement_obj.create({
-                    'vendor_id': partner.id,
-                    'ordering_date': self.required_date,
-                    'line_ids': [(0, 0, line_ids)]
-                })
 
     @api.onchange('product_id')
     def _onchange_product_id(self):
