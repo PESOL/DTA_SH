@@ -18,7 +18,7 @@ msgstr ""
 #. module: project_budget_by_product_category
 #: model:ir.ui.view,arch_db:project_budget_by_product_category.view_project_budget_kanban_inherited
 msgid "<span class=\"o_label\">Project Budget</span>"
-msgstr "<span class=\"o_label\">Presupuesto Projecto</span>"
+msgstr "<span class=\"o_label\">Presupuesto</span>"
 
 #. module: project_budget_by_product_category
 #: model:ir.model.fields,field_description:project_budget_by_product_category.field_project_budget_amount

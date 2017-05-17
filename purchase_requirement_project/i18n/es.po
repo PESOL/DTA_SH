@@ -18,7 +18,7 @@ msgstr ""
 #. module: purchase_requirement_project
 #: model:ir.ui.view,arch_db:purchase_requirement_project.view_purchase_requirement_project_kanban_inherited
 msgid "<span class=\"o_label\">Purchase Requirement</span>"
-msgstr "<span class=\"o_label\">Necesidades de Compras</span>"
+msgstr "<span class=\"o_label\">Compras</span>"
 
 #. module: purchase_requirement_project
 #: model:ir.model.fields,field_description:purchase_requirement_project.field_purchase_requirement_project_create_uid
