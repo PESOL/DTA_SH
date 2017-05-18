@@ -5,9 +5,12 @@
         <field name="model">purchase.requirement.wizard</field>
         <field name="arch" type="xml">
             <form string="Generate Requirements Sales">
+                <p class="oe_grey">
+                    Are you sure you want to generate the purchase requirements for the selected ones?
+                </p>
                 <field name="requirement_ids" invisible="1"/>
                 <footer>
-                    <button string="Generate Sales" name="purchase_requirement.generate_sales" type="object" context="{}"/>
+                    <button string="Generate Sales" name="default_requirement_active_id" type="object" context="{}" class="btn btn-primary btn-sm o_list_button_add"/>
                     <button string="Cancel" class="btn-default" special="cancel"/>
                 </footer>
             </form>

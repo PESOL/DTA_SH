@@ -61,6 +61,8 @@ class PurchaseRequirement(models.Model):
                     requirement.product_id.product_tmpl_id.uom_id.id,
                 'price_unit': requirement.product_id.standard_price
             }
+            import pdb
+            pdb.set_trace()
             for partner in requirement.supplier_ids:
                 if partner.id in orders_values.keys():
                     orders_values[partner.id].append((0, 0, order_line))
@@ -68,11 +70,15 @@ class PurchaseRequirement(models.Model):
                     orders_values.update({
                         partner.id: [(0, 0, order_line)]
                     })
+            import pdb
+            pdb.set_trace()
         for partner_id in orders_values.keys():
             purchase_order_obj.create({
                 'partner_id': partner_id,
                 'order_line': order_line
             })
+            import pdb
+            pdb.set_trace()
 
     @api.onchange('product_id')
     def _onchange_product_id(self):

@@ -8,5 +8,10 @@ class PurchaseRequirementWizard(models.TransientModel):
 
     requirement_ids = fields.Many2many(
         comodel_name='purchase.requirement',
-        # default=_default_deposit_taxes_id,
+        default=lambda self: self._context.get('active_ids'),
         string='Requirements')
+
+    @api.multi
+    def default_requirement_active_id(self):
+        result = self.requirement_ids.generate_sales
+        return result
