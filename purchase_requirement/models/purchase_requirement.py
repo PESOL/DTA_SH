@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, api, fields, _
+from odoo import models, api, fields
 
 
 class PurchaseRequirement(models.Model):
@@ -8,61 +8,97 @@ class PurchaseRequirement(models.Model):
 
     name = fields.Char(
         string='Description',
-        required=True)
+        required=True,
+        readonly=True,
+        states={'pending': [('readonly', False)],
+                'reviwed': [('readonly', False)]})
 
     ref = fields.Char(
-        string='Ref')
+        string='Ref',
+        readonly=True,
+        states={'pending': [('readonly', False)],
+                'reviwed': [('readonly', False)]})
 
     state = fields.Selection(
         [('pending', 'Pending'),
          ('reviwed', 'Reviwed'),
-         ('in_process', 'In Process')],
+         ('in_process', 'In Process'),
+         ('done', 'Done')],
         string='State',
         track_visibility='onchange',
         required=True,
         copy=False,
+        readonly=True,
         default="pending")
 
     product_id = fields.Many2one(
         comodel_name='product.product',
-        string='Product')
+        string='Product',
+        readonly=True,
+        states={'pending': [('readonly', False)],
+                'reviwed': [('readonly', False)]})
 
     product_qty = fields.Float(
-        string='Product Qty')
+        string='Product Qty',
+        readonly=True,
+        states={'pending': [('readonly', False)],
+                'reviwed': [('readonly', False)]})
 
     required_date = fields.Date(
         string='Required Date',
-        required=True)
+        required=True,
+        readonly=True,
+        states={'pending': [('readonly', False)],
+                'reviwed': [('readonly', False)]})
 
     supplier_ids = fields.Many2many(
         comodel_name='res.partner',
         relation='purchase_req_partner',
         column1='partner_id',
         column2='supplier_id',
-        string='Partner')
+        string='Partner',
+        readonly=True,
+        states={'pending': [('readonly', False)],
+                'reviwed': [('readonly', False)]})
 
-    purchase_order_ids = fields.One2many(
-        comodel_name='purchase.order',
+    purchase_order_line_ids = fields.One2many(
+        comodel_name='purchase.order.line',
         inverse_name='purchase_requirement_id',
-        string='Purchase Order')
+        string='Purchase Order Lines')
 
     @api.multi
-    def generate_sales(self):
+    def set_reviewd(self):
+        self.filtered(
+            lambda r: r.state == 'pending').write({'state': 'reviwed'})
+
+    @api.multi
+    def set_done(self):
+        self.filtered(
+            lambda r: r.state == 'in_process').write({'state': 'done'})
+
+    @api.multi
+    def get_purchase_order_line_values(self):
+        self.ensure_one()
+        return {
+            'product_id': self.product_id.id,
+            'name': self.name,
+            'date_planned': self.required_date,
+            'product_qty': self.product_qty,
+            'product_uom':
+                self.product_id.product_tmpl_id.uom_id.id,
+            'price_unit': self.product_id.standard_price,
+            'purchase_requirement_id': self.id,
+        }
+
+    @api.multi
+    def generate_purchases(self):
         purchase_order_obj = self.env['purchase.order']
-        self.state = 'in_process'
         orders_values = {}
-        for requirement in self.filtered('supplier_ids'):
-            order_line = {
-                'product_id': requirement.product_id.id,
-                'name': requirement.name,
-                'date_planned': requirement.required_date,
-                'product_qty': requirement.product_qty,
-                'product_uom':
-                    requirement.product_id.product_tmpl_id.uom_id.id,
-                'price_unit': requirement.product_id.standard_price
-            }
-            import pdb
-            pdb.set_trace()
+        requirements = self.filtered(lambda r:
+                                     r.supplier_ids and r.state == 'reviwed')
+        requirements.write({'state': 'in_process'})
+        for requirement in requirements:
+            order_line = requirement.get_purchase_order_line_values()
             for partner in requirement.supplier_ids:
                 if partner.id in orders_values.keys():
                     orders_values[partner.id].append((0, 0, order_line))
@@ -70,30 +106,15 @@ class PurchaseRequirement(models.Model):
                     orders_values.update({
                         partner.id: [(0, 0, order_line)]
                     })
-            import pdb
-            pdb.set_trace()
         for partner_id in orders_values.keys():
-            purchase_order_obj.create({
+            purchase = purchase_order_obj.create({
                 'partner_id': partner_id,
-                'order_line': order_line
+                'order_line': orders_values[partner_id]
             })
-            import pdb
-            pdb.set_trace()
+            purchase._auto_send_rfq()
 
     @api.onchange('product_id')
     def _onchange_product_id(self):
         self.name = self.product_id.name
         if self.product_id.default_code:
             self.ref = self.product_id.default_code
-
-
-class PurchaseOrder(models.Model):
-    _inherit = 'purchase.order'
-
-    purchase_requirement_id = fields.Many2one(
-        comodel_name='purchase.requirement',
-        string='Purchase Requirement')
-
-
-class project(models.Model):
-    _inherit = 'project.project'

@@ -6,9 +6,8 @@
         <field name="arch" type="xml">
             <form string="Purchase Requirement">
                 <header>
-                    <div class="oe_button_box" name="button_box">
-                        <field name="state" widget="statusbar" statusbar_visible="pending,reviwed,in_process"/>
-                    </div>
+                    <button string="Validate" name="set_reviewd" type="object" states="pending"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,reviwed,in_process"/>
                 </header>
 
                 <sheet>
@@ -22,8 +21,8 @@
                     <group string="Partner">
                         <field name="supplier_ids" nolabel="1" context="{'search_default_supplier': 1}"/>
                     </group>
-                    <group string="Purchase Order">
-                        <field name="purchase_order_ids" nolabel="1"/>
+                    <group string="Purchase Order Lines" attrs="{'invisible':[('state','in', ['pending','reviwed'])]}">
+                        <field name="purchase_order_line_ids" nolabel="1" readonly="1"/>
                     </group>
                 </sheet>
             </form>
@@ -38,10 +37,10 @@
                 <field name="name"/>
                 <field name="ref"/>
                 <field name="product_qty"/>
-                <field name="state" readonly="1"/>
                 <field name="product_id"/>
                 <field name="required_date"/>
                 <field name="supplier_ids"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>

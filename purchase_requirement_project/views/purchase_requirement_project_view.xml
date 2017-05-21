@@ -22,23 +22,9 @@
             <xpath expr="//group" position="inside">
                 <filter string="Project" context="{'group_by': 'project_id'}"/>
             </xpath>
-            <!-- <field name="project_id" />
-            <filter string="Project" context="{'group_by': 'project_id'}"/> -->
-
         </field>
     </record>
 
-    <record id="purchase_requirement_form_view_inherit" model="ir.ui.view">
-        <field name="name">purchase.requirement.form.view.inherit</field>
-        <field name="model">purchase.requirement</field>
-        <field name="inherit_id" ref="purchase_requirement.view_purchase_requirement_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='purchase_order_ids']" position="attributes">
-                <!-- <attribute name="domain">[('order_id','=',parent.id)]</attribute>
-                <attribute name="options">{'no_create': True}"</attribute> -->
-            </xpath>
-        </field>
-    </record>
 
     <record id="view_purchase_requirement_project_kanban_inherited" model="ir.ui.view">
         <field name="name">view.purchase.requirement.project.kanban.inherited</field>

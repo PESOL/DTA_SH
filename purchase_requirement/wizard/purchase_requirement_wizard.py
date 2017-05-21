@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, api, fields, _
+from openerp import models, api, fields
 
 
 class PurchaseRequirementWizard(models.TransientModel):
@@ -12,6 +12,18 @@ class PurchaseRequirementWizard(models.TransientModel):
         string='Requirements')
 
     @api.multi
-    def default_requirement_active_id(self):
-        result = self.requirement_ids.generate_sales
-        return result
+    def generate_purchases(self):
+        return self.requirement_ids.generate_purchases()
+
+
+class PurchaseRequirementSetOk(models.TransientModel):
+    _name = 'purchase.requirement.set.ok'
+
+    requirement_ids = fields.Many2many(
+        comodel_name='purchase.requirement',
+        default=lambda self: self._context.get('active_ids'),
+        string='Requirements')
+
+    @api.multi
+    def set_reviewd(self):
+        return self.requirement_ids.set_reviewd()
