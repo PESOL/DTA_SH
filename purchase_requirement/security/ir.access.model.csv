@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_requirement_project,access_purchase_requirement_project,model_purchase_requirement_project,,1,1,1,1
+access_purchase_requirement,access_purchase_requirement,model_purchase_requirement,,1,1,1,1

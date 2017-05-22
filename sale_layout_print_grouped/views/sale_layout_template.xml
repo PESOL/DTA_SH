@@ -83,7 +83,7 @@
                                             <t t-set="price" t-value="category.qty and (sum(a.price_subtotal for line in layout_category['lines'] for a in line) / category.qty) or 0"/>
                                             <span t-if="layout_category['print_grouped']" t-esc="price" t-options="{'widget': 'monetary', 'display_currency': doc.pricelist_id.currency_id}"/>
                                         </td>
-                                        <td style="font-weight: bold; border-bottom: 1px solid black;" groups="sale.group_discount_per_so_line"></td>
+                                        <td t-if="display_discount" style="font-weight: bold; border-bottom: 1px solid black;" groups="sale.group_discount_per_so_line"></td>
                                         <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right">
                                             <span t-if="layout_category['print_grouped']" t-esc="', '.join(map(lambda x: (x.description or x.name), layout_category['tax_id']))"/>
                                         </td>

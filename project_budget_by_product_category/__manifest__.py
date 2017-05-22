@@ -15,7 +15,7 @@
         'analytic_product_category'
     ],
     "data": [
-        'views/project_budget_view.xml',
-        'security/ir.model.access.csv'
+        'security/ir.model.access.csv',
+        'views/project_budget_view.xml'
     ]
 }
