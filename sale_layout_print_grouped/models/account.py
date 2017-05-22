@@ -107,8 +107,10 @@ class AccountInvoiceLine(models.Model):
     def _check_tax(self):
         lines = self.search([
             ('layout_category_id', '=', self.layout_category_id.id),
-            ('order_id', '=', self.order_id.id)
-        ]).filtered(lambda l: l.invoice_line_tax_ids.id != self.invoice_line_tax_ids.id)
+            ('invoice_id', '=', self.invoice_id.id)
+        ]).filtered(
+            lambda l: l.invoice_line_tax_ids.id != self.invoice_line_tax_ids.id
+        )
         if len(lines) > 0:
             raise ValidationError(
                 "the tax should be the same for the section")
