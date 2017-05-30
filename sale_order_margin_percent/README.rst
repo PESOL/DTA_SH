@@ -6,28 +6,7 @@
 Sale Order Margin Percent
 =========================
 
-This module show the margin profit in sales and invoicing.
-It can be used both in budgets and in sales orders,
-in the sales section and for invoicing can also be used.
-
-============
-Installation
-============
-
-To install this module, you need to:
-
-- First Add in the addons path the module and install in your Odoo.
-  And install the dependencies of the module
-
-=============
-Configuration
-=============
-
-To configure this module, you need to:
-
-- First Add in the sales configuration the option
-  "Show margins in quotes and sales orders" then you can get the margin field
-  for the operations.
+This module shows the margin profit percentage in sales orders.
 
 =====
 Usage
@@ -39,7 +18,6 @@ To use this module, you need to:
 #. create a sale order then add products,
 #. You can get the percent because you have values in the field margin and
 amount untaxed.
-#. For the invoicing is the same enter an create a new one.
 
 ===========
 Bug Tracker
