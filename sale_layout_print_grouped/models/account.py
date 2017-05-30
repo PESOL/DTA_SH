@@ -5,25 +5,8 @@ from openerp.exceptions import ValidationError
 from itertools import groupby
 
 
-class SaleLayoutCategory(models.Model):
-    _inherit = 'sale.layout_category'
-
-    description = fields.Html(
-        string='Description')
-
-    qty = fields.Float(
-        string='Quantity')
-
-    print_grouped = fields.Boolean(
-        string='Print Grouped')
-
-    quote_id = fields.Many2one(
-        comodel_name='sale.quote.template',
-        string='Quote Line')
-
-
-class SaleOrderLayoutCategory(models.Model):
-    _name = 'sale.order.layout_category'
+class AccountInvoiceLayoutCategory(models.Model):
+    _name = 'account.invoice.layout_category'
 
     name = fields.Char(
         string='Name')
@@ -42,9 +25,9 @@ class SaleOrderLayoutCategory(models.Model):
     quote_category_id = fields.Many2one(
         comodel_name='sale.layout_category',
         string='Template Section')
-    sale_order_id = fields.Many2one(
-        comodel_name='sale.order',
-        string='Sale Order')
+    account_invoice_id = fields.Many2one(
+        comodel_name='account.invoice',
+        string='Account Invoice')
 
     @api.onchange('quote_category_id')
     def onchange_quote_category_id(self):
@@ -59,21 +42,21 @@ class SaleOrderLayoutCategory(models.Model):
             self.quote_category_id = self.quote_category_id.id
 
 
-class SaleOrder(models.Model):
-    _inherit = 'sale.order'
+class AccountInvoice(models.Model):
+    _inherit = 'account.invoice'
 
-    sale_layout_category_ids = fields.One2many(
-        comodel_name='sale.order.layout_category',
-        inverse_name='sale_order_id',
+    account_invoice_category_ids = fields.One2many(
+        comodel_name='account.invoice.layout_category',
+        inverse_name='account_invoice_id',
         string='Section')
 
     @api.multi
-    def order_lines_layout(self):
+    def invoice_lines_layout(self):
         # report_pages = super(SaleLayoutCategory, self).order_lines_layouted()
         self.ensure_one()
         report_pages = [[]]
         for template_category, lines in groupby(
-            self.order_line,
+            self.invoice_line_ids,
                 lambda l: l.layout_category_id):
             # If last added category induced a pagebreak, this one will be on a
             # new page
@@ -81,7 +64,7 @@ class SaleOrder(models.Model):
                 report_pages.append([])
             # Append category to current report page
             template_category_id = template_category.id
-            category = self.sale_layout_category_ids.filtered(
+            category = self.account_invoice_category_ids.filtered(
                 lambda c: c.quote_category_id.id == template_category_id
             ) or template_category
             report_pages[-1].append({
@@ -89,7 +72,7 @@ class SaleOrder(models.Model):
                 'description': category and category.description,
                 'category': category,
                 'print_grouped': category and category.print_grouped,
-                'tax_id': self.order_line[0].tax_id,
+                'tax_id': self.invoice_line_ids[0].invoice_line_tax_ids,
                 'subtotal': category and category.subtotal,
                 'pagebreak': category and category.pagebreak,
                 'lines': list(lines)
@@ -98,9 +81,9 @@ class SaleOrder(models.Model):
 
     @api.onchange('template_id')
     def onchange_template_id(self):
-        super(SaleOrder, self).onchange_template_id()
+        super(AccountInvoice, self).onchange_template_id()
         template = self.template_id.with_context(lang=self.partner_id.lang)
-        self.sale_layout_category_ids = []
+        self.account_invoice_category_ids = []
         section_obj = [(2, 0,)]
         for layout_category in template.quote_layout_category_ids:
             data = {
@@ -114,27 +97,20 @@ class SaleOrder(models.Model):
                 'quote_category_id': layout_category.id,
             }
             section_obj.append((0, 0, data))
-        self.sale_layout_category_ids = section_obj
+        self.account_invoice_category_ids = section_obj
 
 
-class SaleOrderLine(models.Model):
-    _inherit = 'sale.order.line'
+class AccountInvoiceLine(models.Model):
+    _inherit = 'account.invoice.line'
 
-    @api.constrains('tax_id')
+    @api.constrains('invoice_line_tax_ids')
     def _check_tax(self):
         lines = self.search([
             ('layout_category_id', '=', self.layout_category_id.id),
-            ('order_id', '=', self.order_id.id)
-        ]).filtered(lambda l: l.tax_id.id != self.tax_id.id)
+            ('invoice_id', '=', self.invoice_id.id)
+        ]).filtered(
+            lambda l: l.invoice_line_tax_ids.id != self.invoice_line_tax_ids.id
+        )
         if len(lines) > 0:
             raise ValidationError(
                 "the tax should be the same for the section")
-
-
-class SaleQuoteTemplate(models.Model):
-    _inherit = 'sale.quote.template'
-
-    quote_layout_category_ids = fields.One2many(
-        comodel_name='sale.layout_category',
-        inverse_name='quote_id',
-        string='Section')

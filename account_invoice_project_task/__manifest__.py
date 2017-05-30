@@ -11,7 +11,7 @@
     "installable": True,
     "depends": [
         'account',
-        'project'
+        'project_stage_closed'
     ],
     "data": [
         'views/account_invoice_task_view.xml',
