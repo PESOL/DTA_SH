@@ -8,3 +8,7 @@ class ParterCustomer(models.Model):
 
     customer_code = fields.Char(
         string='Customer Code')
+
+
+class SaleOrder(models.Model):
+    _inherit = 'sale.order'

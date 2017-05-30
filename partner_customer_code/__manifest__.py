@@ -13,6 +13,7 @@
         'base'
     ],
     "data": [
+        'data/ir_sequence_data.xml',
         'views/partner_customer_view.xml',
     ]
 }
