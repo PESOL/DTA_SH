@@ -10,7 +10,7 @@
     "application": False,
     "installable": True,
     "depends": [
-        'base'
+        'base',
     ],
     "data": [
         'data/ir_sequence_data.xml',
