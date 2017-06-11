@@ -17,7 +17,7 @@
 					<img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 100px;"/>
 				</div>
 				<div class="col-xs-5">
-					<div t-field="company.partner_id" t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}' style="border-bottom: 1px solid black;"/>
+					<div t-field="company.partner_id" t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
 				</div>
 			</div>
 			<div class="row">
@@ -25,7 +25,6 @@
 					<div style="border-bottom: 1px solid black;"></div>
 				</div>
 			</div>
-
 		</div>
 	</template>
 
