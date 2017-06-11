@@ -1,0 +1,147 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_order_report_dta
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-11 18:32+0000\n"
+"PO-Revision-Date: 2017-06-11 18:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Fiscal Position Remark:</strong>"
+msgstr "<strong>Posición fiscal:</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Incoterm:</strong>"
+msgstr "<strong>Incoterm:</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Invoicing Method:</strong>"
+msgstr "<strong>Hitos de pago:</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Payment Mode:</strong>"
+msgstr "<strong>Modo de pago:</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Payment Term:</strong>"
+msgstr "<strong>Modo de pago:</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Payment Terms:</strong>"
+msgstr "<strong>Plazos de pago:</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Salesperson:</strong>"
+msgstr "<strong>Comercial:</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Shipping address:</strong>"
+msgstr "<strong>Dirección de Envío</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Total Without Taxes</strong>"
+msgstr "<strong>Total base</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<strong>Your Reference:</strong>"
+msgstr "<strong>Su Referencia:</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Date Ordered:"
+msgstr "Fecha pedido:"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Description"
+msgstr "Descripción"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Disc.(%)"
+msgstr "Desc.(%)"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Invoicing address:"
+msgstr "Dirección de facturación:"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Invoicing and shipping address:"
+msgstr "Dirección de facturación y de envío:"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Order #"
+msgstr "Pedido #"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Price"
+msgstr "Precio"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Quotation #"
+msgstr "Presupuesto # "
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Quotation Date:"
+msgstr "Fecha de presupuesto:"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Test"
+msgstr "Test"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Total Price"
+msgstr "Precio total"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Unit Price"
+msgstr "Precio unitario"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "VAT:"
+msgstr "CIF/NIF:"
+

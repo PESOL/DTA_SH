@@ -3,10 +3,10 @@
 
 	<template id="dx_report_layout" inherit_id="report.external_layout">
 		<xpath expr="t[@t-call='report.external_layout_header']" position="replace">
-			<t t-call="base_layout_report_default.external_layout_header"/>
+			<t t-call="base_layout_report_dta.external_layout_header"/>
 		</xpath>
 		<xpath expr="t[@t-call='report.external_layout_footer']" position="replace">
-			<t t-call="base_layout_report_default.external_layout_footer"/>
+			<t t-call="base_layout_report_dta.external_layout_footer"/>
 		</xpath>
 	</template>
 

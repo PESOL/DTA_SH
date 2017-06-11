@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, api, fields, _
+from openerp import models, api, fields
 
 
 class SaleInvoicingMethod(models.Model):
@@ -16,4 +16,5 @@ class SaleOrder(models.Model):
 
     invoicing_method_id = fields.Many2one(
         comodel_name='sale.invoicing.method',
-        string='Invocing Method')
+        string='Invocing Method',
+        required=True)
