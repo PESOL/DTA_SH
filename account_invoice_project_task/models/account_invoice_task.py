@@ -11,10 +11,19 @@ class AccountInvoice(models.Model):
         comodel_name='project.task',
         string='Task')
 
+    task_done = fields.Boolean(
+        string='Task Done',
+        compute='_compute_task_done')
+
+    @api.depends('task_id')
+    def _compute_task_done(self):
+        if self.task_id.stage_id.milestone_done:
+            self.task_done = True
+
     @api.multi
     def invoice_validate(self):
         res = {}
-        if self.task_id.stage_id.name == 'done':
+        if self.task_id.stage_id.closed:
             self.task_id.stage_id.milestone_done = True
         if not self.task_id.stage_id.milestone_done and self.task_id:
             raise ValidationError(
