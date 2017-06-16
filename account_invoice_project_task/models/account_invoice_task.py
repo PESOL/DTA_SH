@@ -18,24 +18,17 @@ class AccountInvoice(models.Model):
 
     @api.depends('task_id.stage_id')
     def _compute_task_done(self):
-        if self.task_id.stage_id.milestone_done:
-            self.task_done = True
+        for invoice in self:
+            invoice.task_done = invoice.task_id.stage_id.closed
 
     @api.multi
     def invoice_validate(self):
         res = {}
         if self.task_id.stage_id.closed:
-            self.task_id.stage_id.milestone_done = True
-        if not self.task_id.stage_id.milestone_done and self.task_id:
+            self.task_id.stage_id.closed = True
+        if not self.task_id.stage_id.closed and self.task_id:
             raise ValidationError(
                 _("The milestone must be in the state 'done' before validate"))
         else:
             res = super(AccountInvoice, self).invoice_validate()
         return res
-
-
-class ProjectTaskType(models.Model):
-    _inherit = 'project.task.type'
-
-    milestone_done = fields.Boolean(
-        string='Milestone')
