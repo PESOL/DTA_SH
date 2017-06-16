@@ -13,9 +13,10 @@ class AccountInvoice(models.Model):
 
     task_done = fields.Boolean(
         string='Task Done',
-        compute='_compute_task_done')
+        compute='_compute_task_done',
+        store=True)
 
-    @api.depends('task_id')
+    @api.depends('task_id.stage_id')
     def _compute_task_done(self):
         if self.task_id.stage_id.milestone_done:
             self.task_done = True
