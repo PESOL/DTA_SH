@@ -38,7 +38,7 @@ msgstr "<strong>Modo de pago:</strong>"
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 msgid "<strong>Payment Term:</strong>"
-msgstr "<strong>Modo de pago:</strong>"
+msgstr "<strong>Plazo de pago:</strong>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
@@ -144,4 +144,3 @@ msgstr "Precio unitario"
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 msgid "VAT:"
 msgstr "CIF/NIF:"
-

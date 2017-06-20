@@ -16,9 +16,10 @@ class SaleOrderLine(models.Model):
 
     @api.onchange('price_unit')
     def _onchange_price_unit(self):
-        self.margin_percent = (
-            (self.price_unit - self.purchase_price) * 100
-        ) / self.purchase_price
+        if self.price_unit:
+            self.margin_percent = (
+                (self.price_unit - self.purchase_price) * 100
+            ) / self.purchase_price
 
     @api.model
     def create(self, values):

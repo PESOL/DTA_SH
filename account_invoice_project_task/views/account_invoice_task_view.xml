@@ -13,4 +13,15 @@
             </xpath>
         </field>
     </record>
+    <record id="view_account_invoice_task_search" model="ir.ui.view">
+        <field name="name">view.account.invoice.task.search</field>
+        <field name="model">account.invoice</field>
+        <field name='inherit_id' ref='account.view_account_invoice_filter'/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="task_id"/>
+                <filter name="Task" string="Unpaid Task Done" domain="[('state','=','open'), ('task_id.stage_id.milestone_done', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>
