@@ -13,6 +13,7 @@
         'sale'
     ],
     "data": [
+        'security/ir.model.access.csv',
         'views/sale_invoicing_view.xml',
     ]
 }
