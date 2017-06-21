@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_project_forecast_improve_form" model="ir.ui.view">
+        <field name="name">view.project.forecast.improve.form</field>
+        <field name="model">project.forecast</field>
+        <field name='inherit_id' ref='project_forecast.project_forecast_view_form'/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="limit_date" widget="date"/>
+            </xpath>
+            <xpath expr="//field[@name='task_id']" position="after">
+                <field name="estimated_hours" widget="float_time"/>
+                <field name="imputed_hours" widget="float_time"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
