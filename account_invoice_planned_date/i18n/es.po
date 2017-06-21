@@ -28,4 +28,4 @@ msgstr "Factura"
 #. module: account_invoice_planned_date
 #: model:ir.model.fields,field_description:account_invoice_planned_date.field_account_invoice_planned_date
 msgid "Planned Date"
-msgstr "Fecha planeada"
+msgstr "Fecha prevista"
