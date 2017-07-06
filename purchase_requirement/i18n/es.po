@@ -16,6 +16,17 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_wizard
+msgid "Are you sure you want to generate purchase orders for the selected requirements?"
+msgstr "¿Está seguro de que desea generar órdenes de compra para los requisitos seleccionados?"
+
+#. module: purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_set_ok
+msgid "Are you sure you want to validate this requirements?"
+msgstr "¿Está seguro de que desea validar estos requisitos?"
+
+
+#. module: purchase_requirement
 #: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
 msgid "Change State"
 msgstr "Modificar Estado"
@@ -47,6 +58,11 @@ msgid "In Process"
 msgstr "En Proceso"
 
 #. module: purchase_requirement
+#: selection:purchase.requirement,state:0
+msgid "Done"
+msgstr "Hecho"
+
+#. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement___last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
@@ -59,8 +75,8 @@ msgstr "Nombre"
 #. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_supplier_ids
 #: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
-msgid "Partner"
-msgstr "Empresa"
+msgid "Suppliers"
+msgstr "Proveedores"
 
 #. module: purchase_requirement
 #: selection:purchase.requirement,state:0
@@ -68,10 +84,27 @@ msgid "Pending"
 msgstr "Pendiente"
 
 #. module: purchase_requirement
+#: selection:purchase.requirement,state:0
+msgid "Reviwed"
+msgstr "Revisado"
+
+#. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_product_id
 #: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_search
 msgid "Product"
 msgstr "Producto"
+
+#. module: purchase_requirement
+#: model:ir.actions.act_window,name:purchase_requirement.action_view_purchase_requirement_set_ok
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_set_ok
+msgid "Validate Requirements"
+msgstr "Validar Requisitos"
+
+#. module: purchase_requirement
+#: model:ir.actions.act_window,name:purchase_requirement.action_view_purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_wizard
+msgid "Generate Purchase Orders"
+msgstr "Generar órdenes de compra"
 
 #. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_product_qty
@@ -122,7 +155,12 @@ msgid "State"
 msgstr "Estado"
 
 #. module: purchase_requirement
+#: code:addons/purchase_requirement/models/purchase_requirement.py:74
+#, python-format
+msgid "You must indicate at least one supplier to validate"
+msgstr "Debes indicar al menos un proveedor para poder validar"
+
+#. module: purchase_requirement
 #: model:ir.model,name:purchase_requirement.model_purchase_requirement
 msgid "purchase.requirement"
 msgstr "purchase.requirement"
-

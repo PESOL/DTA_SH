@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, api, fields
+from odoo import models, api, fields, _
+from odoo.exceptions import ValidationError
 
 
 class PurchaseRequirement(models.Model):
@@ -68,8 +69,12 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def set_reviewd(self):
-        self.filtered(
-            lambda r: r.state == 'pending').write({'state': 'reviwed'})
+        if not self.supplier_ids:
+            raise ValidationError(
+                _("You must indicate at least one supplier to validate"))
+        else:
+            self.filtered(
+                lambda r: r.state == 'pending').write({'state': 'reviwed'})
 
     @api.multi
     def set_done(self):
@@ -115,6 +120,5 @@ class PurchaseRequirement(models.Model):
 
     @api.onchange('product_id')
     def _onchange_product_id(self):
-        self.name = self.product_id.name
         if self.product_id.default_code:
             self.ref = self.product_id.default_code

@@ -18,7 +18,7 @@
                         <field name="product_qty"/>
                         <field name="required_date"/>
                     </group>
-                    <group string="Partner">
+                    <group string="Suppliers">
                         <field name="supplier_ids" nolabel="1" context="{'search_default_supplier': 1}"/>
                     </group>
                     <group string="Purchase Order Lines" attrs="{'invisible':[('state','in', ['pending','reviwed'])]}">
@@ -36,8 +36,8 @@
             <tree string="Purchase Requirement">
                 <field name="name"/>
                 <field name="ref"/>
-                <field name="product_qty"/>
                 <field name="product_id"/>
+                <field name="product_qty"/>
                 <field name="required_date"/>
                 <field name="supplier_ids"/>
                 <field name="state"/>
