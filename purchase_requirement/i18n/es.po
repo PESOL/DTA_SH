@@ -18,12 +18,18 @@ msgstr ""
 #. module: purchase_requirement
 #: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_wizard
 msgid "Are you sure you want to generate purchase orders for the selected requirements?"
-msgstr "¿Está seguro de que desea generar órdenes de compra para los requisitos seleccionados?"
+msgstr "¿Está seguro de que desea generar solicitudes de presupuestos para los requisitos seleccionados?"
 
 #. module: purchase_requirement
 #: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_set_ok
 msgid "Are you sure you want to validate this requirements?"
 msgstr "¿Está seguro de que desea validar estos requisitos?"
+
+#. module: purchase_requirement
+#: model:ir.actions.act_window,name:purchase_requirement.action_view_purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_wizard
+msgid "Generate Purchase Orders"
+msgstr "Generar solicitudes de presupuesto"
 
 
 #. module: purchase_requirement
@@ -79,6 +85,11 @@ msgid "Suppliers"
 msgstr "Proveedores"
 
 #. module: purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
+msgid "Validate"
+msgstr "Enviar a compras"
+
+#. module: purchase_requirement
 #: selection:purchase.requirement,state:0
 msgid "Pending"
 msgstr "Pendiente"
@@ -86,7 +97,7 @@ msgstr "Pendiente"
 #. module: purchase_requirement
 #: selection:purchase.requirement,state:0
 msgid "Reviwed"
-msgstr "Revisado"
+msgstr "En compras"
 
 #. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_product_id
@@ -112,7 +123,12 @@ msgid "Product Qty"
 msgstr "Cantidad Producto"
 
 #. module: purchase_requirement
-#: model:ir.model,name:purchase_requirement.model_project_project
+#: model:ir.model.fields,field_description:purchase_requirement.model_project_project_project_id
+#: model:ir.ui.view,arch_db:purchase_requirement_project.view_purchase_requirement_project_tree
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_tree
+#: model:ir.ui.view,arch_db:purchase_requirement_project.view_purchase_requirement_project_form
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
+#: model:ir.model.fields,field_description:purchase_requirement_project.field_purchase_requirement_project_project_id
 msgid "Project"
 msgstr "Proyecto"
 

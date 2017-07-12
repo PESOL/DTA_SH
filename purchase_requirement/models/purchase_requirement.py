@@ -69,10 +69,10 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def set_reviewd(self):
-        if not self.supplier_ids:
-            raise ValidationError(
-                _("You must indicate at least one supplier to validate"))
-        else:
+        # if not self.supplier_ids and self.state == 'in_process':
+        #     raise ValidationError(
+        #         _("You must indicate at least one supplier to validate"))
+        if self.state == 'pending':
             self.filtered(
                 lambda r: r.state == 'pending').write({'state': 'reviwed'})
 
@@ -122,3 +122,8 @@ class PurchaseRequirement(models.Model):
     def _onchange_product_id(self):
         if self.product_id.default_code:
             self.ref = self.product_id.default_code
+        if self.product_id.seller_ids:
+            self.update({
+                'supplier_ids': [
+                    (6, 0, self.product_id.seller_ids.mapped('name').ids)]
+            })
