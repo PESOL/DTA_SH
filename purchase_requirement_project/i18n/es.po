@@ -65,6 +65,8 @@ msgstr "Nombre"
 #: model:ir.model.fields,field_description:purchase_requirement_project.field_purchase_requirement_project_id_5357
 #: model:ir.model.fields,field_description:purchase_requirement_project.field_purchase_requirement_project_project_id
 #: model:ir.ui.view,arch_db:purchase_requirement_project.purchase_requirement_search_view_inherit
+#: model:ir.ui.view,arch_db:purchase_requirement_project.view_purchase_requirement_project_tree
+#: model:ir.ui.view,arch_db:purchase_requirement_project.view_purchase_requirement_project_form
 msgid "Project"
 msgstr "Proyecto"
 
