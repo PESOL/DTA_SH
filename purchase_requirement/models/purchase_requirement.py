@@ -52,6 +52,10 @@ class PurchaseRequirement(models.Model):
         states={'pending': [('readonly', False)],
                 'reviwed': [('readonly', False)]})
 
+    expected_date = fields.Date(
+        string='Expected Date',
+        compute='_compute_expected_date')
+
     supplier_ids = fields.Many2many(
         comodel_name='res.partner',
         relation='purchase_req_partner',
@@ -69,10 +73,10 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def set_reviewd(self):
-        if not self.supplier_ids:
-            raise ValidationError(
-                _("You must indicate at least one supplier to validate"))
-        else:
+        # if not self.supplier_ids and self.state == 'in_process':
+        #     raise ValidationError(
+        #         _("You must indicate at least one supplier to validate"))
+        if self.state == 'pending':
             self.filtered(
                 lambda r: r.state == 'pending').write({'state': 'reviwed'})
 
@@ -122,3 +126,15 @@ class PurchaseRequirement(models.Model):
     def _onchange_product_id(self):
         if self.product_id.default_code:
             self.ref = self.product_id.default_code
+        if self.product_id.seller_ids:
+            self.update({
+                'supplier_ids': [
+                    (6, 0, self.product_id.seller_ids.mapped('name').ids)]
+            })
+
+    @api.multi
+    def _compute_expected_date(self):
+        if self.state in ('pending', 'reviwed'):
+            self.expected_date = self.required_date
+        else:
+            self.expected_date = self.purchase_order_line_ids.date_order
