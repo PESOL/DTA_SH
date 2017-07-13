@@ -17,6 +17,7 @@ This module allows add new sale order templates.
     ],
     'data': [
         'views/report_saleorder.xml',
+        'views/sale_order_line_view.xml'
     ],
     'installable': True,
 }

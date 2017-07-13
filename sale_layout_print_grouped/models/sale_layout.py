@@ -123,10 +123,11 @@ class SaleOrderLine(models.Model):
     @api.constrains('tax_id')
     def _check_tax(self):
         lines = self.search([
+            ('order_id.sale_layout_category_ids', '!=', False),
             ('layout_category_id', '=', self.layout_category_id.id),
             ('order_id', '=', self.order_id.id)
         ]).filtered(lambda l: l.tax_id.id != self.tax_id.id)
-        if len(lines) > 0:
+        if len(lines) > 0 and self.tax_id:
             raise ValidationError(
                 "the tax should be the same for the section")
 
