@@ -59,3 +59,6 @@ class PurchaseOrderLine(models.Model):
     purchase_requirement_id = fields.Many2one(
         comodel_name='purchase.requirement',
         string='Purchase Requirement')
+
+    required_date = fields.Date(
+        string='Required Date')

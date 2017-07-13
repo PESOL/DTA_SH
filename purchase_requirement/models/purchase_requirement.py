@@ -52,6 +52,10 @@ class PurchaseRequirement(models.Model):
         states={'pending': [('readonly', False)],
                 'reviwed': [('readonly', False)]})
 
+    expected_date = fields.Date(
+        string='Expected Date',
+        compute='_compute_expected_date')
+
     supplier_ids = fields.Many2many(
         comodel_name='res.partner',
         relation='purchase_req_partner',
@@ -127,3 +131,10 @@ class PurchaseRequirement(models.Model):
                 'supplier_ids': [
                     (6, 0, self.product_id.seller_ids.mapped('name').ids)]
             })
+
+    @api.multi
+    def _compute_expected_date(self):
+        if self.state in ('pending', 'reviwed'):
+            self.expected_date = self.required_date
+        else:
+            self.expected_date = self.purchase_order_line_ids.date_order

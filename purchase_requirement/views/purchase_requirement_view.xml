@@ -17,6 +17,7 @@
                         <field name="ref"/>
                         <field name="product_qty"/>
                         <field name="required_date"/>
+                        <field name="expected_date" />
                     </group>
                     <group string="Suppliers">
                         <field name="supplier_ids" nolabel="1" context="{'search_default_supplier': 1}"/>
