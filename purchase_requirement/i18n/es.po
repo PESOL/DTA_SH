@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 10.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-17 11:02+0000\n"
-"PO-Revision-Date: 2017-05-17 11:02+0000\n"
+"POT-Creation-Date: 2017-07-13 08:20+0000\n"
+"PO-Revision-Date: 2017-07-13 08:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,16 +26,10 @@ msgid "Are you sure you want to validate this requirements?"
 msgstr "¿Está seguro de que desea validar estos requisitos?"
 
 #. module: purchase_requirement
-#: model:ir.actions.act_window,name:purchase_requirement.action_view_purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_set_ok
 #: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_wizard
-msgid "Generate Purchase Orders"
-msgstr "Generar solicitudes de presupuesto"
-
-
-#. module: purchase_requirement
-#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
-msgid "Change State"
-msgstr "Modificar Estado"
+msgid "Cancel"
+msgstr "Cancelar"
 
 #. module: purchase_requirement
 #: model:ir.actions.act_window,help:purchase_requirement.act_purchase_requirement_kanban_view
@@ -44,24 +38,30 @@ msgid "Click to create a new Purchase Requirement."
 msgstr "Click para crear un nuevo Requisito de Compra."
 
 #. module: purchase_requirement
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_create_uid
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_set_ok_create_uid
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_wizard_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: purchase_requirement
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_create_date
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_set_ok_create_date
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_wizard_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_name
 msgid "Description"
 msgstr "Descripción"
 
 #. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_display_name
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_set_ok_display_name
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_wizard_display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
-
-#. module: purchase_requirement
-#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_search
-msgid "Group By"
-msgstr "Agrupar por"
-
-#. module: purchase_requirement
-#: selection:purchase.requirement,state:0
-msgid "In Process"
-msgstr "En Proceso"
 
 #. module: purchase_requirement
 #: selection:purchase.requirement,state:0
@@ -69,9 +69,53 @@ msgid "Done"
 msgstr "Hecho"
 
 #. module: purchase_requirement
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_expected_date
+msgid "Expected Date"
+msgstr "Fecha Prevista"
+
+#. module: purchase_requirement
+#: model:ir.actions.act_window,name:purchase_requirement.action_view_purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_wizard
+msgid "Generate Purchase Orders"
+msgstr "Generar solicitudes de presupuesto"
+
+#. module: purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: purchase_requirement
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_id
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_set_ok_id
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_wizard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: purchase_requirement
+#: selection:purchase.requirement,state:0
+msgid "In Process"
+msgstr "En Proceso"
+
+#. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement___last_update
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_set_ok___last_update
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_wizard___last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
+
+#. module: purchase_requirement
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_set_ok_write_uid
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_wizard_write_uid
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: purchase_requirement
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_set_ok_write_date
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_wizard_write_date
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
 
 #. module: purchase_requirement
 #: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_search
@@ -79,25 +123,20 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: purchase_requirement
-#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_supplier_ids
-#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
-msgid "Suppliers"
-msgstr "Proveedores"
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_set_ok
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_wizard
+msgid "OK"
+msgstr "OK"
 
 #. module: purchase_requirement
-#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
-msgid "Validate"
-msgstr "Enviar a compras"
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_supplier_ids
+msgid "Partner"
+msgstr "Proveedor"
 
 #. module: purchase_requirement
 #: selection:purchase.requirement,state:0
 msgid "Pending"
 msgstr "Pendiente"
-
-#. module: purchase_requirement
-#: selection:purchase.requirement,state:0
-msgid "Reviwed"
-msgstr "En compras"
 
 #. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_product_id
@@ -106,43 +145,35 @@ msgid "Product"
 msgstr "Producto"
 
 #. module: purchase_requirement
-#: model:ir.actions.act_window,name:purchase_requirement.action_view_purchase_requirement_set_ok
-#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_set_ok
-msgid "Validate Requirements"
-msgstr "Validar Requisitos"
-
-#. module: purchase_requirement
-#: model:ir.actions.act_window,name:purchase_requirement.action_view_purchase_requirement
-#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_wizard
-msgid "Generate Purchase Orders"
-msgstr "Generar órdenes de compra"
-
-#. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_product_qty
 msgid "Product Qty"
 msgstr "Cantidad Producto"
 
 #. module: purchase_requirement
-#: model:ir.model.fields,field_description:purchase_requirement.model_project_project_project_id
-#: model:ir.ui.view,arch_db:purchase_requirement_project.view_purchase_requirement_project_tree
-#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_tree
-#: model:ir.ui.view,arch_db:purchase_requirement_project.view_purchase_requirement_project_form
-#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
-#: model:ir.model.fields,field_description:purchase_requirement_project.field_purchase_requirement_project_project_id
+#: model:ir.model,name:purchase_requirement.model_project_project
 msgid "Project"
 msgstr "Proyecto"
 
 #. module: purchase_requirement
 #: model:ir.model,name:purchase_requirement.model_purchase_order
-#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_purchase_order_ids
-#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
 msgid "Purchase Order"
 msgstr "Pedido de compra"
 
 #. module: purchase_requirement
+#: model:ir.model,name:purchase_requirement.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea pedido de compra"
+
+#. module: purchase_requirement
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_purchase_order_line_ids
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
+msgid "Purchase Order Lines"
+msgstr "Líneas pedido de compra"
+
+#. module: purchase_requirement
 #: model:ir.actions.act_window,name:purchase_requirement.act_purchase_requirement_kanban_view
 #: model:ir.actions.act_window,name:purchase_requirement.purchase_requirement_action
-#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_order_purchase_requirement_id
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_order_line_purchase_requirement_id
 #: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
 #: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_search
 #: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_tree
@@ -161,9 +192,21 @@ msgid "Ref"
 msgstr "Referencia"
 
 #. module: purchase_requirement
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_order_line_required_date
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_required_date
 msgid "Required Date"
 msgstr "Fecha Requerida"
+
+#. module: purchase_requirement
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_set_ok_requirement_ids
+#: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_wizard_requirement_ids
+msgid "Requirements"
+msgstr "Requerimientos"
+
+#. module: purchase_requirement
+#: selection:purchase.requirement,state:0
+msgid "Reviwed"
+msgstr "En compras"
 
 #. module: purchase_requirement
 #: model:ir.model.fields,field_description:purchase_requirement.field_purchase_requirement_state
@@ -171,7 +214,23 @@ msgid "State"
 msgstr "Estado"
 
 #. module: purchase_requirement
-#: code:addons/purchase_requirement/models/purchase_requirement.py:74
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
+msgid "Suppliers"
+msgstr "Proveedores"
+
+#. module: purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_form
+msgid "Validate"
+msgstr "Enviar a compras"
+
+#. module: purchase_requirement
+#: model:ir.actions.act_window,name:purchase_requirement.action_view_purchase_requirement_set_ok
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_set_ok
+msgid "Validate Requirements"
+msgstr "Validar Requisitos"
+
+#. module: purchase_requirement
+#: code:addons/purchase_requirement/models/purchase_requirement.py:105
 #, python-format
 msgid "You must indicate at least one supplier to validate"
 msgstr "Debes indicar al menos un proveedor para poder validar"
@@ -180,3 +239,14 @@ msgstr "Debes indicar al menos un proveedor para poder validar"
 #: model:ir.model,name:purchase_requirement.model_purchase_requirement
 msgid "purchase.requirement"
 msgstr "purchase.requirement"
+
+#. module: purchase_requirement
+#: model:ir.model,name:purchase_requirement.model_purchase_requirement_set_ok
+msgid "purchase.requirement.set.ok"
+msgstr "purchase.requirement.set.ok"
+
+#. module: purchase_requirement
+#: model:ir.model,name:purchase_requirement.model_purchase_requirement_wizard
+msgid "purchase.requirement.wizard"
+msgstr "purchase.requirement.wizard"
+

@@ -15,6 +15,7 @@
     "data": [
         'security/ir.model.access.csv',
         'views/purchase_requirement_view.xml',
+        'views/purchase_order_view.xml',
         'wizard/purchase_requirement_wizard.xml'
     ]
 }

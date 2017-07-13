@@ -73,12 +73,8 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def set_reviewd(self):
-        # if not self.supplier_ids and self.state == 'in_process':
-        #     raise ValidationError(
-        #         _("You must indicate at least one supplier to validate"))
-        if self.state == 'pending':
-            self.filtered(
-                lambda r: r.state == 'pending').write({'state': 'reviwed'})
+        self.filtered(
+            lambda r: r.state == 'pending').write({'state': 'reviwed'})
 
     @api.multi
     def set_done(self):
@@ -92,6 +88,7 @@ class PurchaseRequirement(models.Model):
             'product_id': self.product_id.id,
             'name': self.name,
             'date_planned': self.required_date,
+            'required_date': self.required_date,
             'product_qty': self.product_qty,
             'product_uom':
                 self.product_id.product_tmpl_id.uom_id.id,
@@ -101,6 +98,11 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def generate_purchases(self):
+        if self.filtered(
+            lambda r: not r.supplier_ids and self.state == 'in_process'
+        ):
+            raise ValidationError(
+                _("You must indicate at least one supplier to validate"))
         purchase_order_obj = self.env['purchase.order']
         orders_values = {}
         requirements = self.filtered(lambda r:
@@ -134,7 +136,8 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def _compute_expected_date(self):
-        if self.state in ('pending', 'reviwed'):
-            self.expected_date = self.required_date
-        else:
-            self.expected_date = self.purchase_order_line_ids.date_order
+        for record in self:
+            if record.state in ('pending', 'reviwed'):
+                record.expected_date = record.required_date
+            else:
+                record.expected_date = record.purchase_order_line_ids.date_order
