@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_sale_order_line_position_form" model="ir.ui.view">
+    <field name="name">view.sale.order.line.position.form</field>
+    <field name="model">sale.order</field>
+    <field name='inherit_id' ref='sale.view_order_form'/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
+        <field name="position"/>
+      </xpath>
+    </field>
+  </record>
+  <record id="view_sale_order_limit_date_form" model="ir.ui.view">
+    <field name="name">view.sale.order.limit.date.form</field>
+    <field name="model">sale.order</field>
+    <field name='inherit_id' ref='sale.view_order_form'/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='confirmation_date']" position="after">
+        <field name="limit_date"/>
+      </xpath>
+    </field>
+  </record>
+  <record id="view_sale_order_show_validity_form" model="ir.ui.view">
+    <field name="name">view.sale.order.show.validity.form</field>
+    <field name="model">sale.order</field>
+    <field name='inherit_id' ref='sale.view_order_form'/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='validity_date']" position="attributes">
+        <attribute name="readonly">False</attribute>
+        <attribute name="invisible">False</attribute>
+      </xpath>
+    </field>
+  </record>
+  <record id="view_sale_order_report_type_form" model="ir.ui.view">
+    <field name="name">view.sale.order.report.type.form</field>
+    <field name="model">sale.order</field>
+    <field name='inherit_id' ref='sale.view_order_form'/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="report_type"/>
+      </xpath>
+    </field>
+  </record>
+  <record id="view_sale_order_incoterm_required" model="ir.ui.view">
+    <field name="name">view.sale.order.incoterm.required</field>
+    <field name="model">sale.order</field>
+    <field name='inherit_id' ref='sale_stock.view_order_form_inherit_sale_stock'/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='incoterm']" position="attributes">
+        <attribute name="required">True</attribute>
+      </xpath>
+    </field>
+  </record>
+</odoo>

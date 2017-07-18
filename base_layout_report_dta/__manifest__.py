@@ -12,6 +12,7 @@ This module allows set the layout template.
     'license': "AGPL-3",
     'depends': [
         'report',
+        'stock'
     ],
     'data': [
         'views/layouts.xml',

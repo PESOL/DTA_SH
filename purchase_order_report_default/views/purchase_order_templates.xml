@@ -25,7 +25,6 @@
                         <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>
                 </div>
             </div>
-
             <h2 t-if="o.state != 'draft'">Purchase Order Confirmation #<span t-field="o.name"/></h2>
             <h2 t-if="o.state == 'draft'">Request for Quotation #<span t-field="o.name"/></h2>
 
@@ -55,6 +54,7 @@
                       <th><strong>Ref. Supplier</strong></th>
                       <th class="text-right"><strong>Unit Price</strong></th>
                       <th class="text-right"><strong>Net Price</strong></th>
+                      <th><strong>Supplier Deadline</strong></th>
                       <th><strong>Requested delivery date</strong></th>
                     </tr>
                 </thead>
@@ -77,7 +77,7 @@
                           <span t-field="order_line.name"/>
                       </td>
                       <td>
-                          <span t-field="order_line.supplier_product_code"/>
+                          <span t-field="order_line.product_id.barcode"/>
                       </td>
                         <td class="text-right">
                             <span t-field="order_line.price_unit"/>
@@ -85,6 +85,9 @@
                         <td class="text-right">
                             <span t-field="order_line.price_subtotal"
                                 t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                        </td>
+                        <td class="text-center">
+                            <span t-field="o.partner_id.property_supplier_payment_term_id"/>
                         </td>
                         <td class="text-center">
                             <span t-field="order_line.supplier_date_planned"/>
