@@ -16,3 +16,10 @@ class SaleOrder(models.Model):
 
     limit_date = fields.Char(
         string='Limit Date')
+
+    report_type = fields.Selection(
+        [('vehicle', 'Vehicle DTA'),
+         ('refill', 'Refill'),
+         ('represented', 'Represented')],
+        string='Report Type',
+        required=True)
