@@ -9,3 +9,10 @@ class SaleOrderLine(models.Model):
 
     position = fields.Char(
         string='Position')
+
+
+class SaleOrder(models.Model):
+    _inherit = 'sale.order'
+
+    limit_date = fields.Char(
+        string='Limit Date')

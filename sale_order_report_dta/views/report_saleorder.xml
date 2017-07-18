@@ -5,7 +5,7 @@
       <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
       <div class="page">
         <div class="oe_structure"/>
-        <div class="row">
+        <div class="row" style="margin-bottom:50px;">
           <div class="col-xs-6">
             <p>
               <span t-if="doc.state not in ['draft','sent']">Order #
@@ -182,6 +182,10 @@
             </table>
           </div>
         </div>
+        <p id="limit_date" t-if="doc.limit_date">
+          <strong>Limit Date:</strong>
+          <span t-field="doc.limit_date"/>
+        </p>
         <p id="payment_term_id" t-if="doc.payment_term_id">
           <strong>Payment Term:</strong>
           <span t-field="doc.payment_term_id.name"/>
