@@ -22,6 +22,18 @@ msgid "<strong>Description</strong>"
 msgstr "<strong>Descripción</strong>"
 
 #. module: purchase_order_report_default
+#: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchasequotation_default_document
+msgid "<strong>Needed date DTA</strong>"
+msgstr "<strong>Fecha necesidad DTA</strong>"
+
+#. module: purchase_order_report_default
+#: model:ir.model.fields,field_description:purchase_order_report_default.field_purchase_order_line_needed_dta_date
+#: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchasequotation_default_document
+msgid "Needed date DTA"
+msgstr "Fecha necesidad DTA"
+
+
+#. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
 msgid "<strong>Net Price</strong>"
 msgstr "<strong>Precio neto</strong>"
@@ -143,4 +155,3 @@ msgstr "Impuestos"
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchasequotation_default_document
 msgid "VAT:"
 msgstr "CIF/NIF:"
-

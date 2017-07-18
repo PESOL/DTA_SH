@@ -37,7 +37,7 @@
                       <th><strong>Ref. DTA</strong></th>
                       <th><strong>Description</strong></th>
                       <th><strong>Ref. Supplier</strong></th>
-                      <th><strong>Requested delivery date</strong></th>
+                      <th><strong>Needed date DTA</strong></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,10 +59,10 @@
                             <span t-field="order_line.name"/>
                         </td>
                         <td>
-                            <span t-field="order_line.supplier_product_code"/>
+                            <span t-field="order_line.product_id.barcode"/>
                         </td>
                         <td class="text-center">
-                            <span t-field="order_line.supplier_date_planned"/>
+                            <span t-field="order_line.needed_dta_date"/>
                         </td>
                     </tr>
                 </tbody>

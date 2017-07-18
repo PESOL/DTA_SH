@@ -8,4 +8,4 @@ class AccountInvoice(models.Model):
 
     planned_date = fields.Date(
         string='Planned Date',
-        required=True)
+        required=False)
