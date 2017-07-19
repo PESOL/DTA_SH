@@ -32,4 +32,38 @@ class StockPicking(models.Model):
                     'product_uom_id': line.product_uom.id,
                     'account_id': self.account_analytic_id.id
                 })
+                line.quant_ids.update({
+                    'account_analytic_id': line.account_analytic_id
+                })
+        import pdb
+        pdb.set_trace()
         return result
+
+
+class PurchaseOrder(models.Model):
+    _inherit = 'purchase.order'
+
+    @api.multi
+    def _create_picking(self):
+        result = super(PurchaseOrder, self)._create_picking()
+        for line in self.order_line:
+            line.move_ids.update({
+                'account_analytic_id': line.account_analytic_id.id
+            })
+        return result
+
+
+class StockMove(models.Model):
+    _inherit = 'stock.move'
+
+    account_analytic_id = fields.Many2one(
+        comodel_name='account.analytic.account',
+        string='Account Analytic')
+
+
+class StockQuant(models.Model):
+    _inherit = 'stock.quant'
+
+    account_analytic_id = fields.Many2one(
+        comodel_name='account.analytic.account',
+        string='Account Analytic')
