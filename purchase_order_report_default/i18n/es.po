@@ -80,6 +80,11 @@ msgstr "<strong>Ref. Fabricante</strong>"
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
+msgid "<strong>Supplier Deadline</strong>"
+msgstr "<strong>Plazo proveedor</strong>"
+
+#. module: purchase_order_report_default
+#: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchasequotation_default_document
 msgid "<strong>Requested delivery date</strong>"
 msgstr "<strong>Fecha entrega solicitada</strong>"
