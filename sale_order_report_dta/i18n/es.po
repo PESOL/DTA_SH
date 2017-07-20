@@ -37,10 +37,8 @@ msgstr "<br/>\n"
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
-msgid "<br/>\n"
-"            <span>Client Code:</span>"
-msgstr "<br/>\n"
-"            <span>Cód cliente:</span>"
+msgid "<span>Client Code:</span>"
+msgstr "<span>Cód cliente:</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
@@ -158,15 +156,27 @@ msgstr "Tipo de presupuesto"
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
-msgid "Date Ordered:"
-msgstr "Fecha pedido"
+msgid "<span>Date Ordered:</span>"
+msgstr "<span>Fecha pedido:</span>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
+msgid "<span>Address:</span>"
+msgstr "<span>Dirección:</span>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<span>Street:</span>"
+msgstr "<span>Dirección:</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<span>Validity Date:</span>"
-msgstr "<span>Validez de la oferta</span>"
+msgstr "<span>Validez de la oferta:</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
