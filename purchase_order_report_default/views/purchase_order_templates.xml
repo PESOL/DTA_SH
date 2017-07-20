@@ -87,7 +87,7 @@
                                 t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                         </td>
                         <td class="text-center">
-                            <span t-field="o.partner_id.property_supplier_payment_term_id"/>
+                            <span t-field="order_line.supplier_deadline"/>
                         </td>
                         <td class="text-center">
                             <span t-field="order_line.supplier_date_planned"/>
