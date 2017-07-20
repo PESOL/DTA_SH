@@ -32,11 +32,10 @@ class StockPicking(models.Model):
                     'product_uom_id': line.product_uom.id,
                     'account_id': self.account_analytic_id.id
                 })
-                line.quant_ids.update({
-                    'account_analytic_id': line.account_analytic_id
-                })
-        import pdb
-        pdb.set_trace()
+        for line in self.move_lines:
+            line.quant_ids.update({
+                'account_analytic_id': line.account_analytic_id.id
+            })
         return result
 
 
