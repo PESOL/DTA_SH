@@ -301,7 +301,7 @@
                 <th class="text-right">Unit Price</th>
                 <th t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">Disc.(%)</th>
                 <th class="text-right" groups="sale.group_show_tax_id">Taxes</th>
-                <th>Limit Date</th>
+                <th t-if="doc.limit_date">Limit Date</th>
                 <!-- <th class="text-right" groups="sale.group_show_price_subtotal">Price Total</th> -->
                 <th class="text-right">Total Price</th>
               </tr>
@@ -315,7 +315,7 @@
                       <t t-esc="position" t-value="line.position for line in doc.order_line"/>
                     </td>
                     <td style="font-weight: bold; border-bottom: 1px solid black;">
-                      <t t-esc="layout_category['product_id'].default_code"/>
+                      <!-- <t t-esc="layout_category['product_id']"/> -->
                     </td>
                     <td style="font-weight: bold; border-bottom: 1px solid black;">
                       <t t-esc="layout_category['name']"/>
@@ -327,16 +327,19 @@
                       <t t-set="price" t-value="category.qty and (sum(a.price_subtotal for line in layout_category['lines'] for a in line) / category.qty) or 0"/>
                       <span t-if="layout_category['print_grouped']" t-esc="price" t-options="{'widget': 'monetary', 'display_currency': doc.pricelist_id.currency_id}"/>
                     </td>
-                    <td t-if="display_discount" style="font-weight: bold; border-bottom: 1px solid black;" groups="sale.group_discount_per_so_line"></td>
+                    <td t-if="display_discount" style="font-weight: bold; border-bottom: 1px solid black;" groups="sale.group_discount_per_so_line">
+                      <t t-set="discount" t-value="for line in layout_category['lines'] for a in line"/>
+                      <span t-esc="discount"/>
+                    </td>
+                    <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right">
+                      <t t-esc="doc.limit_date"/>
+                    </td>
                     <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right">
                       <span t-if="layout_category['print_grouped']" t-esc="', '.join(map(lambda x: (x.description or x.name), layout_category['tax_id']))"/>
                     </td>
                     <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right" groups="sale.group_show_price_subtotal">
                       <t t-set="price" t-value="sum(a.price_subtotal for line in layout_category['lines'] for a in line)"/>
                       <span t-esc="price" t-options="{'widget': 'monetary', 'display_currency': doc.pricelist_id.currency_id}"/>
-                    </td>
-                    <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right">
-                      <t t-esc="doc.limit_date"/>
                     </td>
                     <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right" groups="sale.group_show_price_total">
                       <t t-set="price" t-value="sum(a.price_total for line in layout_category['lines'] for a in line)"/>
@@ -539,10 +542,7 @@
                     <td style="font-weight: bold; border-bottom: 1px solid black;">
                       <t t-esc="position" t-value="line.position for line in doc.order_line"/>
                     </td>
-                    <td style="font-weight: bold; border-bottom: 1px solid black;">
-                      <t t-esc="layout_category['product_id'].default_code"/>
-                    </td>
-                    <td style="font-weight: bold; border-bottom: 1px solid black;">
+                    <td colspan="2" style="font-weight: bold; border-bottom: 1px solid black;">
                       <t t-esc="layout_category['name']"/>
                     </td>
                     <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right">
