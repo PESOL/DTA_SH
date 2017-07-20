@@ -116,6 +116,11 @@ msgid "<strong>Supplier Deadline</strong>"
 msgstr "<strong>Plazo proveedor</strong>"
 
 #. module: purchase_order_report_default
+#: model:ir.model.fields,field_description:purchase_order_report_default.field_purchase_order_line_supplier_deadline
+msgid "Supplier Deadline"
+msgstr "Plazo proveedor"
+
+#. module: purchase_order_report_default
 #: model:ir.model,name:purchase_order_report_default.model_purchase_order
 msgid "Purchase Order"
 msgstr "Pedido de compra"
