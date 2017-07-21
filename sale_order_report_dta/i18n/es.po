@@ -17,8 +17,6 @@ msgstr ""
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<br/>\n"
 "              <span>Email | Tel</span>"
 msgstr "<br/>\n"
@@ -26,8 +24,6 @@ msgstr "<br/>\n"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<br/>\n"
 "            <span>Att:</span>"
 msgstr "<br/>\n"
@@ -35,15 +31,11 @@ msgstr "<br/>\n"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<span>Client Code:</span>"
 msgstr "<span>Cód cliente:</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<br/>\n"
 "            <span>tel:</span>"
 msgstr "<br/>\n"
@@ -51,80 +43,73 @@ msgstr "<br/>\n"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<span>Contact:</span>"
 msgstr "<span>Contacto:</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<span>Customer inquiry:</span>"
 msgstr "<span>Referencia Cliente:</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<strong>Fiscal Position Remark:</strong>"
 msgstr "<strong>Posición fiscal:</strong>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<strong>Incoterm:</strong>"
 msgstr "<strong>Incoterm:</strong>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<strong>Invoicing Method:</strong>"
 msgstr "<strong>Hitos de pago:</strong>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<strong>Payment Term:</strong>"
 msgstr "<strong>Plazos de pago:</strong>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<strong>Payment Mode:</strong>"
 msgstr "<strong>Modo de Pago:</strong>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<strong>Total Without Taxes</strong>"
 msgstr "<strong>Total base</strong>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<strong>Total</strong>"
 msgstr "<strong>Total</strong>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "Comment:"
 msgstr "Comentario:"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<strong>Limit Date:</strong>"
 msgstr "<strong>Plazo estimado entrega:</strong>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Limit Date"
+msgstr "Plazo estimado(semanas)"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Default Code"
+msgstr "Ref. DTA"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Disc.(%)"
+msgstr "Desc.(%)"
 
 #. module: sale_order_report_dta
 #: model:ir.model.fields,field_description:sale_order_report_dta.field_sale_order_limit_date
@@ -154,15 +139,11 @@ msgstr "Tipo de presupuesto"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<span>Date Ordered:</span>"
 msgstr "<span>Fecha pedido:</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<span>Address:</span>"
 msgstr "<span>Dirección:</span>"
 
@@ -173,58 +154,41 @@ msgstr "<span>Dirección:</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "<span>Validity Date:</span>"
 msgstr "<span>Validez de la oferta:</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "Description"
 msgstr "Descripción"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
-msgid "Disc.(%)"
-msgstr "Desc.(%)"
-
-#. module: sale_order_report_dta
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "Order #"
 msgstr "Pedido #"
 
 #. module: sale_order_report_dta
 #: model:ir.model.fields,field_description:sale_order_report_dta.field_sale_order_line_position
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "Position"
 msgstr "Posición"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
+msgid "Position"
+msgstr "Pos."
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "Quotation #"
 msgstr "Presupuesto"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "Quotation Date:"
 msgstr "Fecha de presupuesto"
 
@@ -235,21 +199,15 @@ msgstr "Línea de pedido de venta"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "Taxes"
 msgstr "Impuestos"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "Total Price"
 msgstr "Precio total"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_1
-#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document_2
 msgid "Unit Price"
 msgstr "Precio unitario"
