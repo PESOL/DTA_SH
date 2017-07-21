@@ -12,6 +12,9 @@ class PurchaseOrderLine(models.Model):
     needed_dta_date = fields.Char(
         string='Needed DTA Date')
 
+    supplier_deadline = fields.Char(
+        string='field_name')
+
     @api.multi
     def _compute_supplier_date_planned(self):
         for record in self:

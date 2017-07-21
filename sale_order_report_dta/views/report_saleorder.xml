@@ -35,7 +35,7 @@
                     <span>Date Ordered:</span>
                   </td>
                   <td>
-                    <span t-if="doc.date_order" t-field="doc.date_order"/>
+                    <span t-if="doc.date_order" t-field="doc.date_order" t-field-options='{"format": "dd/mm/yyyy"}'/>
                   </td>
                   <td>
                     <span t-field="doc.partner_id.vat"/>
