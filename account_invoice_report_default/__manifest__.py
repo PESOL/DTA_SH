@@ -27,7 +27,7 @@ This module allows set the invoice template.
     'license': "GPL-3",
     'depends': [
         'account',
-        'invoice_discount'
+        'base_layout_report_dta'
     ],
     'data': [
         'views/report_invoice.xml',
