@@ -20,7 +20,8 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="task_id"/>
-                <filter name="Task" string="Unpaid Task Done" domain="[('state','=','open'), ('task_id.stage_id.milestone_done', '=', True)]"/>
+                <filter name="Task" string="Task Done Not Invoiced" domain="[('state','in',['draft','proforma','proforma2']), ('task_id.stage_id.closed', '=', True)]"/>
+                <filter name="PendingTask" string="Pending Task to Invoice" domain="[('state','in',['draft','proforma','proforma2']), ('task_id.stage_id.closed', '!=', True), ('date_invoice','&lt;', datetime.datetime.now()) ]"/>
             </xpath>
         </field>
     </record>

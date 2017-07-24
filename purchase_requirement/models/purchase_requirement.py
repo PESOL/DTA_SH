@@ -140,4 +140,5 @@ class PurchaseRequirement(models.Model):
             if record.state in ('pending', 'reviwed'):
                 record.expected_date = record.required_date
             else:
-                record.expected_date = record.purchase_order_line_ids.date_order
+                dates = record.purchase_order_line_ids.mapped('date_order')
+                record.expected_date = dates and max(dates)

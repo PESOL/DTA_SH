@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 10.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-12 08:00+0000\n"
-"PO-Revision-Date: 2017-06-12 08:00+0000\n"
+"POT-Creation-Date: 2017-07-24 10:08+0000\n"
+"PO-Revision-Date: 2017-07-24 10:08+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,9 +21,9 @@ msgid "Invoice"
 msgstr "Factura"
 
 #. module: account_invoice_project_task
-#: model:ir.model.fields,field_description:account_invoice_project_task.field_project_task_type_milestone_done
-msgid "Milestone"
-msgstr "Hito"
+#: model:ir.ui.view,arch_db:account_invoice_project_task.view_account_invoice_task_search
+msgid "Pending Task to Invoice"
+msgstr "Facturas pendientes de tareas"
 
 #. module: account_invoice_project_task
 #: model:ir.model.fields,field_description:account_invoice_project_task.field_account_invoice_task_id
@@ -36,12 +36,17 @@ msgid "Task Done"
 msgstr "Tarea completada"
 
 #. module: account_invoice_project_task
+#: model:ir.ui.view,arch_db:account_invoice_project_task.view_account_invoice_task_search
+msgid "Task Done Not Invoiced"
+msgstr "Facturas disponibles con tareas terminadas"
+
+#. module: account_invoice_project_task
 #: model:ir.model,name:account_invoice_project_task.model_project_task_type
 msgid "Task Stage"
 msgstr "Etapa de la tarea"
 
 #. module: account_invoice_project_task
-#: code:addons/account_invoice_project_task/models/account_invoice_task.py:30
+#: code:addons/account_invoice_project_task/models/account_invoice_task.py:31
 #, python-format
 msgid "The milestone must be in the state 'done' before validate"
 msgstr "El Hito debe estar en el estado 'Hecho' antes de validar la factura"
