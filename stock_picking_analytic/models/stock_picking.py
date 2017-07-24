@@ -66,3 +66,13 @@ class StockQuant(models.Model):
     account_analytic_id = fields.Many2one(
         comodel_name='account.analytic.account',
         string='Account Analytic')
+
+
+class StockPickingType(models.Model):
+    _inherit = 'stock.picking.type'
+
+    analytic_type = fields.Selection(
+        [('in', 'In'),
+         ('out', 'Out'),
+         ('no', 'No')],
+        string='Analytic Type')

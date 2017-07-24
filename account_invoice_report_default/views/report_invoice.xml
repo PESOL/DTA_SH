@@ -270,10 +270,12 @@
       </t>
     </template>
 
-    <template id="report_invoice_default">
+    <template id="report_invoice_default" inherit_id="account.report_invoice">
       <t t-call="report.html_container">
-        <t t-foreach="docs" t-as="doc">
-          <t t-call="account_invoice_report_default.report_invoice_document" t-lang="doc.partner_id.lang"/>
+        <t t-call="report.html_container">
+          <t t-foreach="docs" t-as="doc">
+            <t t-call="account_invoice_report_default.report_invoice_document" t-lang="doc.partner_id.lang"/>
+          </t>
         </t>
       </t>
     </template>
