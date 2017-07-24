@@ -52,6 +52,10 @@ class PurchaseRequirement(models.Model):
         states={'pending': [('readonly', False)],
                 'reviwed': [('readonly', False)]})
 
+    expected_date = fields.Date(
+        string='Expected Date',
+        compute='_compute_expected_date')
+
     supplier_ids = fields.Many2many(
         comodel_name='res.partner',
         relation='purchase_req_partner',
@@ -69,12 +73,8 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def set_reviewd(self):
-        if not self.supplier_ids:
-            raise ValidationError(
-                _("You must indicate at least one supplier to validate"))
-        else:
-            self.filtered(
-                lambda r: r.state == 'pending').write({'state': 'reviwed'})
+        self.filtered(
+            lambda r: r.state == 'pending').write({'state': 'reviwed'})
 
     @api.multi
     def set_done(self):
@@ -88,6 +88,7 @@ class PurchaseRequirement(models.Model):
             'product_id': self.product_id.id,
             'name': self.name,
             'date_planned': self.required_date,
+            'required_date': self.required_date,
             'product_qty': self.product_qty,
             'product_uom':
                 self.product_id.product_tmpl_id.uom_id.id,
@@ -97,6 +98,11 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def generate_purchases(self):
+        if self.filtered(
+            lambda r: not r.supplier_ids and self.state == 'in_process'
+        ):
+            raise ValidationError(
+                _("You must indicate at least one supplier to validate"))
         purchase_order_obj = self.env['purchase.order']
         orders_values = {}
         requirements = self.filtered(lambda r:
@@ -122,3 +128,16 @@ class PurchaseRequirement(models.Model):
     def _onchange_product_id(self):
         if self.product_id.default_code:
             self.ref = self.product_id.default_code
+        if self.product_id.seller_ids:
+            self.update({
+                'supplier_ids': [
+                    (6, 0, self.product_id.seller_ids.mapped('name').ids)]
+            })
+
+    @api.multi
+    def _compute_expected_date(self):
+        for record in self:
+            if record.state in ('pending', 'reviwed'):
+                record.expected_date = record.required_date
+            else:
+                record.expected_date = record.purchase_order_line_ids.date_order

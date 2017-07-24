@@ -5,7 +5,7 @@
         <field name="model">purchase.requirement</field>
         <field name='inherit_id' ref='purchase_requirement.view_purchase_requirement_form'/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='required_date']" position="after">
+            <xpath expr="//field[@name='expected_date']" position="after">
                 <field name="project_id"/>
             </xpath>
         </field>
@@ -16,7 +16,7 @@
         <field name="model">purchase.requirement</field>
         <field name='inherit_id' ref='purchase_requirement.view_purchase_requirement_tree'/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='required_date']" position="after">
+            <xpath expr="//field[@name='expected_date']" position="after">
                 <field name="project_id"/>
             </xpath>
         </field>
