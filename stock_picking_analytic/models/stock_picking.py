@@ -5,10 +5,6 @@ from openerp import models, api, fields, _
 class StockPicking(models.Model):
     _inherit = 'stock.picking'
 
-    account_analytic_id = fields.Many2one(
-        comodel_name='account.analytic.account',
-        string='Account Analytic')
-
     @api.multi
     def do_new_transfer(self):
         # self.action_confirm()
@@ -19,19 +15,22 @@ class StockPicking(models.Model):
         #     else:
         #         pack.unlink()
         result = super(StockPicking, self).do_new_transfer()
-        if self.account_analytic_id:
-            analytic_line_obj = self.env['account.analytic.line']
-            for line in self.move_lines:
-                amount = sum(
-                    [q.location_id == line.location_dest_id and
-                     q.inventory_value for q in line.quant_ids]) * -1
-                analytic_line = analytic_line_obj.create({
-                    'name': self.partner_id.name,
-                    'amount': amount,
-                    'product_id': line.product_id.id,
-                    'product_uom_id': line.product_uom.id,
-                    'account_id': self.account_analytic_id.id
-                })
+        analytic_line_obj = self.env['account.analytic.line']
+        for line in self.move_lines:
+            if self.picking_type_id.analytic_type == 'out':
+                amount = (line.product_id.lst_price *
+                          line.product_uom_qty) * -1
+            elif self.picking_type_id.analytic_type == 'in':
+                amount = (line.product_id.lst_price *
+                          line.product_uom_qty)
+            analytic_line_obj.create({
+                'name': line.product_id.name,
+                'amount': amount,
+                'unit_amount': line.product_uom_qty,
+                'product_id': line.product_id.id,
+                'product_uom_id': line.product_uom.id,
+                'account_id': line.account_analytic_id.id
+            })
         for line in self.move_lines:
             line.quant_ids.update({
                 'account_analytic_id': line.account_analytic_id.id
@@ -75,4 +74,5 @@ class StockPickingType(models.Model):
         [('in', 'In'),
          ('out', 'Out'),
          ('no', 'No')],
-        string='Analytic Type')
+        string='Analytic Type',
+        default='no')
