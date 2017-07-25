@@ -164,7 +164,7 @@
                                         </t>
                                     </tr>
                                 </thead>
-                                <t t-if="not layout_category['pagebreak']">
+                                <t t-if="not layout_category['pagebreak'] and layout_category['print_grouped']">
                                     <tbody class="sale_tbody">
                                         <t t-set="category" t-value="layout_category['category']"/>
                                         <t groups="sale.group_sale_layout">
@@ -240,7 +240,7 @@
                                                     <span t-esc="price" t-options="{'widget': 'monetary', 'display_currency': doc.pricelist_id.currency_id}"/>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <tr t-if="category.description">
                                                 <td colspan="6">
                                                     <span t-field="category.description"/>
                                                 </td>
