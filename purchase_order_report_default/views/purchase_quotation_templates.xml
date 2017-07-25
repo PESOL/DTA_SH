@@ -173,13 +173,13 @@
                   <span t-field="order_line.product_uom" groups="product.group_uom"/>
                 </td>
                 <td>
-                  <span t-field="order_line.product_id.default_code"/>
+                  <span t-field="order_line.dta_reference"/>
                 </td>
                 <td>
                   <span t-field="order_line.name"/>
                 </td>
                 <td>
-                  <span t-field="order_line.product_id.barcode"/>
+                  <span t-field="order_line.product_id.default_code"/>
                 </td>
                 <td class="text-center">
                   <span t-field="order_line.needed_dta_date"/>
