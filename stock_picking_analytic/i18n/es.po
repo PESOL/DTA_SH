@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 10:24+0000\n"
-"PO-Revision-Date: 2017-07-24 10:24+0000\n"
+"POT-Creation-Date: 2017-07-25 07:20+0000\n"
+"PO-Revision-Date: 2017-07-25 07:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,19 +23,49 @@ msgid "Account Analytic"
 msgstr "Proyecto"
 
 #. module: stock_picking_analytic
+#: model:ir.model.fields,field_description:stock_picking_analytic.field_stock_picking_type_analytic_type
+msgid "Analytic Type"
+msgstr "Tipo Analítico"
+
+#. module: stock_picking_analytic
+#: selection:stock.picking.type,analytic_type:0
+msgid "In"
+msgstr "Entrada"
+
+#. module: stock_picking_analytic
+#: selection:stock.picking.type,analytic_type:0
+msgid "No"
+msgstr "No"
+
+#. module: stock_picking_analytic
+#: selection:stock.picking.type,analytic_type:0
+msgid "Out"
+msgstr "Salida"
+
+#. module: stock_picking_analytic
 #: model:ir.model,name:stock_picking_analytic.model_purchase_order
 msgid "Purchase Order"
 msgstr "Pedido de compra"
 
 #. module: stock_picking_analytic
+#: model:ir.model,name:stock_picking_analytic.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea pedido de compra"
+
+#. module: stock_picking_analytic
 #: model:ir.model,name:stock_picking_analytic.model_stock_quant
 msgid "Quants"
-msgstr "Quants"
+msgstr "Cantidades"
 
 #. module: stock_picking_analytic
 #: model:ir.model,name:stock_picking_analytic.model_stock_move
 msgid "Stock Move"
 msgstr "Movimiento de existencias"
+
+#. module: stock_picking_analytic
+#: model:ir.model,name:stock_picking_analytic.model_stock_picking_type
+msgid "The picking type determines the picking view"
+msgstr "El tipo de albarán determina la vista de albarán"
 
 #. module: stock_picking_analytic
 #: model:ir.model,name:stock_picking_analytic.model_stock_picking
