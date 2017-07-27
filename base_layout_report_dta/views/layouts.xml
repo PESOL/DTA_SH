@@ -23,7 +23,7 @@
 				<div class="col-xs-4">
 					<img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 100px;"/>
 				</div>
-				<div class="col-xs-8" style="display:table-cell; vertical-align:bottom; margin-top:60px;">
+				<div class="col-xs-8" style="display:table-cell; vertical-align:middle; margin-top:30px;">
 					<!--div style="position: absolute; bottom: 50px"-->
 					<p style="font-size:11px; ">DESARROLLO DE TÉCNICAS PARA ASTILLEROS, S.A. C/ Límite s/n, Pol. Ind. Las Fronteras<br/>
 						28850 Torrejón de Ardoz, Madrid, ESPAÑA. Tel. +34 91307 60 63 dta@dta.es CIF A-28290856</p>
