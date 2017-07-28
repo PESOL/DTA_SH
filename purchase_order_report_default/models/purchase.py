@@ -18,6 +18,9 @@ class PurchaseOrderLine(models.Model):
     dta_reference = fields.Char(
         string='DTA ref')
 
+    position = fields.Char(
+        string='Position')
+
     @api.multi
     def _compute_supplier_date_planned(self):
         for record in self:

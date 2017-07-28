@@ -17,8 +17,12 @@
             <tbody>
               <tr>
                 <td>
-                  <span style="font-size:20px; font-weight: bold;">Order #
-                  </span>
+                  <t t-if="doc.state not in ['draft','sent']">
+                    <span style="font-size:20px; font-weight: bold;">Order #</span>
+                  </t>
+                  <t t-if="doc.state in ['draft','sent']">
+                    <span style="font-size:20px; font-weight: bold;">Quotation #</span>
+                  </t>
                   <span t-field="doc.name" style="font-size:20px; font-weight: bold;"/>
                 </td>
                 <td></td>
@@ -122,7 +126,7 @@
                         <span>Unit Price</span>
                       </th>
                       <th class="text-right" groups="sale.group_show_tax_id">Taxes</th>
-                      <th colspan="2" class="text-right">
+                      <th colspan="4" class="text-right">
                         <span>Total Price</span>
                       </th>
                     </t>
@@ -150,7 +154,7 @@
                         </th>
                         <th t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">Disc.(%)</th>
                         <th class="text-right" groups="sale.group_show_tax_id">Taxes</th>
-                        <th t-if="doc.limit_date">Limit Date</th>
+                        <th class="text-right" t-if="doc.limit_date">Limit Date</th>
                         <th class="text-right">
                           <span>Total Price</span>
                         </th>
@@ -197,11 +201,11 @@
                           <!-- <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right">
                             <span t-if="layout_category['print_grouped']" t-esc="', '.join(map(lambda x: (x.description or x.name), layout_category['tax_id']))"/>
                           </td> -->
-                          <td colspan="2" style="font-weight: bold; border-bottom: 1px solid black;" class="text-right" groups="sale.group_show_price_subtotal">
+                          <td colspan="4" style="font-weight: bold; border-bottom: 1px solid black;" class="text-right" groups="sale.group_show_price_subtotal">
                             <t t-set="price" t-value="sum(a.price_subtotal for line in layout_category['lines'] for a in line)"></t>
                             <span t-esc="price" t-options="{'widget': 'monetary', 'display_currency': doc.pricelist_id.currency_id}"/>
                           </td>
-                          <td colspan="2" style="font-weight: bold; border-bottom: 1px solid black;" class="text-right" groups="sale.group_show_price_total">
+                          <td colspan="4" style="font-weight: bold; border-bottom: 1px solid black;" class="text-right" groups="sale.group_show_price_total">
                             <t t-set="price" t-value="sum(a.price_total for line in layout_category['lines'] for a in line)"></t>
                             <span t-esc="price" t-options="{'widget': 'monetary', 'display_currency': doc.pricelist_id.currency_id}"/>
                           </td>
@@ -289,7 +293,7 @@
                       <t t-if="doc.report_type == 'refill'">
                         <tr>
                           <td><span t-field="l.position"/></td>
-                          <td><span t-field="l.product_id.default_code"/></td>
+                          <td><span t-field="l.product_id.barcode"/></td>
                           <td><span t-field="l.name"/></td>
                           <td class="text-right">
                             <span t-field="l.product_uom_qty"/>
@@ -384,22 +388,23 @@
                   <strong>Limit Date:</strong>
                   <span t-field="doc.limit_date"/>
                 </p>
-                <p id="payment_term_id" t-if="doc.payment_term_id">
-                  <!-- <strong>Payment Term:</strong> -->
-                  <span t-field="doc.payment_term_id.name"/>
-                </p>
                 <p id="incoterm" t-if="doc.incoterm">
                   <strong>Incoterm:</strong>
                   <span t-field="doc.incoterm"/>
                 </p>
+                <p style="font-weight:bold;">Payment conditions:</p>
                 <p id="invoicing_method_id" t-if="doc.invoicing_method_id">
                   <!-- <strong>Invoicing Method:</strong> -->
                   <span t-field="doc.invoicing_method_id.name"/>
                 </p>
-                <p id="payment_mode_id" t-if="doc.payment_mode_id">
+                <p id="payment_mode_id" t-if="doc.payment_mode_id and doc.payment_term_id">
                   <!-- <strong>Payment Mode:</strong> -->
-                  <span t-field="doc.payment_mode_id.name"/>
+                  <span t-field="doc.payment_mode_id.name"/>--
+                  <span t-field="doc.payment_term_id.name"/>
                 </p>
+                <!-- <p id="payment_term_id" t-if="doc.payment_term_id">
+                  <strong>Payment Term:</strong>
+                </p> -->
                 <p>
                   <span t-esc="doc.note"/></p>
                 <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.note">
@@ -408,7 +413,7 @@
                 </p>
               </t>
               <t t-if="doc.report_type == 'refill'">
-                <t t-foreach="doc.order_lines_layout()" t-as="page">
+                <!-- <t t-foreach="doc.order_lines_layout()" t-as="page">
                   <t t-foreach="page" t-as="layout_category">
                     <t t-if="layout_category['print_grouped']">
                       <p id="limit_date" t-if="doc.limit_date">
@@ -417,29 +422,27 @@
                       </p>
                     </t>
                   </t>
-                </t>
-                <p id="payment_term_id" t-if="doc.payment_term_id">
-                  <strong>Payment Term:</strong>
-                  <span t-field="doc.payment_term_id.name"/>
-                </p>
+                </t> -->
                 <p id="incoterm" t-if="doc.incoterm">
                   <strong>Incoterm:</strong>
                   <span t-field="doc.incoterm"/>
                 </p>
+                <p style="font-weight:bold;">Payment conditions:</p>
                 <p id="invoicing_method_id" t-if="doc.invoicing_method_id">
-                  <strong>Invoicing Method:</strong>
+                  <!-- <strong>Invoicing Method:</strong> -->
                   <span t-field="doc.invoicing_method_id.name"/>
                 </p>
-                <p id="payment_mode_id" t-if="doc.payment_mode_id">
-                  <strong>Payment Mode:</strong>
-                  <span t-field="doc.payment_mode_id.name"/>
+                <p id="payment_mode_id" t-if="doc.payment_mode_id and doc.payment_term_id">
+                  <!-- <strong>Payment Mode:</strong> -->
+                  <span t-field="doc.payment_mode_id.name"/>--
+                  <span t-field="doc.payment_term_id.name"/>
                 </p>
-                <p>Comment:
+                <p>
                   <span t-esc="doc.note"/></p>
-                <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.note">
+                <!-- <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.note">
                   <strong>Fiscal Position Remark:</strong>
                   <span t-field="doc.fiscal_position_id.note"/>
-                </p>
+                </p> -->
               </t>
               <t t-if="doc.report_type == 'represented'">
                 <p id="limit_date" t-if="doc.limit_date">
@@ -462,7 +465,7 @@
                   <strong>Payment Mode:</strong>
                   <span t-field="doc.payment_mode_id.name"/>
                 </p>
-                <p>Comment:
+                <p>
                   <span t-esc="doc.note"/></p>
                 <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.note">
                   <strong>Fiscal Position Remark:</strong>

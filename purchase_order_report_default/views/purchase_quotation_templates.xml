@@ -6,131 +6,131 @@
       <div class="page">
         <div class="oe_structure"></div>
         <div class="row">
-          <div class="col-xs-12">
-            <style>
-              .table tr td,
-              .table.no-border tr th {
-                border: none !important;
-              }
+          <style>
+            .table tr td,
+            .table.no-border tr th {
+              border: none !important;
+            }
 
-            </style>
-            <table class="table table-condensed no-border">
-              <tbody>
-                <tr>
-                  <td>
-                    <span t-field="doc.partner_id.name" style="font-size:20px; font-weight: bold;"></span>
-                    <!-- <span t-if="doc.state not in ['draft','sent']">Order #
+          </style>
+          <table class="table table-condensed no-border">
+            <tbody>
+              <tr>
+                <td>
+                  <span t-field="doc.partner_id.name" style="font-size:20px; font-weight: bold;"></span>
+                  <!-- <span t-if="doc.state not in ['draft','sent']">Order #
                             </span>
                             <span t-if="doc.state in ['draft','sent']">Quotation #
                             </span>
                             <span t-field="doc.name"/> -->
-                  </td>
-                  <td></td>
-                  <td>
-                    <p>
-                      <span style="font-size:14px; font-weight: bold;">DESARROLLO DE TÉCNICAS PARA</span>
-                    </p>
-                    <p>
-                      <span style="font-size:14px; font-weight: bold;">ASTILLEROS, S.A</span>
-                    </p>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span t-field="doc.partner_id.vat"/>
-                  </td>
-                  <td></td>
-                  <td>
-                    <span style="margin-right:5px;">Contact:</span>
-                    <span t-esc="user.name"/>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <!-- <span style="margin-right:5px;">Street:</span> -->
-                    <span t-field="doc.partner_id.street"/>
-                  </td>
-                  <td></td>
-                  <td>
-                    <span style="margin-right:5px;">Email | Tel:</span>
-                    <span>
-                      <span t-field="user.login"/>
-                      |
-                      <span t-field="user.phone"/>
-                    </span>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <!-- <span style="margin-right:5px;">Address:</span> -->
-                    <span t-field="doc.partner_id.zip"/>,
-                    <span t-field="doc.partner_id.city"/>,
-                    <span t-field="doc.partner_id.country_id"/>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span style="margin-right:5px;">Tel:</span>
-                    <span t-field="doc.partner_id.phone"/>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span style="margin-right:5px;">Supplier Code:</span>
-                    <span t-field="doc.partner_id.ref"/>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span style="margin-right:5px;">Att:</span>
-                    <span t-field="user.name"/>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span t-if="doc.state != 'draft'" style="font-size:16px; font-weight: bold;">Purchase Order Confirmation
-                    </span>
-                    <span t-if="doc.state == 'draft'" style="font-size:16px; font-weight: bold;">Request for Quotation
-                    </span>
-                    <span t-field="doc.name" style="margin-left:5px; font-size:16px; font-weight: bold;"/>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <span style="margin-right:5px;">Date Ordered:</span>
-                    <span t-if="doc.date_order" t-field="doc.date_order" t-options='{"widget": "date"}'/>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                </td>
+                <td></td>
+                <td>
+                  <p>
+                    <span style="font-size:14px; font-weight: bold;">DESARROLLO DE TÉCNICAS PARA</span>
+                  </p>
+                  <p>
+                    <span style="font-size:14px; font-weight: bold;">ASTILLEROS, S.A</span>
+                  </p>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <span t-field="doc.partner_id.vat"/>
+                </td>
+                <td></td>
+                <td>
+                  <span style="margin-right:5px;">Contact:</span>
+                  <span t-esc="user.name"/>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <!-- <span style="margin-right:5px;">Street:</span> -->
+                  <span t-field="doc.partner_id.street"/>
+                </td>
+                <td></td>
+                <td>
+                  <span style="margin-right:5px;">Email | Tel:</span>
+                  <span>
+                    <span t-field="user.login"/>
+                    |
+                    <span t-field="user.phone"/>
+                  </span>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <!-- <span style="margin-right:5px;">Address:</span> -->
+                  <span t-field="doc.partner_id.zip"/>,
+                  <span t-field="doc.partner_id.city"/>,
+                  <span t-field="doc.partner_id.country_id"/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="margin-right:5px;">Tel:</span>
+                  <span t-field="doc.partner_id.phone"/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="margin-right:5px;">Supplier Code:</span>
+                  <span t-field="doc.partner_ref"/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="margin-right:5px;">Att:</span>
+                  <span t-field="user.name"/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <t t-if="doc.state != 'draft'">
+                    <span style="font-size:16px; font-weight: bold;">Purchase Order Confirmation #</span>
+                  </t>
+                  <t t-if="doc.state == 'draft'">
+                    <span style="font-size:16px; font-weight: bold;">Request for Quotation #</span>
+                  </t>
+                  <span t-field="doc.name" style="margin-left:5px; font-size:16px; font-weight: bold;"/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="margin-right:5px;">Date Ordered:</span>
+                  <span t-if="doc.date_order" t-field="doc.date_order" t-options='{"widget": "date"}'/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
 
           <table class="table table-condensed">
             <thead>
@@ -161,7 +161,7 @@
             <tbody>
               <tr t-foreach="o.order_line" t-as="order_line">
                 <td>
-                  <span t-field="order_line.sequence"/>
+                  <span t-field="order_line.position"/>
                 </td>
                 <td>
                   <span t-field="order_line.account_analytic_id and order_line.account_analytic_id.name"/>
@@ -170,13 +170,13 @@
                   <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
                 </td>
                 <td>
-                  <span t-field="order_line.dta_reference"/>
+                  <span t-field="order_line.product_id.barcode"/>
                 </td>
                 <td>
                   <span t-field="order_line.product_id.name"/>
                 </td>
                 <td>
-                  <span t-field="order_line.product_id.barcode"/>
+                  <span t-field="order_line.product_id.default_code"/>
                 </td>
                 <td class="text-center">
                   <span t-field="order_line.needed_dta_date"/>

@@ -23,8 +23,12 @@ msgstr "<span>Descripción</span>"
 
 #. module: purchase_order_report_default
 #: model:ir.model.fields,field_description:purchase_order_report_default.field_purchase_order_line_needed_dta_date
+msgid "Needed date DTA"
+msgstr "Fecha requerida"
+
+#. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchasequotation_default_document
-msgid "<span>Needed date DTA"</span>
+msgid "<span>Needed date DTA</span>"
 msgstr "<span>Fecha requerida</span>"
 
 #. module: purchase_order_report_default
@@ -40,8 +44,8 @@ msgstr "<span>Total</span>"
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
-msgid "<strong>Order Date:</strong>"
-msgstr "<strong>Fecha orden:</strong>"
+msgid "<span>Date Ordered:</span>"
+msgstr "<span>Fecha:</span>"
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
@@ -80,6 +84,7 @@ msgstr "<span>Ref. Fabricante</span>"
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
+#: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchasequotation_default_document
 msgid "<span>Supplier Deadline</span>"
 msgstr "<span>Plazo</span>"
 
@@ -97,8 +102,8 @@ msgstr "<strong>Dirección de Envío</strong>"
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
-msgid "<span>Total Without Taxes</span>"
-msgstr "<span>Total</span>"
+msgid "<strong>Total Without Taxes</strong>"
+msgstr "<strong>Total base</strong>"
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
@@ -108,7 +113,7 @@ msgstr "<span>Total</span>"
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
 msgid "<span>Unit Price</span>"
-msgstr "<span>Precio/Und</span>"
+msgstr "<span>Precio/Ud</span>"
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
@@ -132,8 +137,15 @@ msgstr "Pedido de compra"
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
-msgid "Purchase Order Confirmation #"
-msgstr "Pedido de compra #"
+#: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchasequotation_default_document
+msgid "<span style=\"font-size:16px; font-weight: bold;\">Purchase Order Confirmation #</span>"
+msgstr "<span style=\"font-size:16px; font-weight: bold;\">Pedido de compra #</span>"
+
+#. module: purchase_order_report_default
+#: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchasequotation_default_document
+#: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
+msgid "<span style=\"font-size:16px; font-weight: bold;\">Request for Quotation #</span>"
+msgstr "<span style=\"font-size:16px; font-weight: bold;\">Solicitud de presupuesto #</span>"
 
 #. module: purchase_order_report_default
 #: model:ir.model,name:purchase_order_report_default.model_purchase_order_line
@@ -141,14 +153,10 @@ msgid "Purchase Order Line"
 msgstr "Línea pedido de compra"
 
 #. module: purchase_order_report_default
-#: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
-msgid "Request for Quotation #"
-msgstr "Solicitud de presupuesto #"
-
-#. module: purchase_order_report_default
 #: model:ir.model.fields,field_description:purchase_order_report_default.field_purchase_order_line_supplier_date_planned
+#: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
 msgid "Supplier date planned"
-msgstr "Fecha proveedor planificada"
+msgstr "Fecha requerida"
 
 #. module: purchase_order_report_default
 #: model:ir.model.fields,field_description:purchase_order_report_default.field_purchase_order_line_supplier_product_code
@@ -157,8 +165,8 @@ msgstr "Supplier product code"
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
-msgid "Taxes"
-msgstr "Impuestos(21%)"
+msgid "<span>Taxes</span>"
+msgstr "<span>Impuestos(21%)</span>"
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document

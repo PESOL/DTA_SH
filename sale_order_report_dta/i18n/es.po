@@ -99,7 +99,7 @@ msgstr "<strong>Plazo estimado entrega:</strong>"
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 msgid "Limit Date"
-msgstr "Plazo estimado(semanas)"
+msgstr "Plazo estimado"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
@@ -160,14 +160,17 @@ msgstr "<span style=\"margin-right:5px;\">Validez oferta:</span>"
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 msgid "Description"
-msgstr "Descripción"
+msgstr "Nombre del producto"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-msgid "<span style=\"font-size:20px; font-weight: bold;\">Order #\n"
-"                      </span>"
-msgstr "<span style=\"font-size:20px; font-weight: bold;\">Presupuesto #\n"
-"                      </span>"
+msgid "<span style=\"font-size:20px; font-weight: bold;\">Order #</span>"
+msgstr "<span style=\"font-size:20px; font-weight: bold;\">Presupuesto #</span>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "<span style=\"font-size:20px; font-weight: bold;\">Quotation #</span>"
+msgstr "<span style=\"font-size:20px; font-weight: bold;\">Presupuesto #</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.model.fields,field_description:sale_order_report_dta.field_sale_order_line_position
@@ -182,7 +185,7 @@ msgstr "Pos."
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 msgid "Quantity"
-msgstr "Cantidad"
+msgstr "Cant."
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
@@ -212,4 +215,9 @@ msgstr "<span>Total</span>"
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 msgid "<span>Unit Price</span>"
-msgstr "<span>Precio/Und</span>"
+msgstr "<span>Precio/Ud</span>"
+
+#. module: sale_order_report_dta
+#: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
+msgid "Payment conditions:"
+msgstr "Condiciones de pago:"

@@ -10,6 +10,9 @@
                 <field name="needed_dta_date" />
                 <field name="supplier_deadline" />
             </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
+                <field name="position" />
+            </xpath>
         </field>
     </record>
 </odoo>
