@@ -86,7 +86,7 @@ class PurchaseRequirement(models.Model):
         self.ensure_one()
         return {
             'product_id': self.product_id.id,
-            'name': self.name,
+            'name': self.product_id.name,
             'date_planned': self.required_date,
             'required_date': self.required_date,
             'product_qty': self.product_qty,
