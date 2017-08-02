@@ -182,7 +182,7 @@
                   <span t-field="order_line.product_id.supplier_code"/>
                 </td>
                 <td class="text-center">
-                  <span t-field="order_line.needed_dta_date"/>
+                  <span t-field="order_line.required_date"/>
                 </td>
               </tr>
             </tbody>

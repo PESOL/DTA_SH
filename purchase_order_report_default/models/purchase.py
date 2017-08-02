@@ -16,9 +16,6 @@ class PurchaseOrderLine(models.Model):
     supplier_date_planned = fields.Date(
         compute='_compute_supplier_date_planned')
 
-    needed_dta_date = fields.Char(
-        string='Needed DTA Date')
-
     supplier_deadline = fields.Char(
         string='Supplier Deadline')
 

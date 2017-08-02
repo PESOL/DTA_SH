@@ -6,7 +6,7 @@
     'category': 'Custom Reporting',
     'license': "AGPL-3",
     'depends': [
-        'purchase'
+        'purchase_requirement'
     ],
     'data': [
         'views/purchase_order_templates.xml',
