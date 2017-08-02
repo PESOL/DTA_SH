@@ -22,8 +22,6 @@ class PurchaseOrderLine(models.Model):
     supplier_deadline = fields.Char(
         string='Supplier Deadline')
 
-    dta_reference = fields.Char(
-        string='DTA ref')
 
     @api.multi
     def _compute_supplier_date_planned(self):
