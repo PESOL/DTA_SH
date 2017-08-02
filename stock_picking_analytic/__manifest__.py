@@ -16,9 +16,9 @@ This module allows add account analytic lines in pickings.
         'stock',
     ],
     'data': [
-        'views/stock_picking_analytic_view.xml',
         'views/stock_move_analytic_view.xml',
-        'views/stock_quant_analytic_view.xml'
+        'views/stock_quant_analytic_view.xml',
+        'views/stock_picking_analytic_view.xml'
     ],
     'installable': True,
 }

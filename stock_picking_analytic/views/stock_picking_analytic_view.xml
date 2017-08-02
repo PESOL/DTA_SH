@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_stock_picking_analytic_form" model="ir.ui.view">
-        <field name="name">view.stock.picking.analytic.form</field>
-        <field name="model">stock.picking</field>
-        <field name='inherit_id' ref='stock.view_picking_form'/>
+    <record id="view_stock_picking_type_form" model="ir.ui.view">
+        <field name="name">view.stock.picking.type.form</field>
+        <field name="model">stock.picking.type</field>
+        <field name='inherit_id' ref='stock.view_picking_type_form'/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='origin']" position="after">
-                <field name="account_analytic_id"/>
+            <xpath expr="//field[@name='warehouse_id']" position="after">
+                <field name="analytic_type"/>
             </xpath>
         </field>
     </record>

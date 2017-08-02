@@ -32,6 +32,11 @@ msgstr "<strong>Fecha necesidad DTA</strong>"
 msgid "Needed date DTA"
 msgstr "Fecha necesidad DTA"
 
+#. module: purchase_order_report_default
+#: model:ir.model.fields,field_description:purchase_order_report_default.field_purchase_order_line_dta_reference
+msgid "DTA ref"
+msgstr "Ref. DTA"
+
 
 #. module: purchase_order_report_default
 #: model:ir.ui.view,arch_db:purchase_order_report_default.report_purchaseorder_default_document
@@ -153,7 +158,7 @@ msgstr "Solicitud de presupuesto #"
 #. module: purchase_order_report_default
 #: model:ir.model.fields,field_description:purchase_order_report_default.field_purchase_order_line_supplier_date_planned
 msgid "Supplier date planned"
-msgstr "Supplier date planned"
+msgstr "Fecha proveedor planificada"
 
 #. module: purchase_order_report_default
 #: model:ir.model.fields,field_description:purchase_order_report_default.field_purchase_order_line_supplier_product_code
