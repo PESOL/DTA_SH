@@ -20,6 +20,9 @@ class PurchaseOrderLine(models.Model):
         string='Supplier Deadline')
 
 
+    position = fields.Char(
+        string='Position')
+
     @api.multi
     def _compute_supplier_date_planned(self):
         for record in self:
