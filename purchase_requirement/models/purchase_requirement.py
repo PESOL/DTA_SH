@@ -99,7 +99,7 @@ class PurchaseRequirement(models.Model):
     @api.multi
     def generate_purchases(self):
         if self.filtered(
-            lambda r: not r.supplier_ids and self.state == 'in_process'
+            lambda r: not r.supplier_ids and self.state == 'reviwed'
         ):
             raise ValidationError(
                 _("You must indicate at least one supplier to validate"))
