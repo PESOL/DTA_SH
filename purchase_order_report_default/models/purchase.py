@@ -3,6 +3,13 @@
 from odoo import models, api, fields, _
 
 
+class ProductTemplate(models.Model):
+    _inherit = 'product.template'
+
+    supplier_code = fields.Char(
+        string='Supplier Code')
+
+
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 

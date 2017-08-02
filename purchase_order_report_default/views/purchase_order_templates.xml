@@ -189,7 +189,7 @@
                 <span t-field="order_line.name"/>
               </td>
               <td>
-                <span t-field="order_line.product_id.default_code"/>
+                <span t-field="order_line.product_id.supplier_code"/>
               </td>
               <td class="text-right">
                 <span t-field="order_line.price_unit"/>
