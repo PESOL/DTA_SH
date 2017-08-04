@@ -113,19 +113,21 @@ class AccountInvoiceLine(models.Model):
         invoice_layout_category_ids =  \
             invoice.account_invoice_category_ids.mapped('quote_category_id')
         if layout_category not in invoice_layout_category_ids:
-            data = {
-                'name': layout_category.name,
-                'subtotal': layout_category.subtotal,
-                'print_grouped': layout_category.print_grouped,
-                'sequence': layout_category.sequence,
-                'qty': layout_category.qty,
-                'pagebreak': layout_category.pagebreak,
-                'description': layout_category.description,
-                'quote_category_id': layout_category.id,
-            }
-            invoice.update({
-                'account_invoice_category_ids': [(0, 0, data)]
-            })
+            if layout_category:
+                data = {
+                    'name': layout_category.name,
+                    'subtotal': layout_category.subtotal,
+                    'print_grouped': layout_category.print_grouped,
+                    'sequence': layout_category.sequence,
+                    'qty': layout_category.qty,
+                    'pagebreak': layout_category.pagebreak,
+                    'description': layout_category.description,
+                    'quote_category_id': layout_category.id,
+                }
+                #TODO: data from sale order
+                invoice.update({
+                    'account_invoice_category_ids': [(0, 0, data)]
+                })
         return super(AccountInvoiceLine, self).create(vals)
 
     @api.constrains('invoice_line_tax_ids')
