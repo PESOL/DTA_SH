@@ -4,6 +4,8 @@ from odoo import models, api, fields
 from openerp.exceptions import ValidationError
 from itertools import groupby
 
+from datetime import datetime, timedelta
+
 
 class SaleLayoutCategory(models.Model):
     _inherit = 'sale.layout_category'
@@ -96,12 +98,89 @@ class SaleOrder(models.Model):
             })
         return report_pages
 
-    @api.onchange('template_id')
-    def onchange_template_id(self):
-        super(SaleOrder, self).onchange_template_id()
+    # @api.onchange('template_id')
+    # def onchange_template_id(self):
+    #     super(SaleOrder, self).onchange_template_id()
+    #     template = self.template_id.with_context(lang=self.partner_id.lang)
+    #     self.sale_layout_category_ids = []
+    #     section_obj = [(2, 0,)]
+    #     for layout_category in template.quote_layout_category_ids:
+    #         data = {
+    #             'name': layout_category.name,
+    #             'subtotal': layout_category.subtotal,
+    #             'print_grouped': layout_category.print_grouped,
+    #             'sequence': layout_category.sequence,
+    #             'qty': layout_category.qty,
+    #             'pagebreak': layout_category.pagebreak,
+    #             'description': layout_category.description,
+    #             'quote_category_id': layout_category.id,
+    #         }
+    #         section_obj.append((0, 0, data))
+    #     self.sale_layout_category_ids = section_obj
+
+    @api.multi
+    def update_template(self, template_id):
+        self.ensure_one()
+        if not template_id:
+            return
+        self.template_id = template_id
         template = self.template_id.with_context(lang=self.partner_id.lang)
-        self.sale_layout_category_ids = []
-        section_obj = [(2, 0,)]
+
+        order_lines = [(5, 0, 0)]
+        for line in template.quote_line:
+            if self.pricelist_id:
+                price = self.pricelist_id.with_context(
+                    uom=line.product_uom_id.id
+                ).get_product_price(line.product_id, 1, False)
+            else:
+                price = line.price_unit
+
+            data = {
+                'name': line.name,
+                'price_unit': price,
+                'discount': line.discount,
+                'product_uom_qty': line.product_uom_qty,
+                'product_id': line.product_id.id,
+                'layout_category_id': line.layout_category_id,
+                'product_uom': line.product_uom_id.id,
+                'website_description': line.website_description,
+                'state': 'draft',
+                'customer_lead': self._get_customer_lead(
+                    line.product_id.product_tmpl_id),
+            }
+            if self.pricelist_id:
+                data.update(self.env['sale.order.line']._get_purchase_price(
+                    self.pricelist_id, line.product_id, line.product_uom_id,
+                    fields.Date.context_today(self)))
+            order_lines.append((0, 0, data))
+
+        self.order_line = order_lines
+        self.order_line._compute_tax_id()
+
+        option_lines = [(5, 0, 0)]
+        for option in template.options:
+            if self.pricelist_id:
+                price = self.pricelist_id.with_context(
+                    uom=option.uom_id.id
+                ).get_product_price(option.product_id, 1, False)
+            else:
+                price = option.price_unit
+            data = {
+                'product_id': option.product_id.id,
+                'layout_category_id': option.layout_category_id,
+                'name': option.name,
+                'quantity': option.quantity,
+                'uom_id': option.uom_id.id,
+                'price_unit': price,
+                'discount': option.discount,
+                'website_description': option.website_description,
+            }
+            option_lines.append((0, 0, data))
+
+        self.options = option_lines
+
+        self.sale_layout_category_ids = [(5, 0, 0)]
+        section_lines = []
         for layout_category in template.quote_layout_category_ids:
             data = {
                 'name': layout_category.name,
@@ -113,8 +192,27 @@ class SaleOrder(models.Model):
                 'description': layout_category.description,
                 'quote_category_id': layout_category.id,
             }
-            section_obj.append((0, 0, data))
-        self.sale_layout_category_ids = section_obj
+            section_lines.append((0, 0, data))
+        self.sale_layout_category_ids = section_lines
+
+        if template.number_of_days > 0:
+            self.validity_date = fields.Date.to_string(
+                datetime.now() + timedelta(template.number_of_days))
+
+        self.website_description = template.website_description
+        self.require_payment = template.require_payment
+
+        if template.note:
+            self.note = template.note
+
+    @api.multi
+    def set_template(self):
+        action_name = 'set_sale_template_action'
+        ir_model_obj = self.env['ir.model.data']
+        model, action_id = ir_model_obj.get_object_reference(
+            'sale_layout_print_grouped', action_name)
+        [action] = self.env[model].browse(action_id).read()
+        return action
 
 
 class SaleOrderLine(models.Model):

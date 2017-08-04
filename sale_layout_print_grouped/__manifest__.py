@@ -23,6 +23,7 @@
         'views/sale_layout_template.xml',
         'views/sale_order_view.xml',
         'views/sale_layout_template_sections_view.xml',
-        'views/sale_order_layout_category_view.xml'
+        'views/sale_order_layout_category_view.xml',
+        'wizards/set_template_view.xml'
     ]
 }
