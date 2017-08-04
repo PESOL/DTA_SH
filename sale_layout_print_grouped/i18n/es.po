@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 10.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-09 08:49+0000\n"
-"PO-Revision-Date: 2017-05-09 08:49+0000\n"
+"POT-Creation-Date: 2017-08-04 06:35+0000\n"
+"PO-Revision-Date: 2017-08-04 06:35+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,75 +16,226 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "<strong>Comment:</strong>"
+msgstr "<strong>Comentarios:</strong>"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "<strong>Customer Code:</strong>"
+msgstr "<strong>Código de cliente:</strong>"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "<strong>Description:</strong>"
+msgstr "<strong>Descripción:</strong>"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "<strong>Due Date:</strong>"
+msgstr "<strong>Fecha de vencimiento:</strong>"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Fiscal Position Remark"
-msgstr "Posición Fiscal"
+msgid "<strong>Fiscal Position Remark:</strong>"
+msgstr "<strong>Posición fiscal:</strong>"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>Fecha factura:</strong>"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Payment Terms"
-msgstr "Términos de pago"
+msgid "<strong>Payment Terms:</strong>"
+msgstr "<strong>Términos de pago:</strong>"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "<strong>Reference:</strong>"
+msgstr "<strong>Referencia:</strong>"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Salesperson"
-msgstr "Comercial"
+msgid "<strong>Salesperson:</strong>"
+msgstr "<strong>Comercial:</strong>"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Shipping address"
-msgstr "Dirección de Envío"
+msgid "<strong>Shipping address:</strong>"
+msgstr "<strong>Dirección de Envío</strong>"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "<strong>Source:</strong>"
+msgstr "<strong>Fuente:</strong>"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Subtotal</strong>"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Subtotal"
-msgstr "Subtotal"
+msgid "<strong>Total Without Taxes</strong>"
+msgstr "<strong>Total base</strong>"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Total Without Taxes"
-msgstr "Total base"
+msgid "<strong>Your Reference:</strong>"
+msgstr "<strong>Su Referencia:</strong>"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_account_invoice_id
+msgid "Account Invoice"
+msgstr "Factura"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_pagebreak
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_pagebreak
+msgid "Add pagebreak"
+msgstr "Añadir salto de página"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_subtotal
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_subtotal
+msgid "Add subtotal"
+msgstr "Añadir subtotal"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "Amount"
+msgstr "Importe"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_set_sale_template_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "Cancelled Invoice"
+msgstr "Factura cancelada"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_create_uid
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_create_uid
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_set_sale_template_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_create_date
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_create_date
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_set_sale_template_create_date
+msgid "Created on"
+msgstr "Creado el"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Total"
-msgstr "Total"
-
-#. module: sale_layout_print_grouped
-#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Your Reference"
-msgstr "Su Referencia"
-
-#. module: sale_layout_print_grouped
-#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Date Ordered"
+msgid "Date Ordered:"
 msgstr "Fecha pedido"
 
 #. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_description
 #: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_layout_category_description
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_description
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_account_invoice_layout_category_form
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_sale_order_layout_category_form
 msgid "Description"
 msgstr "Descripción"
 
 #. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
 msgid "Disc.(%)"
 msgstr "Desc.(%)"
 
 #. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_display_name
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_display_name
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_set_sale_template_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "Draft Invoice"
+msgstr "Factura borrador"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_id
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_id
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_set_sale_template_id
+msgid "ID"
+msgstr "ID"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model,name:sale_layout_print_grouped.model_account_invoice
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model,name:sale_layout_print_grouped.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Linea de Factura"
+
+#. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Invoicing address"
+msgid "Invoicing address:"
 msgstr "Dirección de facturación"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Invoicing and shipping address"
+msgid "Invoicing and shipping address:"
 msgstr "Dirección de facturación y de envío"
 
 #. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category___last_update
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category___last_update
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_set_sale_template___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_write_uid
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_write_uid
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_set_sale_template_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_write_date
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_write_date
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_set_sale_template_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_name
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Order"
-msgstr "Pedido"
+msgid "Order #"
+msgstr "Pedido #"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "PRO-FORMA"
+msgstr "PRO-FORMA"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
@@ -92,24 +243,29 @@ msgid "Price"
 msgstr "Precio"
 
 #. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_print_grouped
 #: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_layout_category_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_print_grouped
 msgid "Print Grouped"
 msgstr "Impresión Agrupada"
 
 #. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_qty
 #: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_layout_category_qty
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_qty
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
 msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Quotation"
+msgid "Quotation #"
 msgstr "Presupuesto"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
-msgid "Quotation Date"
+msgid "Quotation Date:"
 msgstr "Fecha de presupuesto"
 
 #. module: sale_layout_print_grouped
@@ -118,7 +274,12 @@ msgid "Quote Line"
 msgstr "Linea Presupuesto"
 
 #. module: sale_layout_print_grouped
-#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_layout_category_sale_order_id
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "Refund"
+msgstr "Factura rectificativa"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_sale_order_id
 msgid "Sale Order"
 msgstr "Pedido de venta"
 
@@ -138,24 +299,75 @@ msgid "Sales Order Line"
 msgstr "Línea de pedido de venta"
 
 #. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_account_invoice_category_ids
 #: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_sale_layout_category_ids
 #: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_quote_template_quote_layout_category_ids
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_account_invoice_layout_category_form
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_account_invoice_layout_category_tree
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_sale_order_layout_category_form
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_sale_order_layout_category_tree
 msgid "Section"
 msgstr "Sección"
 
 #. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.invoice_template_form
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_sale_layout_quote_template_form
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_sale_order_form
 msgid "Sections"
 msgstr "Secciones"
 
 #. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_sequence
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_set_sale_template_form
+msgid "Set"
+msgstr "Guardar"
+
+#. module: sale_layout_print_grouped
+#: model:ir.actions.act_window,name:sale_layout_print_grouped.set_sale_template_action
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_sale_order_quote_form
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_set_sale_template_form
+msgid "Set Template"
+msgstr "Establecer plantilla"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "Source Document"
+msgstr "Documento origen"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "TIN:"
+msgstr "NIF:"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "Tax Excluded Price"
+msgstr "Libre de Impuestos"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
 msgid "Taxes"
 msgstr "Impuestos"
 
 #. module: sale_layout_print_grouped
-#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_layout_category_quote_category_id
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_set_sale_template_template_id
+msgid "Template"
+msgstr "Plantilla"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_account_invoice_layout_category_quote_category_id
+#: model:ir.model.fields,field_description:sale_layout_print_grouped.field_sale_order_layout_category_quote_category_id
 msgid "Template Section"
 msgstr "Sección de Plantilla"
 
@@ -165,14 +377,10 @@ msgid "Total Price"
 msgstr "Precio total"
 
 #. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
 msgid "Unit Price"
 msgstr "Precio unitario"
-
-#. module: sale_layout_print_grouped
-#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_sale_order_form
-msgid "Update Template"
-msgstr "Actualizar Plantilla"
 
 #. module: sale_layout_print_grouped
 #: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_saleorder_layout_grouped_document
@@ -180,12 +388,37 @@ msgid "VAT:"
 msgstr "CIF/NIF:"
 
 #. module: sale_layout_print_grouped
-#: code:addons/sale_layout_print_grouped/models/sale_layout.py:138
-#, python-format
-msgid "the tax should be the same for the section"
-msgstr "Los impuestos para una misma sección deben ser los mismos"
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "Vendor Bill"
+msgstr "Factura de proveedor"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.report_invoice_document_layout
+msgid "Vendor Refund"
+msgstr "Devolución a proveedor"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model,name:sale_layout_print_grouped.model_account_invoice_layout_category
+msgid "account.invoice.layout_category"
+msgstr "account.invoice.layout_category"
+
+#. module: sale_layout_print_grouped
+#: model:ir.ui.view,arch_db:sale_layout_print_grouped.view_set_sale_template_form
+msgid "or"
+msgstr "o"
 
 #. module: sale_layout_print_grouped
 #: model:ir.model,name:sale_layout_print_grouped.model_sale_layout_category
 msgid "sale.layout_category"
 msgstr "sale.layout_category"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model,name:sale_layout_print_grouped.model_sale_order_layout_category
+msgid "sale.order.layout_category"
+msgstr "sale.order.layout_category"
+
+#. module: sale_layout_print_grouped
+#: model:ir.model,name:sale_layout_print_grouped.model_set_sale_template
+msgid "set.sale.template"
+msgstr "set.sale.template"
+
