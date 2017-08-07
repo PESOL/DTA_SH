@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- wiki Form view  -->
+    <record id="view_project_document_page_form" model="ir.ui.view">
+        <field name="name">project.document.page.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Documentation" >
+                <group>
+                    <field name="document_page_id"/>                    
+                </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="my_project_documentation" name="Project Documentation" inherit_id="website_project.my_project">
+        <xpath expr="//div[@class='pull-right']" position="inside">
+            <t t-if="project.document_page_id">
+
+                <a t-attf-href="/document_page/#{project.document_page_id.code}" class="btn btn-default btn-lg">
+                    <span class="fa fa-documentation" />
+                    Documentation
+                </a>
+            </t>
+        </xpath>
+    </template>
+    <template id="my_projects_documentation" name="Projects Documentation" inherit_id="website_project.my_projects">
+        <xpath expr="//tr[@class='active']" position="inside">
+            <th></th>
+        </xpath>
+        <xpath expr="//tr[@t-foreach='projects']" position="inside">
+            <td>
+                <a t-attf-href="/document_page/#{project.document_page_id.code}">
+                    Documentation
+                </a>
+            </td>
+        </xpath>
+    </template>
+</odoo>

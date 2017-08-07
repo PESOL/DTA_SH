@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="document_page_template" name="Document Page">
+    <t t-call="website.layout">
+        <div id="wrap">
+            <section class="container"> 
+                <h1>
+                    <span t-field="document_page.name" />
+                </h1>
+                <span t-raw="document_page.display_content" />
+            </section>
+        </div>
+    </t>
+</template>
+
+
+</odoo>
