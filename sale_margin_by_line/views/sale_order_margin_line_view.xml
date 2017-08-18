@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_sale_order_margin_line_form" model="ir.ui.view">
-        <field name="name">view.sale.order.margin.line.form</field>
-        <field name="model">sale.order</field>
-        <field name='inherit_id' ref='sale.view_order_form'/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
-                <field name="margin_percent" />
-            </xpath>
-        </field>
-    </record>
+  <record model="ir.ui.view" id="sale_margin_sale_order_line_form_hide">
+    <field name="name">sale.order.line.tree.margin.view.form.hide</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_line']/tree//field[@name='purchase_price']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+    </field>
+  </record>
+  <record id="view_sale_order_margin_line_form" model="ir.ui.view">
+    <field name="name">view.sale.order.margin.line.form</field>
+    <field name="model">sale.order</field>
+    <field name='inherit_id' ref='sale.view_order_form'/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="before">
+        <field name="purchase_price_new" />
+        <field name="margin_percent"/>
+      </xpath>
+    </field>
+  </record>
+
+
+  <!-- <record model="ir.ui.view" id="sale_margin_sale_order_line_form_new">
+    <field name="name">sale.order.line.tree.margin.view.form.new</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_line']/tree//field[@name='qty_invoiced']" position="after">
+
+      </xpath>
+    </field>
+  </record> -->
 </odoo>

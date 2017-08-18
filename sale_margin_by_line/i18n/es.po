@@ -21,6 +21,11 @@ msgid "Margin %"
 msgstr "Margen %"
 
 #. module: sale_margin_by_line
+#: model:ir.model.fields,field_description:sale_margin_by_line.field_sale_order_line_purchase_price_new
+msgid "Cost"
+msgstr "Coste"
+
+#. module: sale_margin_by_line
 #: model:ir.model,name:sale_margin_by_line.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Línea de pedido de venta"
