@@ -149,8 +149,9 @@ msgstr "Producto"
 msgid "Product Qty"
 msgstr "Cantidad Producto"
 
-#. module: purchase_requirement
-#: model:ir.model,name:purchase_requirement.model_project_project
+#. module: purchase_requirement_project
+#: model:ir.model,name:purchase_requirement_project.field_purchase_requirement_project_project_id
+#: model:ir.ui.view,arch_db:purchase_requirement_project.view_purchase_requirement_project_form
 msgid "Project"
 msgstr "Proyecto"
 
@@ -236,6 +237,31 @@ msgid "You must indicate at least one supplier to validate"
 msgstr "Debes indicar al menos un proveedor para poder validar"
 
 #. module: purchase_requirement
+#: code:addons/purchase_requirement/models/purchase_requirement.py:90
+#: code:addons/purchase_requirement/models/purchase_requirement.py:98
+#, python-format
+msgid "The product quantity must be higher than 0"
+msgstr "La cantidad del producto debe ser superior a 0"
+
+#. module: purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_search
+#: selection:purchase.requirement,state:0
+msgid "In Process"
+msgstr "En Proceso"
+
+#. module: purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_search
+#: selection:purchase.requirement,state:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: purchase_requirement
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_search
+#: selection:purchase.requirement,state:0
+msgid "Reviwed"
+msgstr "En compras"
+
+#. module: purchase_requirement
 #: model:ir.model,name:purchase_requirement.model_purchase_requirement
 msgid "purchase.requirement"
 msgstr "purchase.requirement"
@@ -249,4 +275,3 @@ msgstr "purchase.requirement.set.ok"
 #: model:ir.model,name:purchase_requirement.model_purchase_requirement_wizard
 msgid "purchase.requirement.wizard"
 msgstr "purchase.requirement.wizard"
-

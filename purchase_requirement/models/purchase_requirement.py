@@ -6,6 +6,7 @@ from odoo.exceptions import ValidationError
 
 class PurchaseRequirement(models.Model):
     _name = 'purchase.requirement'
+    _order = 'create_date desc'
 
     name = fields.Char(
         string='Description',
@@ -42,6 +43,7 @@ class PurchaseRequirement(models.Model):
     product_qty = fields.Float(
         string='Product Qty',
         readonly=True,
+        default=1.0,
         states={'pending': [('readonly', False)],
                 'reviwed': [('readonly', False)]})
 
@@ -80,6 +82,22 @@ class PurchaseRequirement(models.Model):
     def set_done(self):
         self.filtered(
             lambda r: r.state == 'in_process').write({'state': 'done'})
+
+    @api.model
+    def create(self, vals):
+        if vals.get('product_qty') <= 0:
+            raise ValidationError(
+                _("The product quantity must be higher than 0"))
+        else:
+            return super(PurchaseRequirement, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        if vals.get('product_qty') <= 0:
+            raise ValidationError(
+                _("The product quantity must be higher than 0"))
+        else:
+            return super(PurchaseRequirement, self).write(vals)
 
     @api.multi
     def get_purchase_order_line_values(self):
