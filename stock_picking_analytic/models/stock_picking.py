@@ -23,14 +23,17 @@ class StockPicking(models.Model):
             elif self.picking_type_id.analytic_type == 'in':
                 amount = (line.product_id.lst_price *
                           line.product_uom_qty)
-            analytic_line_obj.create({
-                'name': line.product_id.name,
-                'amount': amount,
-                'unit_amount': line.product_uom_qty,
-                'product_id': line.product_id.id,
-                'product_uom_id': line.product_uom.id,
-                'account_id': line.account_analytic_id.id
-            })
+            else:
+                amount = False
+            if amount:
+                analytic_line_obj.create({
+                    'name': line.product_id.name,
+                    'amount': amount,
+                    'unit_amount': line.product_uom_qty,
+                    'product_id': line.product_id.id,
+                    'product_uom_id': line.product_uom.id,
+                    'account_id': line.account_analytic_id.id
+                })
         for line in self.move_lines:
             line.quant_ids.update({
                 'account_analytic_id': line.account_analytic_id.id

@@ -104,7 +104,7 @@ class PurchaseRequirement(models.Model):
         self.ensure_one()
         return {
             'product_id': self.product_id.id,
-            'name': self.name,
+            'name': self.product_id.name,
             'date_planned': self.required_date,
             'required_date': self.required_date,
             'product_qty': self.product_qty,
@@ -117,7 +117,7 @@ class PurchaseRequirement(models.Model):
     @api.multi
     def generate_purchases(self):
         if self.filtered(
-            lambda r: not r.supplier_ids and self.state == 'in_process'
+            lambda r: not r.supplier_ids and self.state == 'reviwed'
         ):
             raise ValidationError(
                 _("You must indicate at least one supplier to validate"))

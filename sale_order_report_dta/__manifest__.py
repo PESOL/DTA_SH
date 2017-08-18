@@ -13,7 +13,8 @@ This module allows add new sale order templates.
         'sale',
         'sale_layout_print_grouped',
         'sale_invoicing_method',
-        'account_payment_partner'
+        'account_payment_partner',
+        'sale_order_type'
     ],
     'data': [
         'views/report_saleorder.xml',

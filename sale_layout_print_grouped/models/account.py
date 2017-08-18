@@ -103,6 +103,33 @@ class AccountInvoice(models.Model):
 class AccountInvoiceLine(models.Model):
     _inherit = 'account.invoice.line'
 
+    @api.model
+    def create(self, vals):
+        invoice_id = vals.get('invoice_id')
+        invoice = self.env['account.invoice'].browse(invoice_id)
+        layout_category_id = vals.get('layout_category_id')
+        layout_category = self.env['sale.layout_category'].browse(
+            layout_category_id)
+        invoice_layout_category_ids =  \
+            invoice.account_invoice_category_ids.mapped('quote_category_id')
+        if layout_category not in invoice_layout_category_ids:
+            if layout_category:
+                data = {
+                    'name': layout_category.name,
+                    'subtotal': layout_category.subtotal,
+                    'print_grouped': layout_category.print_grouped,
+                    'sequence': layout_category.sequence,
+                    'qty': layout_category.qty,
+                    'pagebreak': layout_category.pagebreak,
+                    'description': layout_category.description,
+                    'quote_category_id': layout_category.id,
+                }
+                #TODO: data from sale order
+                invoice.update({
+                    'account_invoice_category_ids': [(0, 0, data)]
+                })
+        return super(AccountInvoiceLine, self).create(vals)
+
     @api.constrains('invoice_line_tax_ids')
     def _check_tax(self):
         lines = self.search([
