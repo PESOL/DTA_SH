@@ -301,39 +301,99 @@
               </table>
             </div>
           </div>
-
-          <p t-if="doc.comment">
-            <strong>Comment:</strong>
-            <span t-field="doc.comment"/>
-          </p>
-          <p t-if="doc.payment_term_id.note">
-            <strong>Payment Term:</strong>
-            <span t-field="doc.payment_term_id.note"/>
-          </p>
-          <div class="row" t-if="doc.move_id">
-            <div class="col-xs-6">
-              <table class="table table-condensed">
-                <thead>
-                  <tr>
-                    <th>Date due</th>
-                    <th class="text-right">Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr t-foreach="[ x for x in doc.move_id.line_id if x.debit > 0 ]" t-as="v">
-                    <td><span t-field="v.date_maturity"/></td>
-                    <td class="text-right">
-                      <span t-field="v.debit" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;doc.currency_id&quot;}"/>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        </div>
+        <div class="row" style="margin-top:30px;">
+          <div class="col-xs-12">
+            <t t-if="doc.journal_id.code == 'F-VE'">
+              <p id="limit_date" t-if="doc.limit_date">
+                <strong>Limit Date:</strong>
+                <span t-field="doc.limit_date"/>
+              </p>
+              <p id="incoterm" t-if="doc.incoterm">
+                <strong>Incoterm:</strong>
+                <span t-field="doc.incoterm"/>
+              </p>
+              <p style="font-weight:bold;">Payment conditions:</p>
+              <p id="invoicing_method_id" t-if="doc.invoicing_method_id">
+                <!-- <strong>Invoicing Method:</strong> -->
+                <span t-field="doc.invoicing_method_id.name"/>
+              </p>
+              <p id="payment_mode_id" t-if="doc.payment_mode_id and doc.payment_term_id">
+                <!-- <strong>Payment Mode:</strong> -->
+                <span t-field="doc.payment_mode_id.name"/>--
+                <span t-field="doc.payment_term_id.name"/>
+              </p>
+              <!-- <p id="payment_term_id" t-if="doc.payment_term_id">
+                <strong>Payment Term:</strong>
+              </p> -->
+              <p>
+                <span t-esc="doc.note"/></p>
+              <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.note">
+                <strong>Fiscal Position Remark:</strong>
+                <span t-field="doc.fiscal_position_id.note"/>
+              </p>
+            </t>
+            <t t-if="doc.journal_id.code == 'F-RP'">
+              <!-- <t t-foreach="doc.order_lines_layout()" t-as="page">
+                <t t-foreach="page" t-as="layout_category">
+                  <t t-if="layout_category['print_grouped']">
+                    <p id="limit_date" t-if="doc.limit_date">
+                      <strong>Limit Date:</strong>
+                      <span t-field="doc.limit_date"/>
+                    </p>
+                  </t>
+                </t>
+              </t> -->
+              <p id="incoterm" t-if="doc.incoterm">
+                <strong>Incoterm:</strong>
+                <span t-field="doc.incoterm"/>
+              </p>
+              <p style="font-weight:bold;">Payment conditions:</p>
+              <p id="invoicing_method_id" t-if="doc.invoicing_method_id">
+                <!-- <strong>Invoicing Method:</strong> -->
+                <span t-field="doc.invoicing_method_id.name"/>
+              </p>
+              <p id="payment_mode_id" t-if="doc.payment_mode_id and doc.payment_term_id">
+                <!-- <strong>Payment Mode:</strong> -->
+                <span t-field="doc.payment_mode_id.name"/>--
+                <span t-field="doc.payment_term_id.name"/>
+              </p>
+              <p>
+                <span t-esc="doc.note"/></p>
+              <!-- <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.note">
+                <strong>Fiscal Position Remark:</strong>
+                <span t-field="doc.fiscal_position_id.note"/>
+              </p> -->
+            </t>
+            <t t-if="doc.journal_id.code == 'F-RR'">
+              <p id="limit_date" t-if="doc.limit_date">
+                <strong>Limit Date:</strong>
+                <span t-field="doc.limit_date"/>
+              </p>
+              <p id="payment_term_id" t-if="doc.payment_term_id">
+                <strong>Payment Term:</strong>
+                <span t-field="doc.payment_term_id.name"/>
+              </p>
+              <p id="incoterm" t-if="doc.incoterm">
+                <strong>Incoterm:</strong>
+                <span t-field="doc.incoterm"/>
+              </p>
+              <p id="invoicing_method_id" t-if="doc.invoicing_method_id">
+                <strong>Invoicing Method:</strong>
+                <span t-field="doc.invoicing_method_id.name"/>
+              </p>
+              <p id="payment_mode_id" t-if="doc.payment_mode_id">
+                <strong>Payment Mode:</strong>
+                <span t-field="doc.payment_mode_id.name"/>
+              </p>
+              <p>
+                <span t-esc="doc.note"/></p>
+              <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.note">
+                <strong>Fiscal Position Remark:</strong>
+                <span t-field="doc.fiscal_position_id.note"/>
+              </p>
+            </t>
           </div>
-          <p t-if="doc.fiscal_position_id.note">
-            <strong>Fiscal Position Remark:</strong>
-            <span t-field="doc.fiscal_position_id.note"/>
-          </p>
         </div>
       </t>
     </template>
