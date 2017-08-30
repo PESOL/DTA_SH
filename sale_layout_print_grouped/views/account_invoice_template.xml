@@ -221,7 +221,7 @@
         </t>
     </template>
 
-    <template id="report_invoice_layout" inherit_id="account.report_invoice">
+    <!--template id="report_invoice_layout" inherit_id="account.report_invoice">
         <t t-call="report.html_container" position="replace">
             <t t-call="report.html_container">
                 <t t-foreach="docs" t-as="o">
@@ -229,6 +229,6 @@
                 </t>
             </t>
         </t>
-    </template>
+    </template-->
 
 </odoo>

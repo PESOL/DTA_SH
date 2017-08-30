@@ -18,8 +18,8 @@
 
 {
     'name': "Account Ivoice Report Default",
-    'version': "1.0",
-    'author': "Domatix",
+    'version': "10.0.1.0.0",
+    'author': "PESOL",
     'category': 'Custom Reporting',
     'description': """
 This module allows set the invoice template.
@@ -27,7 +27,8 @@ This module allows set the invoice template.
     'license': "GPL-3",
     'depends': [
         'account',
-        'base_layout_report_dta'
+        'base_layout_report_dta',
+        'sale_layout_print_grouped'
     ],
     'data': [
         'views/report_invoice.xml',

@@ -186,12 +186,12 @@
     </template>
 
     <template id="report_saleorder_layout_grouped" inherit_id="sale.report_saleorder">
-        <t t-call="report.html_container" position="replace">
-            <t t-call="report.html_container">
+        <t t-call="report.html_container" position="after">
+            <!--t t-call="report.html_container">
                 <t t-foreach="docs" t-as="doc">
                     <t t-call="sale_layout_print_grouped.report_saleorder_layout_grouped_document" t-lang="doc.partner_id.lang"/>
                 </t>
-            </t>
+            </t-->
         </t>
     </template>
 
