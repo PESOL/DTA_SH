@@ -44,6 +44,7 @@ class PurchaseRequirement(models.Model):
         string='Product Qty',
         readonly=True,
         default=1.0,
+        required=True,
         states={'pending': [('readonly', False)],
                 'reviwed': [('readonly', False)]})
 
