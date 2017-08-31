@@ -47,7 +47,7 @@
               <tr>
                 <td>
                   <span style="margin-right:5px;">Customer inquiry:</span>
-                  <span t-field="doc.partner_id.ref"/>
+                  <span t-field="doc.client_order_ref"/>
                 </td>
                 <td class="text-left"></td>
                 <td>
@@ -64,8 +64,8 @@
                 <td></td>
                 <td>
                   <!-- <span>Address:</span> -->
-                  <span t-field="doc.partner_id.zip"/>,
-                  <span t-field="doc.partner_id.city"/>,
+                  <t t-if="doc.partner_id.zip"><span t-field="doc.partner_id.zip"/>,</t>
+                  <t t-if="doc.partner_id.city"><span t-field="doc.partner_id.city"/>,</t>
                   <span t-field="doc.partner_id.country_id"/>
                 </td>
                 <td></td>
@@ -87,7 +87,7 @@
                 <td></td>
                 <td>
                   <span style="margin-right:5px;">Client Code:</span>
-                  <span t-field="doc.partner_id.ref"/>
+                  <span t-field="doc.partner_id.partner_customer_code"/>
                 </td>
                 <td></td>
               </tr>
@@ -269,7 +269,7 @@
                       <t t-if="doc.report_type == 'vehicle'">
                         <tr>
                           <td><span t-field="l.position"/></td>
-                          <td><span t-field="l.name"/></td>
+                          <td><span t-field="l.product_id.name"/></td>
                           <td class="text-right">
                             <span t-field="l.product_uom_qty"/>
                           </td>
@@ -293,10 +293,10 @@
                       <t t-if="doc.report_type == 'refill'">
                         <tr>
                           <td><span t-field="l.position"/></td>
-                          <td><span t-field="l.product_id.barcode"/></td>
-                          <td><span t-field="l.name"/></td>
+                          <td><span t-field="l.product_id.default_code"/></td>
+                          <td><span t-field="l.product_id.name"/></td>
                           <td class="text-right">
-                            <span t-field="l.product_uom_qty"/>
+                            <span t-field="l.product_uom_qty" t-options='{"display_currency": doc.pricelist_id.currency_id}'/>
                           </td>
                           <td class="text-right">
                             <span t-field="l.price_unit"/>
@@ -319,7 +319,7 @@
                       <t t-if="doc.report_type == 'represented'">
                         <tr>
                           <td><span t-field="l.position"/></td>
-                          <td><span t-field="l.name"/></td>
+                          <td><span t-field="l.product_id.name"/></td>
                           <td class="text-right">
                             <span t-field="l.product_uom_qty"/>
                           </td>
