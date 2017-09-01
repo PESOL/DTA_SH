@@ -32,7 +32,7 @@ msgstr "<br/>\n"
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 msgid "<span style=\"margin-right:5px;\">Client Code:</span>"
-msgstr "<span style=\"margin-right:5px;\">Cod. Cliente:</span>"
+msgstr "<span style=\"margin-right:5px;\">Cód. Cliente:</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
