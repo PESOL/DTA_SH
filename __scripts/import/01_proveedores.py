@@ -77,6 +77,8 @@ def import_partner(doc):
     partner_obj = client.model('res.partner')
     state_obj = client.model('res.country.state')
     currency_obj = client.model('res.currency')
+    i = 0
+    count = 0
     for row in doc:
         i += 1
         count += 1
@@ -125,6 +127,8 @@ def import_partner(doc):
         # TODO Nacional/Extranjero	Régimen IVA
         # ref = get(row, 'p')
         data = {
+            'supplier': True,
+            'customer': False,
             'ref': ref,
             'name': name,
             'street': street,
@@ -133,9 +137,6 @@ def import_partner(doc):
             'zip': zip,
             'phone': phone,
             'fax': fax,
-            'country_name': country_name,
-            'payment_mode': payment_mode,
-            'payment_mode_desc': payment_mode_desc,
         }
         try:
             partner = partner_obj.create(data)
