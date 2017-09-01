@@ -102,7 +102,7 @@ def import_partner(doc):
         if not supplier_id:
             supplier = partner_obj.search(
                 [('supplier', '=', True), ('ref', '=', supplier_code)])
-            supplier_id = supplier and supplier.id
+            supplier_id = supplier and supplier[0]
             supplier_dict.update({supplier_code: supplier_id})
         # Códig Familia
         # Nombre Familia
