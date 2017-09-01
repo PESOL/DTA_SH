@@ -77,6 +77,7 @@ def import_partner(doc):
     partner_obj = client.model('res.partner')
     state_obj = client.model('res.country.state')
     currency_obj = client.model('res.currency')
+    country_obj = client.model('res.country')
     i = 0
     count = 0
     for row in doc:
@@ -106,8 +107,10 @@ def import_partner(doc):
         # Fax
         fax = get(row, 'i')
         # Pais
-        country_name = get(row, 'j')
-        # TODO codigo iso
+        country_code = get(row, 'j')
+        country_ids = country_obj.search(
+            [('code', '=', country_code)])
+        country_id = country_ids and country_ids[0] or False
         # Forma de pago
         payment_mode = get(row, 'k')
         # TODO
@@ -127,8 +130,8 @@ def import_partner(doc):
         # TODO Nacional/Extranjero	Régimen IVA
         # ref = get(row, 'p')
         data = {
-            'supplier': True,
-            'customer': False,
+            'supplier': False,
+            'customer': True,
             'ref': ref,
             'name': name,
             'street': street,
@@ -159,6 +162,6 @@ def import_partner(doc):
 
 
 if confirm('Import Partner'):
-    with open('01_proveedores.csv', 'r') as f:
+    with open('02_clientes.csv', 'r') as f:
         doc = csv.reader(f, delimiter=CSV_DELIMITER, quotechar=CSV_QUOTECHAR)
         import_partner(doc)
