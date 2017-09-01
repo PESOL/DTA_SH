@@ -12,7 +12,7 @@ class PurchaseOrder(models.Model):
         try:
             if self.env.context.get('send_rfq', False):
                 template = template_obj.search(
-                    [('name', '=', 'DTA - Pedido de compra')])
+                    [('name', '=', 'DTA - Solicitud de presupuesto')])
             else:
                 template = template_obj.search(
                     [('name', '=', 'DTA - Pedido de compra')])
