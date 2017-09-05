@@ -383,7 +383,7 @@
           </div>
           <div class="row" style="margin-top:30px;">
             <div class="col-xs-12">
-              <t t-if="doc.report_type == 'vehicle'">
+              <t t-if="doc.type_id.report_type == 'vehicle'">
                 <p id="limit_date" t-if="doc.limit_date">
                   <strong>Limit Date:</strong>
                   <span t-field="doc.limit_date"/>
@@ -412,7 +412,7 @@
                   <span t-field="doc.fiscal_position_id.note"/>
                 </p>
               </t>
-              <t t-if="doc.report_type == 'refill'">
+              <t t-if="doc.type_id.report_type == 'refill'">
                 <!-- <t t-foreach="doc.order_lines_layout()" t-as="page">
                   <t t-foreach="page" t-as="layout_category">
                     <t t-if="layout_category['print_grouped']">
@@ -444,7 +444,7 @@
                   <span t-field="doc.fiscal_position_id.note"/>
                 </p> -->
               </t>
-              <t t-if="doc.report_type == 'represented'">
+              <t t-if="doc.type_id.report_type == 'represented'">
                 <p id="limit_date" t-if="doc.limit_date">
                   <strong>Limit Date:</strong>
                   <span t-field="doc.limit_date"/>
