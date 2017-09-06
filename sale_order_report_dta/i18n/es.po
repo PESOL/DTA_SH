@@ -204,8 +204,8 @@ msgstr "Línea de pedido de venta"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-msgid "Taxes"
-msgstr "Impuestos(21%)"
+msgid "<span>Taxes</span>"
+msgstr "<span>Impuestos(21%)</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document

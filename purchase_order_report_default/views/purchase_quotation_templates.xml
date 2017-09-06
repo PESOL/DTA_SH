@@ -65,8 +65,8 @@
               <tr>
                 <td>
                   <!-- <span style="margin-right:5px;">Address:</span> -->
-                  <span t-field="doc.partner_id.zip"/>,
-                  <span t-field="doc.partner_id.city"/>,
+                  <t t-if="doc.partner_id.zip"><span t-field="doc.partner_id.zip"/>,</t>
+                  <t t-if="doc.partner_id.city"><span t-field="doc.partner_id.city"/>,</t>
                   <span t-field="doc.partner_id.country_id"/>
                 </td>
                 <td></td>
@@ -85,7 +85,7 @@
               <tr>
                 <td>
                   <span style="margin-right:5px;">Supplier Code:</span>
-                  <span t-field="doc.partner_ref"/>
+                  <span t-field="doc.partner_id.ref"/>
                 </td>
                 <td></td>
                 <td></td>
@@ -93,8 +93,8 @@
               </tr>
               <tr>
                 <td>
-                  <span style="margin-right:5px;">Att:</span>
-                  <span t-field="user.name"/>
+                  <!-- <span style="margin-right:5px;">Att:</span>
+                  <span t-field="user.name"/> -->
                 </td>
                 <td></td>
                 <td></td>
