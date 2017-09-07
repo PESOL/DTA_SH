@@ -22,7 +22,16 @@
                     <span t-esc="doc.number" style="font-size:20px; font-weight: bold;"/>
                   </t>
                   <t t-if="not doc.number">
-                    <span style="font-size:20px; font-weight: bold;">Draft Invoice</span>
+                    <span style="font-size:20px; font-weight: bold;">
+                    <span t-if="doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'paid')">Invoice</span>
+                    <span t-if="doc.type == 'out_invoice' and doc.state == 'proforma2'">PRO-FORMA</span>
+                    <span t-if="doc.type == 'out_invoice' and doc.state == 'draft'">Draft Invoice</span>
+                    <span t-if="doc.type == 'out_invoice' and doc.state == 'cancel'">Cancelled Invoice</span>
+                    <span t-if="doc.type == 'out_refund'">Refund</span>
+                    <span t-if="doc.type == 'in_refund'">Supplier Refund</span>
+                    <span t-if="doc.type == 'in_invoice'">Supplier Invoice</span>
+                    <span t-field="doc.number"/>
+                    </span>
                   </t>
                 </td>
                 <td></td>
@@ -43,8 +52,7 @@
                 <td></td>
               </tr>
               <tr>
-                <td>
-                  <span style="margin-right:10px;">Supplier code:</span>
+                <td><span style="margin-right:10px;">Suppli code:</span>
                   <t t-if="doc.suppl_code">
                     <span t-field="doc.suppl_code"/>
                   </t>

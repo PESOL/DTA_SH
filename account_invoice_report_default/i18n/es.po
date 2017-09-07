@@ -27,7 +27,7 @@ msgstr "<span style=\"margin-right:10px;\">Cód. cliente:</span>"
 
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
-msgid "<span style=\"margin-right:10px;\">Supplier code:</span>"
+msgid "<span style=\"margin-right:10px;\">Suppli code:</span>"
 msgstr "<span style=\"margin-right:10px;\">Cód. proveedor:</span>"
 
 #. module: account_invoice_report_default
@@ -61,8 +61,8 @@ msgstr "<span>Dirección:</span>"
 
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
-msgid "<span>Your Reference:</span>"
-msgstr "<span>S/Ref:</span>"
+msgid "<span style=\"margin-right:10px;\">Your Reference:</span>"
+msgstr "<span style=\"margin-right:10px;\">S/Ref:</span>"
 
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
