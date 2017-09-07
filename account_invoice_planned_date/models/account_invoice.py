@@ -9,3 +9,9 @@ class AccountInvoice(models.Model):
     planned_date = fields.Date(
         string='Planned Date',
         required=False)
+
+    your_reference = fields.Char(
+        string='Your Reference')
+
+    suppl_code = fields.Char(
+        string='Supplier code')

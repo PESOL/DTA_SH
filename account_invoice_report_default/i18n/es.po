@@ -28,7 +28,7 @@ msgstr "<span style=\"margin-right:10px;\">Cód. cliente:</span>"
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
 msgid "<span style=\"margin-right:10px;\">Supplier code:</span>"
-msgstr "<span style=\"margin-right:10px;\">Código proveedor:</span>"
+msgstr "<span style=\"margin-right:10px;\">Cód. proveedor:</span>"
 
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
@@ -51,10 +51,8 @@ msgstr "<span>Factura:\n"
 
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
-msgid "<span>Project:\n"
-"                        </span>"
-msgstr "<span>Proyecto:\n"
-"                        </span>"
+msgid "<span style=\"font-weight:bold; font-size:18px;\">Project:</span>"
+msgstr "<span style=\"font-weight:bold; font-size:18px;\">Proyecto:</span>"
 
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
@@ -198,10 +196,15 @@ msgstr "Libre de Impuestos"
 
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
-msgid "Taxes"
-msgstr "Impuestos(21%)"
+msgid "<span>Taxes</span>"
+msgstr "<span>Impuestos</span>"
 
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
 msgid "Price/unit"
 msgstr "Precio/ud(EUR)"
+
+#. module: account_invoice_report_default
+#: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
+msgid "<span style=\"margin-right:5px;\">Bank:</span>"
+msgstr "<span style=\"margin-right:5px;\">Banco:</span>"
