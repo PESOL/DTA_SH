@@ -32,6 +32,9 @@ class SaleOrder(models.Model):
         string='Report Type',
         compute='_compute_report_type')
 
+    att = fields.Char(
+        string='Att')
+
     @api.multi
     @api.depends('type_id')
     def _compute_report_type(self):

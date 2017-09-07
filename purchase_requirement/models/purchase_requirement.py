@@ -76,8 +76,9 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def set_reviewd(self):
-        self.filtered(
-            lambda r: r.state == 'pending').write({'state': 'reviwed'})
+        if self.product_qty > 0:
+            self.filtered(
+                lambda r: r.state == 'pending').write({'state': 'reviwed'})
 
     @api.multi
     def set_done(self):
@@ -86,19 +87,19 @@ class PurchaseRequirement(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('product_qty') <= 0:
+        if vals.get('product_qty', 0) > 0:
+            return super(PurchaseRequirement, self).create(vals)
+        else:
             raise ValidationError(
                 _("The product quantity must be higher than 0"))
-        else:
-            return super(PurchaseRequirement, self).create(vals)
 
     @api.multi
     def write(self, vals):
-        if vals.get('product_qty') <= 0:
+        if vals.get('product_qty', 1) > 0:
+            return super(PurchaseRequirement, self).write(vals)
+        else:
             raise ValidationError(
                 _("The product quantity must be higher than 0"))
-        else:
-            return super(PurchaseRequirement, self).write(vals)
 
     @api.multi
     def get_purchase_order_line_values(self):

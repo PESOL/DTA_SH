@@ -87,7 +87,7 @@
                 <td></td>
                 <td>
                   <span style="margin-right:5px;">Client Code:</span>
-                  <span t-field="doc.partner_id.partner_customer_code"/>
+                  <span t-field="doc.partner_id.ref"/>
                 </td>
                 <td></td>
               </tr>
@@ -103,7 +103,7 @@
                 <td></td>
                 <td>
                   <span style="margin-right:5px;">Att:</span>
-                  <span t-field="doc.user_id"/>
+                  <span t-field="doc.att"/>
                 </td>
                 <td></td>
               </tr>
@@ -365,11 +365,14 @@
                 <t t-foreach="doc._get_tax_amount_by_group()" t-as="amount_by_group">
                   <tr>
                     <td>
-                      <t t-if="amount_by_group[0]">
-                        <span t-esc="amount_by_group[0]"/>
+                      <!-- <t t-if="amount_by_group[0]">
+                        <span t-esc="amount_by_group[0]" />
                       </t>
                       <t t-if="not amount_by_group[0]">
-                        Taxes
+                        <strong>Taxes</strong>
+                      </t> -->
+                      <t t-if="amount_by_group[0]">
+                        <span>Taxes</span>
                       </t>
                     </td>
                     <td class="text-right">

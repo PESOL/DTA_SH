@@ -17,7 +17,7 @@
 ##############################################################################
 
 {
-    'name': "Account Ivoice Report Default",
+    'name': "Account Invoice Report Default",
     'version': "10.0.1.0.0",
     'author': "PESOL",
     'category': 'Custom Reporting',

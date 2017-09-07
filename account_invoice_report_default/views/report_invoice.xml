@@ -18,7 +18,21 @@
               <tr>
                 <td>
                   <span style="font-size:20px; font-weight: bold; margin-right:10px;">Your PO:</span>
-                  <span t-esc="doc.number" style="font-size:20px; font-weight: bold;"/>
+                  <t t-if="doc.number">
+                    <span t-esc="doc.number" style="font-size:20px; font-weight: bold;"/>
+                  </t>
+                  <t t-if="not doc.number">
+                    <span style="font-size:20px; font-weight: bold;">
+                    <span t-if="doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'paid')">Invoice</span>
+                    <span t-if="doc.type == 'out_invoice' and doc.state == 'proforma2'">PRO-FORMA</span>
+                    <span t-if="doc.type == 'out_invoice' and doc.state == 'draft'">Draft Invoice</span>
+                    <span t-if="doc.type == 'out_invoice' and doc.state == 'cancel'">Cancelled Invoice</span>
+                    <span t-if="doc.type == 'out_refund'">Refund</span>
+                    <span t-if="doc.type == 'in_refund'">Supplier Refund</span>
+                    <span t-if="doc.type == 'in_invoice'">Supplier Invoice</span>
+                    <span t-field="doc.number"/>
+                    </span>
+                  </t>
                 </td>
                 <td></td>
                 <td>
@@ -28,7 +42,8 @@
               </tr>
               <tr>
                 <td>
-                  <span>Your Reference:</span>
+                  <span style="margin-right:10px;">Your Reference:</span>
+                  <span t-field="doc.your_reference"/>
                 </td>
                 <td></td>
                 <td>
@@ -37,9 +52,10 @@
                 <td></td>
               </tr>
               <tr>
-                <td>
-                  <span style="margin-right:10px;">Supplier code:</span>
-                  <span t-field="doc.partner_id.ref"/>
+                <td><span style="margin-right:10px;">Supplier code:</span>
+                  <t t-if="doc.suppl_code">
+                    <span t-field="doc.suppl_code"/>
+                  </t>
                 </td>
                 <td></td>
                 <td>
@@ -72,7 +88,7 @@
                 <td></td>
                 <td></td>
                 <td colspan="2">
-                  <span style="margin-right:10px;">Client Code:</span><span t-field="doc.partner_id.partner_customer_code"/>
+                  <span style="margin-right:10px;">Client Code:</span><span t-field="doc.partner_id.ref"/>
                 </td>
                 <!-- <td>
 
@@ -93,9 +109,13 @@
               <span t-field="doc.number"/>
             </div>
             <div class="col-xs-4 text-center">
-              <span>Project:
-              </span>
-              <span t-field="doc.task_id.project_id.name"/>
+              <span style="font-weight:bold; font-size:18px;">Project:</span>
+              <t t-if="doc.task_id">
+                <span style="font-weight:bold; font-size:18px;" t-field="doc.task_id.project_id.name"/>
+              </t>
+              <t t-if="doc.origin">
+                <span style="font-weight:bold; font-size:18px;" t-field="doc.origin"/>
+              </t>
             </div>
             <div class="col-xs-4 text-right">
               <span>Date:
@@ -247,7 +267,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Taxes</td>
+                  <td><span>Taxes</span></td>
                   <td class="text-right">
                     <span t-field="doc.amount_tax" t-field-options='{"widget": "monetary", "display_currency": "doc.currency_id"}'/>
                   </td>
@@ -300,7 +320,7 @@
                 <p style="font-weight:bold;">Payment conditions:</p>
                 <p id="payment_mode_id" t-if="doc.payment_mode_id and doc.payment_term_id">
                   <!-- <strong>Payment Mode:</strong> -->
-                  <span t-field="doc.payment_mode_id.name"/>--
+                  <span style="margin-right:5px;" t-field="doc.payment_mode_id.name"/>
                   <span t-field="doc.payment_term_id.name"/>
                 </p>
                 <!-- <p id="payment_term_id" t-if="doc.payment_term_id">
@@ -312,7 +332,7 @@
                 </p>
                 <p>
                   <span style="margin-right:5px;">Bank:</span>
-                  <span t-field="doc.partner_bank_id.bank_id"/>
+                  <span t-field="doc.partner_bank_id.bank_id.name"/>
                 </p>
                 <p>
                   <span style="margin-right:10px;">IBAN:</span>
@@ -323,7 +343,7 @@
                 <p style="font-weight:bold;">Payment conditions:</p>
                 <p id="payment_mode_id" t-if="doc.payment_mode_id and doc.payment_term_id">
                   <!-- <strong>Payment Mode:</strong> -->
-                  <span t-field="doc.payment_mode_id.name"/>--
+                  <span style="margin-right:5px;" t-field="doc.payment_mode_id.name"/>
                   <span t-field="doc.payment_term_id.name"/>
                 </p>
                 <!-- <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.note">
@@ -332,7 +352,7 @@
               </p> -->
                 <p>
                   <span style="margin-right:5px;">Bank:</span>
-                  <span t-field="doc.partner_bank_id.bank_id"/>
+                  <span t-field="doc.partner_bank_id.bank_id.name"/>
                 </p>
                 <p>
                   <span style="margin-right:10px;">IBAN:</span>
@@ -343,7 +363,7 @@
                 <p style="font-weight:bold;">Payment conditions:</p>
                 <p id="payment_mode_id" t-if="doc.payment_mode_id and doc.payment_term_id">
                   <!-- <strong>Payment Mode:</strong> -->
-                  <span t-field="doc.payment_mode_id.name"/>--
+                  <span style="margin-right:5px;" t-field="doc.payment_mode_id.name"/>
                   <span t-field="doc.payment_term_id.name"/>
                 </p>
                 <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.note">

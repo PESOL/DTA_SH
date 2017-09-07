@@ -17,6 +17,7 @@
     <field name="arch" type="xml">
       <xpath expr="//field[@name='confirmation_date']" position="after">
         <field name="limit_date"/>
+        <field name="att" />
       </xpath>
     </field>
   </record>
