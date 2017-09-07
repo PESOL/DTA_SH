@@ -14,4 +14,4 @@ class ProductTemplate(models.Model):
         for product in self:
             product.default_supplier_code = product.seller_ids and (
                 product.seller_ids[0].product_code
-            )
+            ) or ''
