@@ -52,7 +52,7 @@
                 <td></td>
               </tr>
               <tr>
-                <td><span style="margin-right:10px;">Suppli code:</span>
+                <td><span style="margin-right:10px;">Supplier code:</span>
                   <t t-if="doc.suppl_code">
                     <span t-field="doc.suppl_code"/>
                   </t>
