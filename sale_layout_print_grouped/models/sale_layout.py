@@ -17,7 +17,7 @@ class SaleLayoutCategory(models.Model):
 
     qty = fields.Float(
         string='Quantity',
-        digits=dp.get_precision('Quantity'))
+        digits=dp.get_precision('Product Unit of Measure'))
 
     print_grouped = fields.Boolean(
         string='Print Grouped')
@@ -42,7 +42,7 @@ class SaleOrderLayoutCategory(models.Model):
         string='Description')
     qty = fields.Float(
         string='Quantity',
-        digits=dp.get_precision('Quantity'))
+        digits=dp.get_precision('Product Unit of Measure'))
     print_grouped = fields.Boolean(
         string='Print Grouped')
     quote_category_id = fields.Many2one(
