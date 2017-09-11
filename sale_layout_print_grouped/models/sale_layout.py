@@ -6,6 +6,8 @@ from itertools import groupby
 
 from datetime import datetime, timedelta
 
+import odoo.addons.decimal_precision as dp
+
 
 class SaleLayoutCategory(models.Model):
     _inherit = 'sale.layout_category'
@@ -14,7 +16,8 @@ class SaleLayoutCategory(models.Model):
         string='Description')
 
     qty = fields.Float(
-        string='Quantity')
+        string='Quantity',
+        digits=dp.get_precision('Quantity'))
 
     print_grouped = fields.Boolean(
         string='Print Grouped')
@@ -38,7 +41,8 @@ class SaleOrderLayoutCategory(models.Model):
     description = fields.Html(
         string='Description')
     qty = fields.Float(
-        string='Quantity')
+        string='Quantity',
+        digits=dp.get_precision('Quantity'))
     print_grouped = fields.Boolean(
         string='Print Grouped')
     quote_category_id = fields.Many2one(
