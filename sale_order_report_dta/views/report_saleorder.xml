@@ -191,7 +191,7 @@
                             <t t-esc="layout_category['name']"></t>
                           </td>
                           <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right">
-                            <t t-if="layout_category['print_grouped']" t-esc="int(category.qty)"></t>
+                            <t t-if="layout_category['print_grouped']" t-esc="category.qty"></t>
                           </td>
                           <td style="font-weight: bold; border-bottom: 1px solid black;" class="text-right">
                             <t t-set="price" t-value="category.qty and (sum(a.price_subtotal for line in layout_category['lines'] for a in line) / category.qty) or 0"></t>
@@ -274,7 +274,7 @@
                             <span t-field="l.product_uom_qty"/>
                           </td>
                           <td class="text-right">
-                            <span t-field="l.price_unit"/>
+                            <span t-field="l.price_unit" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                           </td>
                           <td t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">
                             <span t-field="l.discount"/>
@@ -299,7 +299,7 @@
                             <span t-field="l.product_uom_qty" t-options='{"display_currency": doc.pricelist_id.currency_id}'/>
                           </td>
                           <td class="text-right">
-                            <span t-field="l.price_unit"/>
+                            <span t-field="l.price_unit" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                           </td>
                           <td t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">
                             <span t-field="l.discount"/>
@@ -324,7 +324,7 @@
                             <span t-field="l.product_uom_qty"/>
                           </td>
                           <td class="text-right">
-                            <span t-field="l.price_unit"/>
+                            <span t-field="l.price_unit" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                           </td>
                           <td t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">
                             <span t-field="l.discount"/>
