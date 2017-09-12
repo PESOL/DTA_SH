@@ -61,13 +61,8 @@ class PurchaseRequirement(models.Model):
 
     supplier_ids = fields.Many2many(
         comodel_name='res.partner',
-        relation='purchase_req_partner',
-        column1='partner_id',
-        column2='supplier_id',
         string='Partner',
-        readonly=True,
-        states={'pending': [('readonly', False)],
-                'reviwed': [('readonly', False)]})
+        readonly=False)
 
     purchase_order_line_ids = fields.One2many(
         comodel_name='purchase.order.line',
@@ -87,6 +82,12 @@ class PurchaseRequirement(models.Model):
 
     @api.model
     def create(self, vals):
+        supplier_ids = vals.get('supplier_ids')
+        if supplier_ids:
+            supplier_list = []
+            for supplier in supplier_ids:
+                supplier_list.append(supplier[1])
+            vals.update({'supplier_ids': [(6, 0, supplier_list)]})
         if vals.get('product_qty', 0) > 0:
             return super(PurchaseRequirement, self).create(vals)
         else:
@@ -95,6 +96,12 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def write(self, vals):
+        supplier_ids = vals.get('supplier_ids')
+        if supplier_ids:
+            supplier_list = []
+            for supplier in supplier_ids:
+                supplier_list.append(supplier[1])
+            vals.update({'supplier_ids': [(6, 0, supplier_list)]})
         if vals.get('product_qty', 1) > 0:
             return super(PurchaseRequirement, self).write(vals)
         else:
@@ -149,10 +156,7 @@ class PurchaseRequirement(models.Model):
         if self.product_id.default_code:
             self.ref = self.product_id.default_code
         if self.product_id.seller_ids:
-            self.update({
-                'supplier_ids': [
-                    (6, 0, self.product_id.seller_ids.mapped('name').ids)]
-            })
+            self.supplier_ids = self.product_id.seller_ids.mapped('name')
 
     @api.multi
     def _compute_expected_date(self):
