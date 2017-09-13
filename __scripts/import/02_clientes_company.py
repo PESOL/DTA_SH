@@ -91,7 +91,8 @@ def import_partner_company(doc):
         ])
         partner = partner_obj.browse(partner_id)
         try:
-            partner.write({'company_type': 'company'})
+            if not partner.parent_id[0]:
+                partner.write({'is_company': True})
         except Exception as e:
             print 'ERROR %s' % (ref)
         if i == 100:
