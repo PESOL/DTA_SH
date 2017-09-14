@@ -108,10 +108,10 @@
               </tr>
               <tr>
                 <td>
-                  <t t-if="doc.state != 'draft'">
+                  <t t-if="doc.state == 'purchase'">
                     <span style="font-size:16px; font-weight: bold;">Purchase Order Confirmation #</span>
                   </t>
-                  <t t-if="doc.state == 'draft'">
+                  <t t-if="doc.state not in ['purchase']">
                     <span style="font-size:16px; font-weight: bold;">Request for Quotation #</span>
                   </t>
                   <span t-field="doc.name" style="margin-left:5px; font-size:16px; font-weight: bold;"/>
@@ -131,113 +131,113 @@
               </tr>
             </tbody>
           </table>
-        </div>
 
-        <table class="table table-condensed">
-          <thead>
-            <tr>
-              <th>
-                <span>Pos.</span>
-              </th>
-              <th>
-                <span>PROJECT</span>
-              </th>
-              <th class="text-right">
-                <span>Qty</span>
-              </th>
-              <th>
-                <span>Ref. DTA</span>
-              </th>
-              <th>
-                <span>Description</span>
-              </th>
-              <th>
-                <span>Ref. Supplier</span>
-              </th>
-              <th class="text-right">
-                <span>Unit Price</span>
-              </th>
-              <th class="text-right">
-                <span>Net Price</span>
-              </th>
-              <th>
-                <span>Supplier Deadline</span>
-              </th>
-              <th>
-                <span>Requested delivery date</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr t-foreach="o.order_line" t-as="order_line">
-              <td>
-                <span t-field="order_line.position"/>
-              </td>
-              <td>
-                <span t-field="order_line.account_analytic_id and order_line.account_analytic_id.name"/>
-              </td>
-              <td class="text-right">
-                <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
-                <!-- <span t-field="order_line.product_uom" groups="product.group_uom"/> -->
-              </td>
-              <td>
-                <span t-field="order_line.product_id.default_code"/>
-              </td>
-              <td>
-                <span t-field="order_line.name"/>
-              </td>
-              <td>
-                <span t-field="order_line.product_id.supplier_code"/>
-              </td>
-              <td class="text-right">
-                <span t-field="order_line.price_unit"/>
-              </td>
-              <td class="text-right">
-                <span t-field="order_line.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
-              </td>
-              <td class="text-center">
-                <span t-field="order_line.supplier_deadline"/>
-              </td>
-              <td class="text-center">
-                <span t-field="order_line.supplier_date_planned"/>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="row">
-          <div class="col-xs-4 pull-right">
-            <table class="table table-condensed">
-              <tr class="border-black">
-                <td>
-                  <strong>Total Without Taxes</strong>
-                </td>
-                <td class="text-right">
-                  <span t-field="o.amount_untaxed" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
-                </td>
-              </tr>
+          <table class="table table-condensed">
+            <thead>
               <tr>
+                <th>
+                  <span>Pos.</span>
+                </th>
+                <th>
+                  <span>PROJECT</span>
+                </th>
+                <th class="text-right">
+                  <span>Qty</span>
+                </th>
+                <th>
+                  <span>Ref. DTA</span>
+                </th>
+                <th>
+                  <span>Description</span>
+                </th>
+                <th>
+                  <span>Ref. Supplier</span>
+                </th>
+                <th class="text-right">
+                  <span>Unit Price</span>
+                </th>
+                <th class="text-right">
+                  <span>Net Price</span>
+                </th>
+                <th>
+                  <span>Supplier Deadline</span>
+                </th>
+                <th>
+                  <span>Requested delivery date</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr t-foreach="o.order_line" t-as="order_line">
                 <td>
-                  <span>Taxes</span>
+                  <span t-field="order_line.position"/>
+                </td>
+                <td>
+                  <span t-field="order_line.account_analytic_id and order_line.account_analytic_id.name"/>
                 </td>
                 <td class="text-right">
-                  <span t-field="o.amount_tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                  <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
+                  <!-- <span t-field="order_line.product_uom" groups="product.group_uom"/> -->
                 </td>
-              </tr>
-              <tr class="border-black">
                 <td>
-                  <strong>Total</strong>
+                  <span t-field="order_line.product_id.default_code"/>
+                </td>
+                <td>
+                  <span t-field="order_line.name"/>
+                </td>
+                <td>
+                  <span t-field="order_line.product_id.supplier_code"/>
                 </td>
                 <td class="text-right">
-                  <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                  <span t-field="order_line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                </td>
+                <td class="text-right">
+                  <span t-field="order_line.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                </td>
+                <td class="text-center">
+                  <span t-field="order_line.supplier_deadline"/>
+                </td>
+                <td class="text-center">
+                  <span t-field="order_line.supplier_date_planned"/>
                 </td>
               </tr>
-            </table>
-          </div>
-        </div>
+            </tbody>
+          </table>
 
-        <p t-field="o.notes"/>
-        <div class="oe_structure"/>
+          <div class="row">
+            <div class="col-xs-4 pull-right">
+              <table class="table table-condensed">
+                <tr class="border-black">
+                  <td>
+                    <strong>Total Without Taxes</strong>
+                  </td>
+                  <td class="text-right">
+                    <span t-field="o.amount_untaxed" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Taxes</span>
+                  </td>
+                  <td class="text-right">
+                    <span t-field="o.amount_tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                  </td>
+                </tr>
+                <tr class="border-black">
+                  <td>
+                    <strong>Total</strong>
+                  </td>
+                  <td class="text-right">
+                    <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <p t-field="o.notes"/>
+          <div class="oe_structure"/>
+        </div>
       </div>
     </t>
   </template>

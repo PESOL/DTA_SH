@@ -108,10 +108,10 @@
               </tr>
               <tr>
                 <td>
-                  <t t-if="doc.state != 'draft'">
+                  <t t-if="doc.state == 'purchase'">
                     <span style="font-size:16px; font-weight: bold;">Purchase Order Confirmation #</span>
                   </t>
-                  <t t-if="doc.state == 'draft'">
+                  <t t-if="doc.state not in ['purchase']">
                     <span style="font-size:16px; font-weight: bold;">Request for Quotation #</span>
                   </t>
                   <span t-field="doc.name" style="margin-left:5px; font-size:16px; font-weight: bold;"/>

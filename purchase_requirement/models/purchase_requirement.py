@@ -86,7 +86,7 @@ class PurchaseRequirement(models.Model):
         if supplier_ids:
             supplier_list = []
             for supplier in supplier_ids:
-                supplier_list.append(supplier[1])
+                supplier_list.append(supplier[2])
             vals.update({'supplier_ids': [(6, 0, supplier_list)]})
         if vals.get('product_qty', 0) > 0:
             return super(PurchaseRequirement, self).create(vals)
@@ -100,7 +100,7 @@ class PurchaseRequirement(models.Model):
         if supplier_ids:
             supplier_list = []
             for supplier in supplier_ids:
-                supplier_list.append(supplier[1])
+                supplier_list.append(supplier[2])
             vals.update({'supplier_ids': [(6, 0, supplier_list)]})
         if vals.get('product_qty', 1) > 0:
             return super(PurchaseRequirement, self).write(vals)
@@ -126,7 +126,7 @@ class PurchaseRequirement(models.Model):
     @api.multi
     def generate_purchases(self):
         if self.filtered(
-            lambda r: not r.supplier_ids and self.state == 'reviwed'
+            lambda r: not r.supplier_ids and r.state == 'reviwed'
         ):
             raise ValidationError(
                 _("You must indicate at least one supplier to validate"))
