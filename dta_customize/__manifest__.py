@@ -10,6 +10,8 @@
     "installable": True,
     "depends": [
         'purchase',
+        'sale',
+        'mail'
     ],
     "data": [
     ]
