@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+  <template id="custom_footer_inherit" inherit_id="base_layout_report_dta.dta_external_layout_footer">
+    <xpath expr="//div[@class='footer']/div[@class='text-center']" position="after">
+        <div class="text-center">
+          <span>
+            DESARROLLO DE TÉCNICAS PARA ASTILLEROS, S.A. retains ownership of the property until full payment of the equipment
+          </span>
+        </div>
+    </xpath>
+  </template>
+
   <template id="report_invoice_document">
     <t t-call="base_layout_report_dta.external_layout">
+      <!-- <xpath expr="//div[@class='footer']/div[@class='text-center']" position="after">
+          <div class="text-center">
+            <span>
+              DESARROLLO DE TÉCNICAS PARA ASTILLEROS, S.A. retains ownership of the property until full payment of the equipment
+            </span>
+          </div>
+      </xpath> -->
       <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"></t>
       <div class="page">
+
         <div class="oe_structure"></div>
         <div class="row">
           <style>
@@ -23,14 +41,14 @@
                   </t>
                   <t t-if="not doc.number">
                     <span style="font-size:20px; font-weight: bold;">
-                    <span t-if="doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'paid')">Invoice</span>
-                    <span t-if="doc.type == 'out_invoice' and doc.state == 'proforma2'">PRO-FORMA</span>
-                    <span t-if="doc.type == 'out_invoice' and doc.state == 'draft'">Draft Invoice</span>
-                    <span t-if="doc.type == 'out_invoice' and doc.state == 'cancel'">Cancelled Invoice</span>
-                    <span t-if="doc.type == 'out_refund'">Refund</span>
-                    <span t-if="doc.type == 'in_refund'">Supplier Refund</span>
-                    <span t-if="doc.type == 'in_invoice'">Supplier Invoice</span>
-                    <span t-field="doc.number"/>
+                      <span t-if="doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'paid')">Invoice</span>
+                      <span t-if="doc.type == 'out_invoice' and doc.state == 'proforma2'">PRO-FORMA</span>
+                      <span t-if="doc.type == 'out_invoice' and doc.state == 'draft'">Draft Invoice</span>
+                      <span t-if="doc.type == 'out_invoice' and doc.state == 'cancel'">Cancelled Invoice</span>
+                      <span t-if="doc.type == 'out_refund'">Refund</span>
+                      <span t-if="doc.type == 'in_refund'">Supplier Refund</span>
+                      <span t-if="doc.type == 'in_invoice'">Supplier Invoice</span>
+                      <span t-field="doc.number"/>
                     </span>
                   </t>
                 </td>
@@ -52,7 +70,8 @@
                 <td></td>
               </tr>
               <tr>
-                <td><span style="margin-right:10px;">Supplier code:</span>
+                <td>
+                  <span style="margin-right:10px;">Supplier code:</span>
                   <t t-if="doc.suppl_code">
                     <span t-field="doc.suppl_code"/>
                   </t>
@@ -267,7 +286,9 @@
                   </td>
                 </tr>
                 <tr>
-                  <td><span>Taxes</span></td>
+                  <td>
+                    <span>Taxes</span>
+                  </td>
                   <td class="text-right">
                     <span t-field="doc.amount_tax" t-field-options='{"widget": "monetary", "display_currency": "doc.currency_id"}'/>
                   </td>

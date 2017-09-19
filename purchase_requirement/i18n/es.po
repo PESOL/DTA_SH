@@ -206,6 +206,7 @@ msgstr "Requerimientos"
 
 #. module: purchase_requirement
 #: selection:purchase.requirement,state:0
+#: model:ir.ui.view,arch_db:purchase_requirement.view_purchase_requirement_search
 msgid "Reviwed"
 msgstr "En compras"
 
