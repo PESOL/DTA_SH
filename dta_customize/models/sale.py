@@ -20,3 +20,8 @@ class SaleOrder(models.Model):
                 'default_template_id': template_id,
             })
         return result
+
+    @api.multi
+    def get_access_action(self):
+        self.ensure_one()
+        return self[0].get_formview_action()
