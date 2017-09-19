@@ -2,11 +2,13 @@
 <odoo>
   <template id="custom_footer_inherit" inherit_id="base_layout_report_dta.dta_external_layout_footer">
     <xpath expr="//div[@class='footer']/div[@class='text-center']" position="after">
+      <t t-if="doc_model == 'account.invoice'">
         <div class="text-center">
           <span>
             DESARROLLO DE TÉCNICAS PARA ASTILLEROS, S.A. retains ownership of the property until full payment of the equipment
           </span>
         </div>
+      </t>
     </xpath>
   </template>
 
