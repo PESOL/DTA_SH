@@ -11,7 +11,8 @@
     "depends": [
         'purchase',
         'sale',
-        'mail'
+        'mail',
+        'website_quote'
     ],
     "data": [
     ]
