@@ -43,6 +43,15 @@ msgstr "<span>Fecha:\n"
 "            </span>"
 
 #. module: account_invoice_report_default
+#: model:ir.ui.view,arch_db:account_invoice_report_default.custom_footer_inherit
+msgid "<span>\n"
+"            DESARROLLO DE TÉCNICAS PARA ASTILLEROS, S.A. retains ownership of the property until full payment of the equipment\n"
+"          </span>"
+msgstr "<span>\n"
+"            DESARROLLO DE TÉCNICAS PARA ASTILLEROS, S.A. mantiene la propiedad de los bienes hasta el pago total de los mismos\n"
+"          </span>"
+
+#. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
 msgid "<span>Invoice:\n"
 "                        </span>"
@@ -197,7 +206,7 @@ msgstr "Libre de Impuestos"
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
 msgid "<span>Taxes</span>"
-msgstr "<span>Impuestos</span>"
+msgstr "<span>Impuestos(21%)</span>"
 
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document

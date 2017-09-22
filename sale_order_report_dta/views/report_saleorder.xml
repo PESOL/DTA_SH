@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+  <!-- <template id="custom_header_inherit" inherit_id="base_layout_report_dta.dta_external_layout_header">
+    <xpath expr="//div[@class='header']/div[@class='row']/div[@class='col-xs-8']" position="replace">
+      <t t-if="doc_model == 'sale.order' or doc_model">
+        <div class="col-xs-8">
+          <span style="font-size:25px; font-weight:bold; margin-top:15px;">
+            DTA, S.A.
+          </span>
+        </div>
+      </t>
+    </xpath>
+  </template> -->
   <template id="report_saleorder_document">
     <t t-call="base_layout_report_dta.external_layout">
       <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
@@ -319,7 +331,7 @@
                       <t t-if="doc.type_id.report_type == 'represented'">
                         <tr>
                           <td><span t-field="l.position"/></td>
-                          <td><span t-field="l.product_id.name"/></td>
+                          <td><span t-field="l.name"/></td>
                           <td class="text-right">
                             <span t-field="l.product_uom_qty"/>
                           </td>
@@ -395,7 +407,7 @@
             <div class="col-xs-12">
               <t t-if="doc.type_id.report_type == 'vehicle'">
                 <p id="limit_date" t-if="doc.limit_date">
-                  <strong>Limit Date:</strong>
+                  <strong>Delivery Date:</strong>
                   <span t-field="doc.limit_date"/>
                 </p>
                 <p id="incoterm" t-if="doc.incoterm">
@@ -456,25 +468,26 @@
               </t>
               <t t-if="doc.type_id.report_type == 'represented'">
                 <p id="limit_date" t-if="doc.limit_date">
-                  <strong>Limit Date:</strong>
+                  <strong>Delivery Date:</strong>
                   <span t-field="doc.limit_date"/>
-                </p>
-                <p id="payment_term_id" t-if="doc.payment_term_id">
-                  <strong>Payment Term:</strong>
-                  <span t-field="doc.payment_term_id.name"/>
                 </p>
                 <p id="incoterm" t-if="doc.incoterm">
                   <strong>Incoterm:</strong>
                   <span t-field="doc.incoterm"/>
                 </p>
+                <p style="font-weight:bold;">Payment conditions:</p>
                 <p id="invoicing_method_id" t-if="doc.invoicing_method_id">
-                  <strong>Invoicing Method:</strong>
+                  <!-- <strong>Invoicing Method:</strong> -->
                   <span t-field="doc.invoicing_method_id.name"/>
                 </p>
-                <p id="payment_mode_id" t-if="doc.payment_mode_id">
-                  <strong>Payment Mode:</strong>
-                  <span t-field="doc.payment_mode_id.name"/>
+                <p id="payment_mode_id" t-if="doc.payment_mode_id and doc.payment_term_id">
+                  <!-- <strong>Payment Mode:</strong> -->
+                  <span t-field="doc.payment_mode_id.name" style="margin-right:5px;"/>
+                  <span t-field="doc.payment_term_id.name"/>
                 </p>
+                <!-- <p id="payment_term_id" t-if="doc.payment_term_id">
+                  <strong>Payment Term:</strong>
+                </p> -->
                 <p>
                   <span t-esc="doc.note"/></p>
                 <p id="fiscal_position_remark" t-if="doc.fiscal_position_id and doc.fiscal_position_id.note">

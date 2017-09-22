@@ -123,7 +123,7 @@
               <tr>
                 <td>
                   <span style="margin-right:5px;">Date Ordered:</span>
-                  <span t-if="doc.date_order" t-field="doc.date_order" t-options='{"widget": "date"}'/>
+                  <span t-if="doc.date_order" t-field="doc.date_order" t-options='{"widget": "date"}' t-field-options='{"format": "dd/mm/yy"}'/>
                 </td>
                 <td></td>
                 <td></td>
@@ -186,7 +186,7 @@
                   <span t-field="order_line.name"/>
                 </td>
                 <td>
-                  <span t-field="order_line.product_id.supplier_code"/>
+                  <span t-field="order_line.product_id.product_tmpl_id.default_supplier_code"/>
                 </td>
                 <td class="text-right">
                   <span t-field="order_line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>

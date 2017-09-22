@@ -93,7 +93,7 @@ msgstr "Comentario:"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
-msgid "<strong>Limit Date:</strong>"
+msgid "<strong>Delivery Date:</strong>"
 msgstr "<strong>Plazo estimado entrega:</strong>"
 
 #. module: sale_order_report_dta
@@ -165,7 +165,7 @@ msgstr "Nombre del producto"
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
 msgid "<span style=\"font-size:20px; font-weight: bold;\">Order #</span>"
-msgstr "<span style=\"font-size:20px; font-weight: bold;\">Presupuesto #</span>"
+msgstr "<span style=\"font-size:20px; font-weight: bold;\">Pedido #</span>"
 
 #. module: sale_order_report_dta
 #: model:ir.ui.view,arch_db:sale_order_report_dta.report_saleorder_document
