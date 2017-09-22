@@ -307,7 +307,7 @@
             </div>
           </div>
 
-          <div class="row" t-if="doc.tax_line_ids">
+          <!-- <div class="row" t-if="doc.tax_line_ids">
             <div class="col-xs-6">
               <table class="table table-condensed">
                 <thead>
@@ -330,7 +330,7 @@
                 </tbody>
               </table>
             </div>
-          </div>
+          </div> -->
           <div class="row">
             <div class="col-xs-12">
               <p>

@@ -206,7 +206,7 @@ msgstr "Libre de Impuestos"
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
 msgid "<span>Taxes</span>"
-msgstr "<span>Impuestos</span>"
+msgstr "<span>Impuestos(21%)</span>"
 
 #. module: account_invoice_report_default
 #: model:ir.ui.view,arch_db:account_invoice_report_default.report_invoice_document
