@@ -26,7 +26,8 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     limit_date = fields.Char(
-        string='Limit Date')
+        string='Limit Date',
+        required=True)
 
     report_type = fields.Char(
         string='Report Type',
