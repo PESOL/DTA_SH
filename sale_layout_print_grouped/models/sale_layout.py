@@ -51,6 +51,9 @@ class SaleOrderLayoutCategory(models.Model):
     sale_order_id = fields.Many2one(
         comodel_name='sale.order',
         string='Sale Order')
+    quote_template_id = fields.Many2one(
+        comodel_name='sale.quote.template',
+        string='Quote Template')
 
     @api.onchange('quote_category_id')
     def onchange_quote_category_id(self):
@@ -194,7 +197,7 @@ class SaleOrder(models.Model):
                 'qty': layout_category.qty,
                 'pagebreak': layout_category.pagebreak,
                 'description': layout_category.description,
-                'quote_category_id': layout_category.id,
+                'quote_category_id': layout_category.quote_category_id.id,
             }
             section_lines.append((0, 0, data))
         self.sale_layout_category_ids = section_lines
@@ -238,6 +241,6 @@ class SaleQuoteTemplate(models.Model):
     _inherit = 'sale.quote.template'
 
     quote_layout_category_ids = fields.One2many(
-        comodel_name='sale.layout_category',
-        inverse_name='quote_id',
+        comodel_name='sale.order.layout_category',
+        inverse_name='quote_template_id',
         string='Section')
