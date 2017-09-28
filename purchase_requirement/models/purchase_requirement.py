@@ -43,7 +43,7 @@ class PurchaseRequirement(models.Model):
     product_qty = fields.Float(
         string='Product Qty',
         readonly=True,
-        default=1.0,
+        default=0.0,
         required=True,
         states={'pending': [('readonly', False)],
                 'reviwed': [('readonly', False)]})
