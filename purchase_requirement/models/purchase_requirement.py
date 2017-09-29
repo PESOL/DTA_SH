@@ -82,12 +82,12 @@ class PurchaseRequirement(models.Model):
 
     @api.model
     def create(self, vals):
-        supplier_ids = vals.get('supplier_ids')
-        if supplier_ids:
-            supplier_list = []
-            for supplier in supplier_ids:
-                supplier_list.append(supplier[2])
-            vals.update({'supplier_ids': [(6, 0, supplier_list)]})
+        # supplier_ids = vals.get('supplier_ids')
+        # if supplier_ids:
+        #     supplier_list = []
+        #     for supplier in supplier_ids:
+        #         supplier_list.append(supplier[2])
+        #     vals.update({'supplier_ids': [(6, 0, supplier_list)]})
         if vals.get('product_qty', 0) > 0:
             return super(PurchaseRequirement, self).create(vals)
         else:
