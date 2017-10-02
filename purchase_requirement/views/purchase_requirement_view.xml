@@ -20,7 +20,7 @@
             <field name="expected_date"/>
           </group>
           <group string="Suppliers">
-            <field name="supplier_ids" nolabel="1" context="{'search_default_supplier': 1}"/>
+            <field name="supplier_ids" nolabel="1" widget="many2many" options="{'no_create': True}" context="{'search_default_supplier': 1}"/>
           </group>
           <group string="Purchase Order Lines" attrs="{'invisible':[('state','in', ['pending','reviwed'])]}">
             <field name="purchase_order_line_ids" nolabel="1" readonly="1"/>

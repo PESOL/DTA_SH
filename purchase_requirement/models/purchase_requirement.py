@@ -80,13 +80,22 @@ class PurchaseRequirement(models.Model):
         self.filtered(
             lambda r: r.state == 'in_process').write({'state': 'done'})
 
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        if self.product_id.default_code:
+            self.ref = self.product_id.default_code
+        if self.product_id.seller_ids:
+            self.supplier_ids = [
+                (6, 0, self.product_id.seller_ids.mapped('name').ids)]
+
     @api.model
     def create(self, vals):
         supplier_ids = vals.get('supplier_ids')
         if supplier_ids:
             supplier_list = []
             for supplier in supplier_ids:
-                supplier_list.append(supplier[2])
+                if supplier[0] == 1:
+                    supplier_list.append(supplier[1])
             vals.update({'supplier_ids': [(6, 0, supplier_list)]})
         if vals.get('product_qty', 0) > 0:
             return super(PurchaseRequirement, self).create(vals)
@@ -100,7 +109,10 @@ class PurchaseRequirement(models.Model):
         if supplier_ids:
             supplier_list = []
             for supplier in supplier_ids:
-                supplier_list.append(supplier[2])
+                if supplier[0] == 1:
+                    supplier_list.append(supplier[1])
+                if supplier[0] == 6:
+                    supplier_list += supplier[2]
             vals.update({'supplier_ids': [(6, 0, supplier_list)]})
         if vals.get('product_qty', 1) > 0:
             return super(PurchaseRequirement, self).write(vals)
@@ -150,13 +162,6 @@ class PurchaseRequirement(models.Model):
                 'order_line': orders_values[partner_id]
             })
             purchase._auto_send_rfq()
-
-    @api.onchange('product_id')
-    def _onchange_product_id(self):
-        if self.product_id.default_code:
-            self.ref = self.product_id.default_code
-        if self.product_id.seller_ids:
-            self.supplier_ids = self.product_id.seller_ids.mapped('name')
 
     @api.multi
     def _compute_expected_date(self):
