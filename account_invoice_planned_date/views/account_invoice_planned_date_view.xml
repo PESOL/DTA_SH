@@ -9,6 +9,7 @@
                 <field name="planned_date"/>
                 <field name="your_reference" />
                 <field name="suppl_code" />
+                <field name="client_ref" />
             </xpath>
         </field>
     </record>

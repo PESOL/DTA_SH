@@ -36,6 +36,11 @@ msgid "Your Reference"
 msgstr "S/Ref"
 
 #. module: account_invoice_planned_date
+#: model:ir.model.fields,field_description:account_invoice_planned_date.field_account_invoice_client_ref
+msgid "Client Reference"
+msgstr "S/Pdo"
+
+#. module: account_invoice_planned_date
 #: model:ir.model.fields,field_description:account_invoice_planned_date.field_account_invoice_suppl_code
 msgid "Supplier code"
 msgstr "Código de proveedor"

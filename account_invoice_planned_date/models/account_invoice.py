@@ -15,3 +15,6 @@ class AccountInvoice(models.Model):
 
     suppl_code = fields.Char(
         string='Supplier code')
+
+    client_ref = fields.Char(
+        string='Client Reference')

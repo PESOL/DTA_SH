@@ -38,10 +38,10 @@
               <tr>
                 <td>
                   <span style="font-size:20px; font-weight: bold; margin-right:10px;">Your PO:</span>
-                  <t t-if="doc.number">
-                    <span t-esc="doc.number" style="font-size:20px; font-weight: bold;"/>
+                  <t t-if="doc.client_ref">
+                    <span t-esc="doc.client_ref" style="font-size:20px; font-weight: bold;"/>
                   </t>
-                  <t t-if="not doc.number">
+                  <t t-if="not doc.client_ref">
                     <span style="font-size:20px; font-weight: bold;">
                       <span t-if="doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'paid')">Invoice</span>
                       <span t-if="doc.type == 'out_invoice' and doc.state == 'proforma2'">PRO-FORMA</span>
@@ -50,7 +50,7 @@
                       <span t-if="doc.type == 'out_refund'">Refund</span>
                       <span t-if="doc.type == 'in_refund'">Supplier Refund</span>
                       <span t-if="doc.type == 'in_invoice'">Supplier Invoice</span>
-                      <span t-field="doc.number"/>
+                      <span t-field="doc.client_ref"/>
                     </span>
                   </t>
                 </td>
