@@ -17,4 +17,15 @@ class AccountInvoice(models.Model):
         string='Supplier code')
 
     client_ref = fields.Char(
-        string='Client Reference')
+        string='Client Reference',
+        compute='_compute_search_client_ref')
+
+    @api.multi
+    def _compute_search_client_ref(self):
+        sale_order_obj = self.env['sale.order'].search([
+            ('name', '=', self.origin)
+        ])
+        if sale_order_obj.client_order_ref and len(sale_order_obj) == 1:
+            self.client_ref = sale_order_obj.client_order_ref
+        else:
+            self.client_ref = sale_order_obj[0].client_order_ref
