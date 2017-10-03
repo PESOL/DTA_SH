@@ -35,7 +35,7 @@ class StockPicking(models.Model):
                     'account_id': line.account_analytic_id.id
                 })
         for line in self.move_lines:
-            line.quant_ids.update({
+            line.quant_ids.sudo().update({
                 'account_analytic_id': line.account_analytic_id.id
             })
         return result
