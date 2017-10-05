@@ -21,7 +21,9 @@ msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: product_supplier_code_search
-#: model:ir.model.fields,field_description:product_supplier_code_search.field_product_template_default_supplier_code
+#: model:ir.model.fields,field_description:product_supplier_code_search.field_product_product_default_supplier_code_1
+#: model:ir.model.fields,field_description:product_supplier_code_search.field_product_product_default_supplier_code_2
+#: model:ir.model.fields,field_description:product_supplier_code_search.field_product_template_default_supplier_code_1
 #: model:ir.ui.view,arch_db:product_supplier_code_search.product_template_search_view_inherit
 msgid "Supplier Code"
 msgstr "Referencia Fabricante"
