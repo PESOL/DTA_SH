@@ -176,7 +176,7 @@
                   <span t-field="order_line.product_id.name"/>
                 </td>
                 <td>
-                  <span t-field="order_line.product_id.product_tmpl_id.default_supplier_code"/>
+                  <span t-field="order_line.product_id.product_tmpl_id.default_supplier_code_1"/>
                 </td>
                 <td class="text-center">
                   <span t-field="order_line.required_date"/>
