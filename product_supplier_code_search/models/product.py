@@ -7,7 +7,8 @@ class ProductTemplate(models.Model):
 
     default_supplier_code = fields.Char(
         string='Supplier Code',
-        compute='_compute_default_supplier_code')
+        compute='_compute_default_supplier_code',
+        store=True)
 
     @api.multi
     def _compute_default_supplier_code(self):
