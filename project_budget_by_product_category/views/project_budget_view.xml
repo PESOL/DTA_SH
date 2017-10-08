@@ -126,4 +126,14 @@
             </xpath>
         </field>
     </record>
+    <record id="view_project_budget_product_product_add_check_form" model="ir.ui.view">
+        <field name="name">view.project.budget.product.product.add.check.form</field>
+        <field name="model">product.product</field>
+        <field name='inherit_id' ref='product.product_normal_form_view'/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='general_information']/group/group/field[@name='categ_id']" position="after">
+                <field name="project_budget"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>
