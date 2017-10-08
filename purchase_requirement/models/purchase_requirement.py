@@ -71,9 +71,9 @@ class PurchaseRequirement(models.Model):
 
     @api.multi
     def set_reviewd(self):
-        if self.product_qty > 0:
-            self.filtered(
-                lambda r: r.state == 'pending').write({'state': 'reviwed'})
+        self.filtered(
+            lambda r: r.state == 'pending' and r.product_qty > 0
+        ).write({'state': 'reviwed'})
 
     @api.multi
     def set_done(self):
