@@ -11,6 +11,7 @@ class ProductTemplate(models.Model):
         store=True)
 
     @api.multi
+    @api.depends('seller_ids')
     def _compute_default_supplier_code_1(self):
         for product in self:
             product.default_supplier_code_1 = product.seller_ids and (
@@ -27,6 +28,7 @@ class ProductProduct(models.Model):
         store=True)
 
     @api.multi
+    @api.depends('seller_ids')
     def _compute_default_supplier_code_2(self):
         for product in self:
             product.default_supplier_code_2 = product.seller_ids and (
