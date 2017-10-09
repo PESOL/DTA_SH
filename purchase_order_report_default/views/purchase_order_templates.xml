@@ -108,7 +108,7 @@
               </tr>
               <tr>
                 <td>
-                  <t t-if="doc.state == 'purchase'">
+                  <t t-if="doc.state in ['purchase']">
                     <span style="font-size:16px; font-weight: bold;">Purchase Order Confirmation #</span>
                   </t>
                   <t t-if="doc.state not in ['purchase']">
@@ -198,7 +198,7 @@
                   <span t-field="order_line.supplier_deadline"/>
                 </td>
                 <td class="text-center">
-                  <span t-field="order_line.supplier_date_planned"/>
+                  <span t-field="order_line.required_date"/>
                 </td>
               </tr>
             </tbody>
