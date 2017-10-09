@@ -353,14 +353,19 @@
                   <strong>Fiscal Position Remark:</strong>
                   <span t-field="doc.fiscal_position_id.note"/>
                 </p>
-                <p>
+                <p t-if="doc.partner_bank_id.bank_id.name">
                   <span style="margin-right:5px;">Bank:</span>
                   <span t-field="doc.partner_bank_id.bank_id.name"/>
                 </p>
-                <p>
+                <p t-if="doc.partner_bank_id">
                   <span style="margin-right:10px;">IBAN:</span>
                   <span t-field="doc.partner_bank_id"/>
                 </p>
+                <p t-if="doc.partner_id.lang != 'es_ES' and doc.partner_bank_id">
+                  <span style="margin-right:10px;">SWIFT:</span>
+                  <span t-field="doc.partner_bank_id"/>
+                </p>
+
               </t>
               <t t-if="doc.journal_id.code == 'INV-R'">
                 <p style="font-weight:bold;">Payment conditions:</p>
@@ -373,12 +378,16 @@
                 <strong>Fiscal Position Remark:</strong>
                 <span t-field="doc.fiscal_position_id.note"/>
               </p> -->
-                <p>
+                <p t-if="doc.partner_bank_id.bank_id.name">
                   <span style="margin-right:5px;">Bank:</span>
                   <span t-field="doc.partner_bank_id.bank_id.name"/>
                 </p>
-                <p>
+                <p t-if="doc.partner_bank_id">
                   <span style="margin-right:10px;">IBAN:</span>
+                  <span t-field="doc.partner_bank_id"/>
+                </p>
+                <p t-if="doc.partner_id.lang != 'es_ES' and doc.partner_bank_id">
+                  <span style="margin-right:10px;">SWIFT:</span>
                   <span t-field="doc.partner_bank_id"/>
                 </p>
               </t>
