@@ -27,5 +27,5 @@ class AccountInvoice(models.Model):
         ])
         if sale_order_obj.client_order_ref and len(sale_order_obj) == 1:
             self.client_ref = sale_order_obj.client_order_ref
-        else:
+        elif len(sale_order_obj) > 1:
             self.client_ref = sale_order_obj[0].client_order_ref
