@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="report_purchasequotation_default_document">
+    <t t-call="base_layout_report_dta.external_layout">
+      <t t-set="doc" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+      <div class="page">
+        <div class="oe_structure"></div>
+        <div class="row">
+          <style>
+            .table tr td,
+            .table.no-border tr th {
+              border: none !important;
+            }
+
+          </style>
+          <table class="table table-condensed no-border">
+            <tbody>
+              <tr>
+                <td>
+                  <span t-field="doc.partner_id.name" style="font-size:20px; font-weight: bold;"></span>
+                  <!-- <span t-if="doc.state not in ['draft','sent']">Order #
+                            </span>
+                            <span t-if="doc.state in ['draft','sent']">Quotation #
+                            </span>
+                            <span t-field="doc.name"/> -->
+                </td>
+                <td></td>
+                <td>
+                  <p>
+                    <span style="font-size:14px; font-weight: bold;">DESARROLLO DE TÉCNICAS PARA</span>
+                  </p>
+                  <p>
+                    <span style="font-size:14px; font-weight: bold;">ASTILLEROS, S.A</span>
+                  </p>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <span t-field="doc.partner_id.vat"/>
+                </td>
+                <td></td>
+                <td>
+                  <span style="margin-right:5px;">Contact:</span>
+                  <span t-esc="user.name"/>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <!-- <span style="margin-right:5px;">Street:</span> -->
+                  <span t-field="doc.partner_id.street"/>
+                </td>
+                <td></td>
+                <td>
+                  <span style="margin-right:5px;">Email | Tel:</span>
+                  <span>
+                    <span t-field="user.login"/>
+                    |
+                    <span t-field="user.phone"/>
+                  </span>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <!-- <span style="margin-right:5px;">Address:</span> -->
+                  <t t-if="doc.partner_id.zip"><span t-field="doc.partner_id.zip"/>,</t>
+                  <t t-if="doc.partner_id.city"><span t-field="doc.partner_id.city"/>,</t>
+                  <span t-field="doc.partner_id.country_id"/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="margin-right:5px;">Tel:</span>
+                  <span t-field="doc.partner_id.phone"/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="margin-right:5px;">Supplier Code:</span>
+                  <span t-field="doc.partner_id.ref"/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <!-- <span style="margin-right:5px;">Att:</span>
+                  <span t-field="user.name"/> -->
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <t t-if="doc.state == 'purchase'">
+                    <span style="font-size:16px; font-weight: bold;">Purchase Order Confirmation #</span>
+                  </t>
+                  <t t-if="doc.state not in ['purchase']">
+                    <span style="font-size:16px; font-weight: bold;">Request for Quotation #</span>
+                  </t>
+                  <span t-field="doc.name" style="margin-left:5px; font-size:16px; font-weight: bold;"/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="margin-right:5px;">Date Ordered:</span>
+                  <span t-if="doc.date_order" t-field="doc.date_order" t-options='{"widget": "date"}' t-field-options='{"format": "dd/mm/yyyy"}'/>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>
+                  <span>Pos.</span>
+                </th>
+                <th>
+                  <span>PROJECT</span>
+                </th>
+                <th class="text-right">
+                  <span>Qty</span>
+                </th>
+                <th>
+                  <span>Ref. DTA</span>
+                </th>
+                <th>
+                  <span>Description</span>
+                </th>
+                <th>
+                  <span>Ref. Supplier</span>
+                </th>
+                <th>
+                  <span>Needed date DTA</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr t-foreach="o.order_line" t-as="order_line">
+                <td>
+                  <span t-field="order_line.position"/>
+                </td>
+                <td>
+                  <span t-field="order_line.account_analytic_id and order_line.account_analytic_id.name"/>
+                </td>
+                <td class="text-right">
+                  <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
+                </td>
+                <td>
+                  <span t-field="order_line.product_id.default_code"/>
+                </td>
+                <td>
+                  <span t-field="order_line.product_id.name"/>
+                </td>
+                <td>
+                  <span t-field="order_line.product_id.product_tmpl_id.default_supplier_code_1"/>
+                </td>
+                <td class="text-center">
+                  <span t-field="order_line.required_date"/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p t-field="o.notes"/>
+
+          <div class="oe_structure"/>
+        </div>
+      </div>
+    </t>
+  </template>
+
+  <template id="report_purchasequotation_default" inherit_id="purchase.report_purchasequotation">
+    <xpath expr="t[@t-call='report.html_container']" position="replace">
+      <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+          <t t-call="purchase_order_report_default.report_purchasequotation_default_document" t-lang="o.partner_id.lang"/>
+        </t>
+      </t>
+    </xpath>
+  </template>
+</odoo>

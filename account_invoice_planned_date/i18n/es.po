@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_invoice_planned_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-12 09:19+0000\n"
+"PO-Revision-Date: 2017-06-12 09:19+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_invoice_planned_date
+#: model:ir.ui.view,arch_db:account_invoice_planned_date.view_account_invoice_planned_date_search
+msgid "Filter Planned Date"
+msgstr "Anterior a fecha planeada"
+
+#. module: account_invoice_planned_date
+#: model:ir.model,name:account_invoice_planned_date.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: account_invoice_planned_date
+#: model:ir.model.fields,field_description:account_invoice_planned_date.field_account_invoice_planned_date
+msgid "Planned Date"
+msgstr "Fecha prevista"
+
+#. module: account_invoice_planned_date
+#: model:ir.model.fields,field_description:account_invoice_planned_date.field_account_invoice_your_reference
+msgid "Your Reference"
+msgstr "S/Ref"
+
+#. module: account_invoice_planned_date
+#: model:ir.model.fields,field_description:account_invoice_planned_date.field_account_invoice_client_ref
+msgid "Client Reference"
+msgstr "S/Pdo"
+
+#. module: account_invoice_planned_date
+#: model:ir.model.fields,field_description:account_invoice_planned_date.field_account_invoice_suppl_code
+msgid "Supplier code"
+msgstr "Código de proveedor"
