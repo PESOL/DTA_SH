@@ -1,0 +1,42 @@
+@base: #5f5e97;
+
+h2 {
+    color: @base;
+}
+
+th {
+  background: @base;
+}
+
+.rounded-table(@radius) {
+    tr:first-child th:first-child {
+        -moz-border-radius-topleft: @radius;
+        -webkit-border-top-left-radius: @radius;
+        border-top-left-radius: @radius;
+    }
+    tr:first-child th:last-child {
+        -moz-border-radius-topright: @radius;
+        -webkit-border-top-right-radius: @radius;
+        border-top-right-radius: @radius;
+    }
+    tr:last-child td:first-child {
+        -moz-border-radius-bottomleft: @radius;
+        -webkit-border-bottom-left-radius: @radius;
+        border-bottom-left-radius: @radius;
+    }
+    tr:last-child td:last-child {
+        -moz-border-radius-bottomright: @radius;
+        -webkit-border-bottom-right-radius: @radius;
+        border-bottom-right-radius: @radius;
+    }
+}
+
+.table {
+    .rounded-table(10px)
+}
+
+.table>tbody>tr.selectedRow:nth-child(odd)>td,
+.table>tbody>tr.selectedRow:nth-child(even)>td {
+    background-color: #819bbf;
+    color: black;
+}

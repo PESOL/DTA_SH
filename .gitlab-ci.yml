@@ -1,0 +1,42 @@
+image: pesol/odoo_gitlab_ci:10.0
+
+services:
+  - postgres:9.5
+
+variables:
+  POSTGRES_DB: odoo
+  POSTGRES_USER: odoo
+  POSTGRES_PASSWORD: odoo
+  ADDITIONAL_ADDONS: /opt/odoo/additional_addons
+  PREINSTALL_MODULES: "sale,stock,purchase,crm,project"
+  TEST_MODULES: "crm_lead_proposal,\
+custom_report_css,\
+custom_report_invoice
+"
+
+
+stages:
+  - test_flake8
+  - test_odoo
+  - test_coverage
+
+before_script:
+  - mv * ${ADDITIONAL_ADDONS}
+  - chown odoo -R ${ADDITIONAL_ADDONS}
+
+flake:
+  stage: test_flake8
+  script:
+    - /app/bin/flake8_test ${ADDITIONAL_ADDONS} ${TEST_MODULES}
+
+odoo:
+  stage: test_odoo
+  script:
+    - /app/bin/odoo_test_prepare ${POSTGRES_USER} ${POSTGRES_PASSWORD} ${POSTGRES_DB} ${PREINSTALL_MODULES}
+    - /app/bin/odoo_test ${POSTGRES_USER} ${POSTGRES_PASSWORD} ${POSTGRES_DB} ${TEST_MODULES}
+
+coverage:
+  stage: test_coverage
+  script:
+    - /app/bin/odoo_test_prepare ${POSTGRES_USER} ${POSTGRES_PASSWORD} ${POSTGRES_DB} ${TEST_MODULES}
+    - /app/bin/coverage_test ${POSTGRES_DB} ${TEST_MODULES}
