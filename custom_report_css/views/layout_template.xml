@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-  <template id="assets_common" inherit_id="report.assets_common" name="Custom common assets">
-      <xpath expr='.' position="inside">
-          <link href="/custom_report_css/static/src/less/report.less" rel="stylesheet" type="text/less"/>
-      </xpath>
-  </template>
-</odoo>
